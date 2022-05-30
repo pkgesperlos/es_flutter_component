@@ -20,7 +20,7 @@ debugShowCheckedModeBanner: false,
         primarySwatch: Colors.blue,
       ),
       home: const Scaffold(
-        body: ExTextField(type: 'user'),
+        body: EsTextField(type: 'user'),
       ),
     );
   }

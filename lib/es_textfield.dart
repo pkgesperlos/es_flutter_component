@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class ExTextField extends StatefulWidget {
+class EsTextField extends StatefulWidget {
   final String type;
   final String hint;
 
-  const ExTextField({Key? key, required this.type, this.hint = ""})
+  const EsTextField({Key? key, required this.type, this.hint = ""})
       : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _ExTextField();
+    return _EsTextField();
   }
 }
 
-class _ExTextField extends State<ExTextField> {
+class _EsTextField extends State<EsTextField> {
   final _formKey = GlobalKey<FormState>();
 
   // declare a variable to keep track of the input text
