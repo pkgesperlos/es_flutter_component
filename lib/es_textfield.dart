@@ -37,7 +37,10 @@ class _EsTextField extends State<EsTextField> {
       },
       onChanged: (text) => setState(() => _name = text),
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border:OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
+
         labelText: widget.type,
         hintText: widget.hint,
       ),

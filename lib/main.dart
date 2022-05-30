@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'es_textfield.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -13,17 +12,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-debugShowCheckedModeBanner: false,
+
+      debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-        body: EsTextField(type: 'user'),
+      home: Directionality(
+        textDirection: TextDirection.rtl,
+        child: const Scaffold(
+
+          body: Padding(
+
+            padding: EdgeInsets.only(top: 200, right: 20, left: 20),
+
+            child: EsTextField(type: 'نام کاربری',hint: "نام کاربری خود را وارد کنید:",),
+          ),
+        ),
       ),
     );
   }
 }
-
-
