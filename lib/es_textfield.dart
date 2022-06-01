@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:validators/validators.dart';
 
 class EsTextField extends StatefulWidget {
   final String type;
@@ -28,6 +29,9 @@ class _EsTextField extends State<EsTextField> {
       validator: (text) {
         if (text == null || text.isEmpty) {
           return 'Can\'t be empty';
+        }
+        if (isEmail(text)) {
+          return 'It is Email';
         }
         if (text.length < 4) {
           return 'Too short';
