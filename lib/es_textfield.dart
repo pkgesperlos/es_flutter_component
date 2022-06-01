@@ -4,8 +4,9 @@ import 'package:validators/validators.dart';
 class EsTextField extends StatefulWidget {
   final String type;
   final String hint;
+  final validator;
 
-  const EsTextField({Key? key, required this.type, this.hint = ""})
+  const EsTextField({Key? key, required this.type, this.hint = "", this.validator})
       : super(key: key);
 
   @override
@@ -17,7 +18,8 @@ class EsTextField extends StatefulWidget {
 class _EsTextField extends State<EsTextField> {
   // final _formKey = GlobalKey<FormState>();
 
-  // declare a variable to keep track of the input text
+  // declare a variable
+  // to keep track of the input text
   String _name = '';
 
 
@@ -26,18 +28,7 @@ class _EsTextField extends State<EsTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (text) {
-        if (text == null || text.isEmpty) {
-          return 'Can\'t be empty';
-        }
-        if (isEmail(text)) {
-          return 'It is Email';
-        }
-        if (text.length < 4) {
-          return 'Too short';
-        }
-        return null;
-      },
+      validator: widget.validator,
       onChanged: (text) => setState(() => _name = text),
       decoration: InputDecoration(
         border:OutlineInputBorder(
