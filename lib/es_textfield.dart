@@ -14,7 +14,7 @@ class EsTextField extends StatefulWidget {
 }
 
 class _EsTextField extends State<EsTextField> {
-  final _formKey = GlobalKey<FormState>();
+  // final _formKey = GlobalKey<FormState>();
 
   // declare a variable to keep track of the input text
   String _name = '';
@@ -25,7 +25,6 @@ class _EsTextField extends State<EsTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      key: _formKey,
       validator: (text) {
         if (text == null || text.isEmpty) {
           return 'Can\'t be empty';
