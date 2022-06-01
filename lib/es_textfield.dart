@@ -16,14 +16,9 @@ class EsTextField extends StatefulWidget {
 }
 
 class _EsTextField extends State<EsTextField> {
-  // final _formKey = GlobalKey<FormState>();
 
-  // declare a variable
-  // to keep track of the input text
   String _name = '';
 
-
-  // declare a variable to keep track of the input text
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +26,10 @@ class _EsTextField extends State<EsTextField> {
       validator: widget.validator,
       onChanged: (text) => setState(() => _name = text),
       decoration: InputDecoration(
-        border:OutlineInputBorder(
+        // border:OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(25),
+        // ),
+        border:UnderlineInputBorder(
           borderRadius: BorderRadius.circular(25),
         ),
 
