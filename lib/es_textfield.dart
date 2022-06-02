@@ -26,12 +26,12 @@ class _EsTextField extends State<EsTextField> {
       validator: widget.validator,
       onChanged: (text) => setState(() => _name = text),
       decoration: InputDecoration(
-        // border:OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(25),
-        // ),
-        border:UnderlineInputBorder(
+        border:OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
         ),
+        // border:UnderlineInputBorder(
+        //   borderRadius: BorderRadius.circular(25),
+        // ),
 
         labelText: widget.type,
         hintText: widget.hint,
