@@ -1,6 +1,10 @@
+// @dart=2.9
 import 'package:es_flutter_component/es_Slider/es_carousel_slider.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_button/es_radio_button.dart';
+import 'package:es_flutter_component/es_image/es_avatar_image.dart';
+import 'package:es_flutter_component/es_image/es_responsive_image.dart';
+import 'package:es_flutter_component/es_image/es_zooming_image.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
 import 'package:es_flutter_component/es_list/es_ordinary_list.dart';
 import 'package:es_flutter_component/es_slider/es_perspective_slider.dart';
@@ -15,19 +19,25 @@ import 'package:es_flutter_component/es_form/es_timepicker.dart';
 import 'package:flutter/material.dart';
 import 'es_button/es_icon_button.dart';
 import 'es_checkbox.dart';
+import 'es_dialog/es_awesome_dialog.dart';
+import 'es_dialog/es_success_dialog.dart';
+import 'es_dialog/es_sweet_dialog.dart';
+import 'es_image/es_zooming_image.dart';
 import 'es_list/es_check_list.dart';
+import 'es_progressbar/es_ordinary_progressbar.dart';
 import 'es_tab_navigator/es_bottom_navigator.dart';
 import 'es_text/bread_crumb.dart';
 import 'es_text/es_dotted_text.dart';
 import 'es_text/es_label_text.dart';
 import 'es_form/es_textfield.dart';
+import 'images/es_lightbox_showing_image.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({Key key}) : super(key: key);
 
   // GlobalKey key = GlobalKey();
   // This widget is the root of your application.
@@ -144,8 +154,18 @@ class MyApp extends StatelessWidget {
           // body: EsAccordionList(),
           // body: Center(child: EsIconButton(icon: Icons.search, onPressed: () {  },))
           // body: Center(child: EsRadioButton( ))
-          body: EsEditableTable(),
+          // body: EsEditableTable(),
+          // body: Container(
+          //   width: 300,
+          //   height: 300,
+          //   child: EsResponsiveImage(path: "assets/images/img1.jpg",),
+          // ),
+          // body: EsAvatarImage(path: "assets/images/img1.jpg",radius: 100,),
+          // body: EsLightBoxShowing(path: "assets/images/img1.jpg",),
+          // body: EsZoomingImage(img: AssetImage("assets/images/img1.jpg"),),
+          body: EsSweetDialog(),
         ));
+
   }
 
   Widget titleBox(String title, int index) {

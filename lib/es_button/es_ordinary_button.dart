@@ -22,7 +22,7 @@ class EsOrdinaryButton extends StatelessWidget {
             ),
           ),
           decoration: BoxDecoration(
-              color: Constants.purpleLight,
+              color: Constants.button,
               borderRadius: BorderRadius.all(Radius.circular(20)),
               border: Border.all(color: Constants.borderGray, width: 2),
               boxShadow: [
