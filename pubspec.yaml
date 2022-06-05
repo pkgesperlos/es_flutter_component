@@ -35,6 +35,8 @@ dependencies:
   infinite_scroll_pagination: ^3.2.0
   http: ^0.13.4
   flutter_local_notifications: ^9.6.0
+  enum_to_string: ^2.0.1
+  editable: ^2.0.0
 #  list_wheel_scroll_view_x: ^0.0.2
 
 

@@ -2,11 +2,11 @@ import 'package:es_flutter_component/images/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OrdinaryButton extends StatelessWidget {
+class EsOrdinaryButton extends StatelessWidget {
   String text;
   VoidCallback onPressed;
 
-  OrdinaryButton({required this.text, required this.onPressed});
+  EsOrdinaryButton({required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

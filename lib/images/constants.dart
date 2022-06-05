@@ -18,6 +18,7 @@ class Constants{
   static const Color titleText=Colors.black;
   static const Color lableText=Colors.black54;
   static const Color markedText=Colors.black;
+  static const Color iconButton=Color(0xff0d193e);
 
   static const Color purpleLight=Color(0xff1e224c);
   static const Color purpleDark=Color(0xff0d193e);
