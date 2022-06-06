@@ -3,10 +3,16 @@ import 'package:es_flutter_component/es_Slider/es_carousel_slider.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_button/es_radio_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker.dart';
+import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
+import 'package:es_flutter_component/es_form/es_file_picker.dart';
+import 'package:es_flutter_component/es_form/es_ordinary_slider.dart';
 import 'package:es_flutter_component/es_form/es_price_field.dart';
+import 'package:es_flutter_component/es_form/es_ranged_slider.dart';
+import 'package:es_flutter_component/es_form/es_rating_bar.dart';
 import 'package:es_flutter_component/es_form/es_shaba_number_field.dart';
 import 'package:es_flutter_component/es_form/es_text_area.dart';
 import 'package:es_flutter_component/es_form/es_text_editor.dart';
+import 'package:es_flutter_component/es_form/es_toggle_button.dart';
 import 'package:es_flutter_component/es_image/es_avatar_image.dart';
 import 'package:es_flutter_component/es_image/es_responsive_image.dart';
 import 'package:es_flutter_component/es_image/es_zooming_image.dart';
@@ -195,7 +201,7 @@ class MyApp extends StatelessWidget {
           //   child:  EsDateTimePicker(),
           // ),
           // body: Center(child: EsTextArea(hint: "Enter your text:",),),
-          body: Center(child: EsPriceField(),),
+          body: Center(child: EsDropDownButton(),),
         ));
 
   }
