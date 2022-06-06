@@ -65,4 +65,22 @@ class _EsTopNavigator extends State<EsTopNavigator>
       ),
     );
   }
+  // List<Tab> tabBarItemList = <Tab>[
+  //   new Tab(
+  //     text: "STATISTICS",
+  //     icon: new Icon(Icons.show_chart),
+  //   ),
+  //   new Tab(
+  //     text: "HISTORY",
+  //     icon: new Icon(Icons.history),
+  //   ),
+  //   new Tab(
+  //     text: "STATISTICS",
+  //     icon: new Icon(Icons.show_chart),
+  //   ),
+  //   new Tab(
+  //     text: "HISTORY",
+  //     icon: new Icon(Icons.history),
+  //   ),
+  // ];
 }

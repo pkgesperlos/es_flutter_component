@@ -68,4 +68,32 @@ class _EsSideNavigator extends State<EsSideNavigator> {
       ),
     );
   }
+  // List<NavigationRailDestination> tabBarItemList2=[
+  //   NavigationRailDestination(
+  //     icon: Column(
+  //       children: [Icon(Icons.favorite_border), Text('Button 1')],
+  //     ),
+  //     selectedIcon: Container(
+  //       color: Colors.green,
+  //       child: Column(
+  //         children: [Icon(Icons.favorite_border), Text('Button 1')],
+  //       ),
+  //     ),
+  //     label: Text(""),
+  //   ),
+  //   NavigationRailDestination(
+  //     icon: Column(
+  //       children: [Icon(Icons.bookmark_border), Text('Button 2')],
+  //     ),
+  //     selectedIcon: Column(
+  //       children: [Icon(Icons.book), Text('2 clicked')],
+  //     ),
+  //     label: Text(''),
+  //   ),
+  //   NavigationRailDestination(
+  //     icon: Icon(Icons.star_border),
+  //     selectedIcon: Icon(Icons.star),
+  //     label: Text('Third'),
+  //   ),
+  // ];
 }

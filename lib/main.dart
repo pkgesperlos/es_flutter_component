@@ -19,6 +19,7 @@ import 'package:es_flutter_component/es_image/es_zooming_image.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
 import 'package:es_flutter_component/es_list/es_ordinary_list.dart';
 import 'package:es_flutter_component/es_progressbar/es_circular_progressbar.dart';
+import 'package:es_flutter_component/es_slider/es_slide_indicator.dart';
 import 'package:es_flutter_component/es_slider/es_perspective_slider.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_side_navigator.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_top_navigatior.dart';
@@ -70,80 +71,16 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> titleList = List.generate(
       20,
       (index) => titleBox("ابزار کمکی", index),
     );
-    List<BottomNavigationBarItem> bottomNavigationBarItems = [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: 'Home',
-        backgroundColor: Colors.red,
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.business),
-        label: 'Business',
-        backgroundColor: Colors.green,
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.school),
-        label: 'School',
-        backgroundColor: Colors.purple,
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        label: 'Settings',
-        backgroundColor: Colors.pink,
-      ),
-    ];
-    List<Tab> tabBarItemList = <Tab>[
-      new Tab(
-        text: "STATISTICS",
-        icon: new Icon(Icons.show_chart),
-      ),
-      new Tab(
-        text: "HISTORY",
-        icon: new Icon(Icons.history),
-      ),
-      new Tab(
-        text: "STATISTICS",
-        icon: new Icon(Icons.show_chart),
-      ),
-      new Tab(
-        text: "HISTORY",
-        icon: new Icon(Icons.history),
-      ),
-    ];
-    List<NavigationRailDestination> tabBarItemList2=[
-      NavigationRailDestination(
-        icon: Column(
-          children: [Icon(Icons.favorite_border), Text('Button 1')],
-        ),
-        selectedIcon: Container(
-          color: Colors.green,
-          child: Column(
-            children: [Icon(Icons.favorite_border), Text('Button 1')],
-          ),
-        ),
-        label: Text(""),
-      ),
-      NavigationRailDestination(
-        icon: Column(
-          children: [Icon(Icons.bookmark_border), Text('Button 2')],
-        ),
-        selectedIcon: Column(
-          children: [Icon(Icons.book), Text('2 clicked')],
-        ),
-        label: Text(''),
-      ),
-      NavigationRailDestination(
-        icon: Icon(Icons.star_border),
-        selectedIcon: Icon(Icons.star),
-        label: Text('Third'),
-      ),
-    ];
+
+
+
 
     return MaterialApp(
 
@@ -151,7 +88,6 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(),
-
 
             // body: AnimatedCheckBox(),
             // body: CheckboxForm(
@@ -201,10 +137,25 @@ class MyApp extends StatelessWidget {
           //   child:  EsDateTimePicker(),
           // ),
           // body: Center(child: EsTextArea(hint: "Enter your text:",),),
-          body: Center(child: EsDropDownButton(),),
+          body: Center(child: EsSlideIndicator(items:items,),),
         ));
 
   }
 
+
+Widget buildPage(String text, Color color) {
+  return Padding(
+    padding: EdgeInsets.all(12),
+    child: Container(
+      color: color,
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 42, color: Colors.white),
+        ),
+      ),
+    ),
+  );
+}
 
 }

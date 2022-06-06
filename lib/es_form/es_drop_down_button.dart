@@ -28,7 +28,7 @@ class _EsDropDownButton extends State<EsDropDownButton> {
           dropdownValue = newValue!;
         });
       },
-      items: <String>['One', 'Two', 'Free', 'Four']
+      items: <String>['One', 'Two', 'Tree', 'Four']
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
