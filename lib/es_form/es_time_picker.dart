@@ -3,34 +3,29 @@ import 'package:flutter/material.dart';
 
 
 
-class TimePicker1 extends StatefulWidget {
+class EsTimePicker extends StatefulWidget {
   @override
-  _TimePicker1 createState()
+  _EsTimePicker createState()
   {
-    return _TimePicker1();
+    return _EsTimePicker();
   }
 }
 
-class _TimePicker1 extends State<TimePicker1> {
+class _EsTimePicker extends State<EsTimePicker> {
   TimeOfDay selectedTime = TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                _selectTime(context);
-              },
-              child: Text("Choose Time"),
-            ),
-            Text("${selectedTime.hour}:${selectedTime.minute}"),
-          ],
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: () {
+            _selectTime(context);
+          },
+          child: Text("Choose Time"),
         ),
-      ),
+        Text("${selectedTime.hour}:${selectedTime.minute}"),
+      ],
     );
   }
   _selectTime(BuildContext context) async {
