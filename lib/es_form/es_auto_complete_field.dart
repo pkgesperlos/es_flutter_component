@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class EsAutoCompleteField extends StatelessWidget {
   const EsAutoCompleteField({Key? key}) : super(key: key);
 

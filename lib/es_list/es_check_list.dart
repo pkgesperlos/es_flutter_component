@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 
 class EsCheckList extends StatefulWidget {
-  List<Widget> itemList;
+  List<Widget> items;
 
-  EsCheckList({Key? key,required this.itemList}) : super(key: key);
-  late List<bool> _value =List.generate(itemList.length, (index) => false);
+  EsCheckList({Key? key,required this.items}) : super(key: key);
+  late List<bool> _value =List.generate(items.length, (index) => false);
 
   @override
   State<EsCheckList> createState() => _EsCheckList();
@@ -17,9 +17,9 @@ class _EsCheckList extends State<EsCheckList> {
   Widget build(BuildContext context) {
     return EsOrdinaryList(
         itemList: List.generate(
-            widget.itemList.length,
+            widget.items.length,
             (index) => CheckboxListTile(
-                  title: widget.itemList[index],
+                  title: widget.items[index],
                   value: widget._value[index],
                   onChanged: (bool? value) {
                     setState(() {

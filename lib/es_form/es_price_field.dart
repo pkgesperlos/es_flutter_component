@@ -1,23 +1,45 @@
 import 'package:flutter/material.dart';
-
-import 'package:pattern_formatter/pattern_formatter.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:pattern_formatter/numeric_formatter.dart';
+import 'package:validators/validators.dart';
 
 class EsPriceField extends StatefulWidget {
-  const EsPriceField({Key? key}) : super(key: key);
+  final validator;
+
+  const EsPriceField({
+    Key? key,
+    this.validator
+  }) : super(key: key);
 
   @override
-  _EsPriceFieldState createState() => _EsPriceFieldState();
+  State<StatefulWidget> createState() {
+    return _EsPriceField();
+  }
 }
 
-class _EsPriceFieldState extends State<EsPriceField> {
+class _EsPriceField extends State<EsPriceField> {
+  String _name = '';
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: widget.validator,
       keyboardType: TextInputType.number,
       inputFormatters: [
         ThousandsFormatter(allowFraction: true)
       ],
+      onChanged: (text) => setState(() => _name = text),
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
+        // border:UnderlineInputBorder(
+        //   borderRadius: BorderRadius.circular(25),
+        // ),
+
+        labelText: "Price:",
+        hintText: "",
+      ),
     );
   }
 }
