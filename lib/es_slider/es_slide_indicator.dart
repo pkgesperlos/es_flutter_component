@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scrolling_page_indicator/scrolling_page_indicator.dart';
+// import 'package:scrolling_page_indicator/scrolling_page_indicator.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class EsSlideIndicator extends StatefulWidget {
   List<Widget> items;
@@ -28,16 +29,26 @@ class _EsSlideIndicator extends State<EsSlideIndicator> {
             controller: _controller,
           ),
         ),
-        ScrollingPageIndicator(
-          dotColor: Colors.grey,
-          dotSelectedColor: Colors.deepPurple,
-          dotSize: 6,
-          dotSelectedSize: 8,
-          dotSpacing: 12,
-          controller: _controller,
-          itemCount: widget.items.length,
-          orientation: Axis.horizontal,
-        ),
+        SmoothPageIndicator(
+            controller: _controller,  // PageController
+            count:  widget.items.length,
+            axisDirection: Axis.horizontal,
+            effect: ScrollingDotsEffect(),  // your preferred effect
+            onDotClicked: (index){
+
+            }
+        )
+
+        // ScrollingPageIndicator(
+        //   dotColor: Colors.grey,
+        //   dotSelectedColor: Colors.deepPurple,
+        //   dotSize: 6,
+        //   dotSelectedSize: 8,
+        //   dotSpacing: 12,
+        //   controller: _controller,
+        //   itemCount: widget.items.length,
+        //   orientation: Axis.horizontal,
+        // ),
       ],
     );
   }

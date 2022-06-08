@@ -8,6 +8,7 @@ enum SingingCharacter { number1, number2,number3 }
 
 
 class EsRadioButton extends StatefulWidget {
+
   const EsRadioButton({Key? key}) : super(key: key);
 
 
@@ -19,13 +20,15 @@ class _EsRadioButton extends State<EsRadioButton> {
 
   SingingCharacter? _character = SingingCharacter.number2;
 
+
   @override
   Widget build(BuildContext context) {
+    print(_character);
     return Column(
       children: <Widget>[
         ListTile(
           title: const Text("number1"),
-          leading: Radio<SingingCharacter>(
+          leading: Radio(
             value: SingingCharacter.number1,
             groupValue: _character,
             onChanged: (SingingCharacter? value) {
@@ -37,7 +40,7 @@ class _EsRadioButton extends State<EsRadioButton> {
         ),
         ListTile(
           title: const Text('number2'),
-          leading: Radio<SingingCharacter>(
+          leading: Radio(
             value: SingingCharacter.number2,
             groupValue: _character,
             onChanged: (SingingCharacter? value) {
@@ -49,7 +52,7 @@ class _EsRadioButton extends State<EsRadioButton> {
         ),
         ListTile(
           title: const Text('number3'),
-          leading: Radio<SingingCharacter>(
+          leading: Radio(
             value: SingingCharacter.number3,
             groupValue: _character,
             onChanged: (SingingCharacter? value) {

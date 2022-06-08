@@ -2,46 +2,7 @@ import 'package:es_flutter_component/images/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
-// class EsCheckbox extends StatefulWidget {
-//   @override
-//   _EsCheckbox createState() => _EsCheckbox();
-// }
-//
-// class _EsCheckbox extends State<EsCheckbox> {
-//   bool valuefirst = false;
-//   bool valuesecond = false;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(title: Text('Flutter Checkbox Example'),),
-//         body: Container(
-//             padding: new EdgeInsets.all(22.0),
-//             child: Column(
-//               children: <Widget>[
-//                 SizedBox(width: 10,),
-//                 Text('Checkbox with Header and Subtitle',style: TextStyle(fontSize: 20.0), ),
-//                 CheckboxListTile(
-//                   secondary: const Icon(Icons.alarm),
-//                   title: const Text('Ringing at 4:30 AM every day'),
-//                   subtitle: Text('Ringing after 12 hours'),
-//                   value: this.valuefirst,
-//                   onChanged: (bool? value) {
-//                     setState(() {
-//                       this.valuefirst = value!;
-//                     });
-//                   },
-//                 ),
-//
-//               ],
-//             )
-//         ),
-//       ),
-//     );
-//   }
-// }
-//
+///////////////////////////////////
 // class AnimatedCheckBox extends StatefulWidget {
 //   const AnimatedCheckBox({Key? key}) : super(key: key);
 //
