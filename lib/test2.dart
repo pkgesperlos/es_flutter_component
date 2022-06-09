@@ -24,37 +24,36 @@ class TestArray2 extends StatelessWidget {
     {"id": 8, "title": "ttttt1", "pid": "7"}
   ];
 
-  var olddata;
+  var olddata = {};
 
   @override
   Widget build(BuildContext context) {
     // print(result[0]);
     return Column(
-      children: widgetList(),
+      children: cal(result[0]),
     );
   }
 
-  List<Widget> widgetList() {
-    data = result[0];
-    list.add(EsOrdinaryText(data: cal(data)));
-    return list;
-  }
-
   cal(Map data) {
-
-
-    if (data['pid'] == olddata['id']) {
+    if (olddata['id'].toString() == data['pid']) {
+      prefix = '';
       prefix = '-' + prefix;
       str = prefix + data['title'];
-      if (data['pid'] == '0') {
-        prefix = '';
-        str = prefix + data['title'];
-        olddata = data;
-        print(olddata);
-        i++;
-      }
-
+      list.add(EsOrdinaryText(data: str));
+      i++;
       cal(result[i]);
-      return str;}
+
+    }else{
+
+    }
+
+
+    if (data['pid'] == '0') {
+      list.add(EsOrdinaryText(data: data['title']));
+      olddata = data;
+      i++;
+      cal(result[i]);
+    }
+    return list;
   }
 }

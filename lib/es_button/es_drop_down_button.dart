@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class EsDropDownButton extends StatefulWidget {
   final List<String> items;
-  EsDropDownButton({Key? key,required this.items}) : super(key: key);
+  final List<VoidCallback> onTapItems;
+  EsDropDownButton({Key? key,required this.items,required this.onTapItems}) : super(key: key);
 
   @override
   State<EsDropDownButton> createState() => _EsDropDownButton();
@@ -35,7 +36,10 @@ class _EsDropDownButton extends State<EsDropDownButton> {
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: GestureDetector(
+            child: Text(value),
+            onTap: widget.onTapItems[widget.items.indexOf(value)],
+          ),
         );
       }).toList(),
     );
