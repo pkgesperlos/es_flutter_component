@@ -49,16 +49,27 @@ class _EsSideNavigator extends State<EsSideNavigator> {
     return Scaffold(
       body: Row(
         children: <Widget>[
-          SingleChildScrollView(child: NavigationRail(
-              selectedIndex: _selectedIndex,
-              onDestinationSelected: (int index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
-              labelType: NavigationRailLabelType.selected,
-              destinations:widget.tabBarItemList
-          ),) ,
+          LayoutBuilder(
+            builder: (context, constraint) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraint.maxHeight),
+                  child: IntrinsicHeight(
+                    child: NavigationRail(
+                        selectedIndex: _selectedIndex,
+                        onDestinationSelected: (int index) {
+                          setState(() {
+                            _selectedIndex = index;
+                          });
+                        },
+                        labelType: NavigationRailLabelType.selected,
+                        destinations:widget.tabBarItemList
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
 
           VerticalDivider(thickness: 1, width: 1),
           // This is the main content.
