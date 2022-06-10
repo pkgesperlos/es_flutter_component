@@ -49,16 +49,17 @@ class _EsSideNavigator extends State<EsSideNavigator> {
     return Scaffold(
       body: Row(
         children: <Widget>[
-          NavigationRail(
-            selectedIndex: _selectedIndex,
-            onDestinationSelected: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            labelType: NavigationRailLabelType.selected,
-            destinations:widget.tabBarItemList
-          ),
+          SingleChildScrollView(child: NavigationRail(
+              selectedIndex: _selectedIndex,
+              onDestinationSelected: (int index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              labelType: NavigationRailLabelType.selected,
+              destinations:widget.tabBarItemList
+          ),) ,
+
           VerticalDivider(thickness: 1, width: 1),
           // This is the main content.
           Expanded(

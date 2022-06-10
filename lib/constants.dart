@@ -15,6 +15,7 @@ class Constants{
 
   static const Color shadowGray=Color(0xffD1D1D1);
   static const Color borderGray=Color(0xffD5D5D5);
+  static const Color darkThemeFont=Color(0xffD5D5D5);
   static const Color ordinaryText=Colors.black;
   static const Color titleText=Colors.black;
   static const Color lableText=Colors.black54;
@@ -31,7 +32,6 @@ class Constants{
   static const Color redLight=Color(0xffff5182);
   static const Color blueDark=Color(0xff0293ee);
   static const Color greenDark=Color(0xff13d38e);
-
 
 
 }

@@ -1,4 +1,4 @@
-import 'package:es_flutter_component/images/constants.dart';
+import 'package:es_flutter_component/constants.dart';
 import 'package:flutter/material.dart';
 
 class EsTitle extends StatelessWidget {
