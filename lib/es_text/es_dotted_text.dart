@@ -33,7 +33,7 @@ class EsDottedText extends StatelessWidget {
                     BorderRadius.all(Radius.circular(size ))),
           ),
           SizedBox(
-            width: Constants.spaceDimension,
+            width: size/5,
           ),
           Expanded(child: Text(
             data,

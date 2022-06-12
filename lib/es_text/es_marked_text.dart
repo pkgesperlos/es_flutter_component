@@ -23,11 +23,11 @@ class EsMarkedText extends StatelessWidget {
     return IntrinsicWidth(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(Icons.check,size:size,color: color,),
           SizedBox(
-            width: size/2,
+            width: size/5,
           ),
           Expanded(child: Text(
             data,
