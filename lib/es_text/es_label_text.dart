@@ -23,7 +23,7 @@ class EsLableText extends StatelessWidget {
       data,
       textAlign: align,
       style: TextStyle(
-        fontSize: Constants.lableFontSize,
+        fontSize: size,
         fontFamily: "yekan",
         fontWeight: FontWeight.w200,
         // overflow: TextOverflow.ellipsis,
