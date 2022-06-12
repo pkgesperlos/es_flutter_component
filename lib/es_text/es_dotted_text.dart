@@ -19,33 +19,35 @@ class EsDottedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: size/2.5,
-          height: size/2.5,
-          decoration: BoxDecoration(
-              color: color,
-              borderRadius:
-              BorderRadius.all(Radius.circular(size ))),
-        ),
-        SizedBox(
-          width: Constants.spaceDimension,
-        ),
-        Text(
-          data,
-          textAlign: align,
-          style: TextStyle(
-            color: color,
-            fontSize: size,
-            fontFamily: fontFamily,
-            fontWeight: FontWeight.bold,
-            // overflow: TextOverflow.ellipsis,
+    return IntrinsicWidth(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: size/2.5,
+            height: size/2.5,
+            decoration: BoxDecoration(
+                color: color,
+                borderRadius:
+                    BorderRadius.all(Radius.circular(size ))),
           ),
-        )
-      ],
+          SizedBox(
+            width: Constants.spaceDimension,
+          ),
+          Expanded(child: Text(
+            data,
+            textAlign: align,
+            style: TextStyle(
+              color: color,
+              fontSize: size,
+              fontFamily: fontFamily,
+              fontWeight: FontWeight.bold,
+              // overflow: TextOverflow.ellipsis,
+            ),
+          ))
+        ],
+      ),
     );
   }
 }
