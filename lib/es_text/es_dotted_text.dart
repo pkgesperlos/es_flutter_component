@@ -22,7 +22,7 @@ class EsDottedText extends StatelessWidget {
     return IntrinsicWidth(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: size/2.5,
@@ -35,19 +35,17 @@ class EsDottedText extends StatelessWidget {
           SizedBox(
             width: Constants.spaceDimension,
           ),
-          IntrinsicHeight(
-            child: Text(
-              data,
-              textAlign: align,
-              style: TextStyle(
-                color: color,
-                fontSize: size,
-                fontFamily: fontFamily,
-                fontWeight: FontWeight.bold,
-                // overflow: TextOverflow.ellipsis,
-              ),
+          Text(
+            data,
+            textAlign: align,
+            style: TextStyle(
+              color: color,
+              fontSize: size,
+              fontFamily: fontFamily,
+              fontWeight: FontWeight.bold,
+              // overflow: TextOverflow.ellipsis,
             ),
-          ),
+          )
         ],
       ),
     );

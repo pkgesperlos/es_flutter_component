@@ -1,5 +1,6 @@
 // @dart=2.9
 
+import 'package:es_flutter_component/constants.dart';
 import 'package:es_flutter_component/es_button/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+  String _data="ok";
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,19 @@ class MyApp extends StatelessWidget {
     //   20,
     //   (index) => titleBox("ابزار کمکی", index),
     // );
-
+    List list=[EsTitle(data: _data,),
+      Column(children: [EsOrdinaryText(data: _data),
+        EsOrdinaryText(data: _data,size: 18,),
+        EsOrdinaryText(data: _data,size: 16,),
+      ],),
+      Column(children: List.generate(5, (index) => EsDottedText(data: _data,
+        size: Constants.markedFontSize-index,
+    )),
+      ),
+      EsDottedText(data: _data),
+      EsMarkedText(data: _data),
+      EsLableText(data: _data),
+    ];
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         // initialRoute: '/',
@@ -133,18 +147,41 @@ class MyApp extends StatelessWidget {
           //   ],
           // ),),
           // body: MyStatefulWidget(),
-          body:boxShow(EsOrdinaryText(data: "آرزو دلیل بر استعداد است.",),),
+          body:Container(
+              padding: EdgeInsets.all(10),
+              color:Colors.black38,
+              child:GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: 3,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                children: List.generate(list.length, (index) => boxShow(list[index])),
+              )
+
+            // GridView(
+            //   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            //       maxCrossAxisExtent: 200,
+            //       childAspectRatio: 1.4,
+            //       crossAxisSpacing: 5,
+            //       mainAxisSpacing: 10),
+            //   children: [...List.generate(10, (index) => boxShow())],
+            //   //scrollDirection: Axis.vertical,
+            // ),
+
+          )
+
 
         ));
     
   }
+
 
   Widget boxShow(Widget widget){
     return Container(
       padding:EdgeInsets.all(10) ,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15)),
-          color: Colors.black38
+          color: Colors.white
       ),
       child:widget ,
     );
