@@ -1,5 +1,26 @@
 import 'package:flutter/material.dart';
 class Constants{
+
+
+  //font
+  static const String fontFamily="yekan";
+
+//font size:
+  static const  double titleFontSize=27;
+  static const  double ordinaryFontSize=20;
+  static const  double lableFontSize=17;
+  static const  double markedFontSize=27;
+
+  //font color
+  static const Color titleText=Colors.black;
+  static const Color ordinaryText=Colors.black;
+  static const Color lableText=Colors.black87;
+  static const Color dottedText=Colors.black87;
+  static const Color markedText=Colors.black;
+
+
+
+
   static const  double radDimension=15;
   static const  double paddingDimension=15;
   static const  double spaceDimension=10;
@@ -8,18 +29,10 @@ class Constants{
   // static const  double iconButtonSize=30;
 
 
-  static const  double titleFontSize=27;
-  static const  double ordinaryFontSize=20;
-  static const  double lableFontSize=17;
-  static const  double markedFontSize=27;
-
   static const Color shadowGray=Color(0xffD1D1D1);
   static const Color borderGray=Color(0xffD5D5D5);
   static const Color darkThemeFont=Color(0xffD5D5D5);
-  static const Color ordinaryText=Colors.black;
-  static const Color titleText=Colors.black;
-  static const Color lableText=Colors.black54;
-  static const Color markedText=Colors.black;
+
 
   static const Color button=Color(0xff0d193e);
   static const Color iconButton=Color(0xff0d193e);

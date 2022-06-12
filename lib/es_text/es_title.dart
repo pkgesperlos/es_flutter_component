@@ -4,8 +4,17 @@ import 'package:flutter/material.dart';
 class EsTitle extends StatelessWidget {
   String data;
   TextAlign align;
+  double size;
+  Color color;
+  String fontFamily;
 
-  EsTitle({Key? key, required this.data, this.align = TextAlign.center})
+  EsTitle(
+      {Key? key,
+        required this.data,
+        this.align = TextAlign.center,
+        this.size = Constants.titleFontSize,
+        this.color = Constants.titleText,
+        this.fontFamily = Constants.fontFamily})
       : super(key: key);
 
   @override
@@ -14,9 +23,9 @@ class EsTitle extends StatelessWidget {
       data,
       textAlign: align,
       style: TextStyle(
-        color: Constants.titleText,
-        fontSize: Constants.titleFontSize,
-        fontFamily: "yekan",
+        color: color,
+        fontSize: size,
+        fontFamily:fontFamily,
         fontWeight: FontWeight.bold,
         // overflow: TextOverflow.ellipsis,
       ),

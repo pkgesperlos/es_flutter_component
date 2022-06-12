@@ -2,13 +2,21 @@
 
 import 'package:es_flutter_component/es_button/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker.dart';
+import 'package:es_flutter_component/es_list/es_accardion_list.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_side_navigator.dart';
+import 'package:es_flutter_component/es_text/es_dotted_text.dart';
+import 'package:es_flutter_component/es_text/es_label_text.dart';
+import 'package:es_flutter_component/es_text/es_marked_text.dart';
+import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
+import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:es_flutter_component/test2.dart';
 import 'package:es_flutter_component/test3.dart';
+import 'package:es_flutter_component/testhtml.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'es_button/es_radio_button.dart';
+import 'es_form.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,6 +53,14 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        // initialRoute: '/',
+        // routes: {
+        // '/': (context) => EsForm(),
+        // // '/center': (context) => CenterComputerScreen(page: PanelCenterPage()),
+        // // '/': (context) => Test(),
+        // // '/text':(context) => PanelTextSample(),
+        // '/login': (context) => EsDateTimePicker(),
+        // },
         home: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(),
@@ -102,41 +118,34 @@ class MyApp extends StatelessWidget {
             // body: EsSlideIndicator(items: items,),
             // body: EsDropDownButton(items: ["English","Persian"],
             //   onTapItems: [(){print('English');},(){print('Persian');}],),
-            body: EsSideNavigator(
-              pagesContentList: [EsDateTimePicker(), EsRadioButton()],
-              tabBarItemList: tabBarItemList2,
-            )
+            // body: EsSideNavigator(
+            //   pagesContentList: [EsDateTimePicker(), EsRadioButton()],
+            //   tabBarItemList: tabBarItemList2,
+            // )
+          // body: Center(child: Column(
+          //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     EsTitle(data: "It is a nice day:)",),
+          //     EsDottedText(data: "It is a nice day:)",),
+          //     EsOrdinaryText(data: "It is a nice day:)",),
+          //     EsLableText(data: "It is a nice day:)",),
+          //
+          //   ],
+          // ),),
           // body: MyStatefulWidget(),
+          body:boxShow(EsOrdinaryText(data: "آرزو دلیل بر استعداد است.",),),
 
         ));
+    
   }
 
-  List<NavigationRailDestination> tabBarItemList2 = [
-    NavigationRailDestination(
-      icon: Column(
-        children: [Icon(Icons.favorite_border), Text('Button 1')],
+  Widget boxShow(Widget widget){
+    return Container(
+      padding:EdgeInsets.all(10) ,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          color: Colors.black38
       ),
-      selectedIcon: Container(
-        color: Colors.green,
-        child: Column(
-          children: [Icon(Icons.favorite_border), Text('Button 1')],
-        ),
-      ),
-      label: Text(""),
-    ),
-    NavigationRailDestination(
-      icon: Column(
-        children: [Icon(Icons.bookmark_border), Text('Button 2')],
-      ),
-      selectedIcon: Column(
-        children: [Icon(Icons.book), Text('2 clicked')],
-      ),
-      label: Text(''),
-    ),
-    // NavigationRailDestination(
-    //   icon: Icon(Icons.star_border),
-    //   selectedIcon: Icon(Icons.star),
-    //   label: Text('Third'),
-    // ),
-  ];
-}
+      child:widget ,
+    );
+}}

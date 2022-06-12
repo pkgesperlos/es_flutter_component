@@ -4,39 +4,50 @@ import 'package:flutter/material.dart';
 class EsDottedText extends StatelessWidget {
   String data;
   TextAlign align;
+  double size;
+  Color color;
+  String fontFamily;
 
-  EsDottedText({Key? key, required this.data, this.align = TextAlign.center})
+  EsDottedText(
+      {Key? key,
+      required this.data,
+      this.align = TextAlign.center,
+      this.size = Constants.markedFontSize,
+      this.color = Constants.dottedText,
+      this.fontFamily = Constants.fontFamily})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
+    return IntrinsicWidth(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: Constants.iconSize / 3,
-            height: Constants.iconSize / 3,
+            width: size/2.5,
+            height: size/2.5,
             decoration: BoxDecoration(
-                color: Constants.markedText,
+                color: color,
                 borderRadius:
-                    BorderRadius.all(Radius.circular(Constants.iconSize / 2))),
+                    BorderRadius.all(Radius.circular(size ))),
           ),
           SizedBox(
             width: Constants.spaceDimension,
           ),
-          IntrinsicHeight(child: Text(
-            data,
-            textAlign: align,
-            style: TextStyle(
-              color: Constants.markedText,
-              fontSize: Constants.markedFontSize,
-              fontFamily: "yekan",
-              fontWeight: FontWeight.bold,
-              // overflow: TextOverflow.ellipsis,
+          IntrinsicHeight(
+            child: Text(
+              data,
+              textAlign: align,
+              style: TextStyle(
+                color: color,
+                fontSize: size,
+                fontFamily: fontFamily,
+                fontWeight: FontWeight.bold,
+                // overflow: TextOverflow.ellipsis,
+              ),
             ),
-          ),),
+          ),
         ],
       ),
     );

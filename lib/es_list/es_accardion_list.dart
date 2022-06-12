@@ -1,29 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class EsOrdinaryList extends StatelessWidget {
-//   final List<Widget> itemList;
-//   final List<Widget> innerItemList;
-//   const EsOrdinaryList({Key? key,required this.itemList,required this.innerItemList}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: ListView.builder(
-//         // prototypeItem: CircularProgressIndicator(),
-//         // padding: EdgeInsets.all(20),
-//         shrinkWrap: true, //container will be as same size as  listview size
-//         itemCount: itemList.length,
-//         itemBuilder: (context, index) {
-//           return itemList[index];
-//         },
-//       ),
-//     );
-//   }
-// }
-
-
-
-
 // stores ExpansionPanel state information
 class Item {
   Item({
@@ -58,40 +34,70 @@ class _EsAccordionList extends State<EsAccordionList> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        child: _buildPanel(),
-      ),
-    );
+    return _buildPannel2();
   }
 
-  Widget _buildPanel() {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _data[index].isExpanded = !isExpanded;
-        });
-      },
-      children: _data.map<ExpansionPanel>((Item item) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: Text(item.headerValue),
-            );
-          },
-          body: ListTile(
-              title: Text(item.expandedValue),
-              subtitle:
-              const Text('To delete this panel, tap the trash can icon'),
-              trailing: const Icon(Icons.delete),
-              onTap: () {
-                setState(() {
-                  _data.removeWhere((Item currentItem) => item == currentItem);
-                });
-              }),
-          isExpanded: item.isExpanded,
-        );
-      }).toList(),
+  // Widget _buildPanel() {
+  //   return ExpansionPanelList(
+  //     expansionCallback: (int index, bool isExpanded) {
+  //       setState(() {
+  //         _data[index].isExpanded = !isExpanded;
+  //       });
+  //     },
+  //     children: _data.map<ExpansionPanel>((Item item) {
+  //       return ExpansionPanel(
+  //         headerBuilder: (BuildContext context, bool isExpanded) {
+  //           return ListTile(
+  //             title: Text(item.headerValue),
+  //           );
+  //         },
+  //         body: ListTile(
+  //             title: Text(item.expandedValue),
+  //             subtitle:
+  //             const Text('To delete this panel, tap the trash can icon'),
+  //             trailing: const Icon(Icons.delete),
+  //             onTap: () {
+  //               setState(() {
+  //                 _data.removeWhere((Item currentItem) => item == currentItem);
+  //               });
+  //             }),
+  //         isExpanded: item.isExpanded,
+  //       );
+  //     }).toList(),
+  //   );
+  // }
+  Widget _buildPannel2(){
+    return ListView(
+      children: <Widget>[
+        ExpansionTile(
+          title: Text("Expansion Title"),
+          children: <Widget>[
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top:5,bottom: 5,left: 10,right: 100),
+                  child: Icon(
+                    Icons.access_time,
+                    color: Colors.black54,
+                  ),
+                ),
+                Text("ok"),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top:5,bottom: 5,left: 10,right: 100),
+                  child: Icon(
+                    Icons.access_time,
+                    color: Colors.black54,
+                  ),
+                ),
+                Text("ok"),
+              ],
+            ),],
+        )
+      ],
     );
   }
 }

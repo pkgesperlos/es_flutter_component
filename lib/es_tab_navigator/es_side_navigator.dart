@@ -1,3 +1,4 @@
+import 'package:es_flutter_component/constants.dart';
 import 'package:flutter/material.dart';
 
 class EsSideNavigator extends StatefulWidget {
@@ -63,6 +64,8 @@ class _EsSideNavigator extends State<EsSideNavigator> {
                           });
                         },
                         labelType: NavigationRailLabelType.selected,
+                        // indicatorColor: Colors.white,
+                        selectedIconTheme: IconThemeData(color: Constants.lableText),
                         destinations:widget.tabBarItemList
                     ),
                   ),
