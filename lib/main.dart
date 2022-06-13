@@ -157,7 +157,11 @@ class MyApp extends StatelessWidget {
           // body: EsPersianDatePicker(title: "select",),
 
           // body:EsCupertinoTimePicker(title: "select",)
-          body:EsFilePicker()
+          body:EsFilePicker(
+            openText: "aaa",
+            pickText: "aaa",
+            clearText: "aaa",
+          )
         ));
     
   }
