@@ -1,9 +1,12 @@
+import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 
 class EsAndroidTimePicker extends StatefulWidget {
+  String title;
+  EsAndroidTimePicker({required this.title});
   @override
   _EsAndroidTimePicker createState()
   {
@@ -19,11 +22,11 @@ class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        ElevatedButton(
+        EsOrdinaryButton(
           onPressed: () {
             _selectTime(context);
           },
-          child: Text("Choose Time"),
+          text:widget.title ,
         ),
         Text("${selectedTime.hour}:${selectedTime.minute}"),
       ],
