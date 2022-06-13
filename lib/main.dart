@@ -12,6 +12,8 @@ import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_date_time_picker.dart';
 import 'package:es_flutter_component/es_form/es_file_picker.dart';
+import 'package:es_flutter_component/es_form/es_ordinary_slider.dart';
+import 'package:es_flutter_component/es_form/es_ranged_slider.dart';
 import 'package:es_flutter_component/es_form/es_text_editor.dart';
 import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
@@ -157,11 +159,12 @@ class MyApp extends StatelessWidget {
           // body: EsPersianDatePicker(title: "select",),
 
           // body:EsCupertinoTimePicker(title: "select",)
-          body:EsFilePicker(
-            openText: "aaa",
-            pickText: "aaa",
-            clearText: "aaa",
-          )
+          // body:EsFilePicker(
+          //   openText: "aaa",
+          //   pickText: "aaa",
+          //   clearText: "aaa",
+          // )
+          body: EsRengedSlider(),
         ));
     
   }

@@ -1,5 +1,8 @@
+import 'package:es_flutter_component/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../es_text/es_ordinary_text.dart';
 
 class EsRengedSlider extends StatefulWidget {
   double startValue;
@@ -16,16 +19,28 @@ class _EsRengedSliderState extends State<EsRengedSlider> {
   double _endValue=90;
   @override
   Widget build(BuildContext context) {
-    return RangeSlider(
-      min: 0.0,
-      max: 100.0,
-      values: RangeValues(_startValue, _endValue),
-      onChanged: (values) {
-        setState(() {
-          _startValue = values.start;
-          _endValue = values.end;
-        });
-      },
+    return Column(
+      children: [
+        RangeSlider(
+          min: 0.0,
+          max: 100.0,
+          values: RangeValues(_startValue, _endValue),
+
+          activeColor: Constants.buttonColor,
+          inactiveColor: Constants.sidebarColor,
+
+          onChanged: (values) {
+            setState(() {
+              _startValue = values.start;
+              _endValue = values.end;
+            });
+          },
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [EsOrdinaryText(data:"Start Value:" +_startValue.round().toString()),
+          EsOrdinaryText(data:"End Value:" +_endValue.round().toString()),],)
+      ],
     );
   }
 }
