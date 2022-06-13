@@ -27,6 +27,13 @@ class Constants{
   static const  double buttonIconSize=20;
 
   static const Color successButtonColor=Colors.green;
+  static const Color errorButtonColor=Colors.red;
+  static const Color infoButtonColor=Colors.blue;
+  static const Color warningButtonColor=Colors.orange;
+  static const Color bodyButtonColor=Colors.black38;
+  static const Color inputButtonColor=Colors.red;
+  static const Color AutoHideButtonColor=Colors.purple;
+
 
 
 

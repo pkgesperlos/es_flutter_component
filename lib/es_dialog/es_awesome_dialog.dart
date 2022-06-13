@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
-class EsAwesomeDialod extends StatefulWidget {
+class EsAwesomeDialog extends StatefulWidget {
   @override
-  _EsAwesomeDialod createState() => _EsAwesomeDialod();
+  _EsAwesomeDialog createState() => _EsAwesomeDialog();
 }
 
-class _EsAwesomeDialod extends State<EsAwesomeDialod> {
+class _EsAwesomeDialog extends State<EsAwesomeDialog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

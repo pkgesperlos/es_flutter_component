@@ -6,26 +6,26 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import '../../constants.dart';
 
 
-class EsSuccessDialog extends StatefulWidget {
+class EsErrorDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
   Color buttonColor;
   Color buttonFontColor;
-  EsSuccessDialog({
+  EsErrorDialog({
     required this.text,
     required this.title,
     required this.desc,
-    this.buttonColor=Constants.successButtonColor,
+    this.buttonColor=Constants.errorButtonColor,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
   State<StatefulWidget> createState() {
-    return _EsSuccessDialog();
+    return _EsErrorDialog();
   }
 
 }
-class _EsSuccessDialog extends State<EsSuccessDialog>{
+class _EsErrorDialog extends State<EsErrorDialog>{
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,22 +34,19 @@ class _EsSuccessDialog extends State<EsSuccessDialog>{
           buttonColor: widget.buttonColor,
           buttonFontColor: widget.buttonFontColor,
           onPressed: () {
-
             AwesomeDialog(
-              context: context,
-              animType: AnimType.LEFTSLIDE,
-              headerAnimationLoop: false,
-              dialogType: DialogType.SUCCES,
-              title: widget.title,
-              desc: widget.desc,
-              btnOkOnPress: () {
+                context: context,
+                dialogType: DialogType.ERROR,
+                animType: AnimType.RIGHSLIDE,
+                headerAnimationLoop: false,
+                title: widget.title,
+                desc: widget.desc,
+                btnOkOnPress: () {},
+                btnOkIcon: Icons.cancel,
+                btnOkColor: Colors.red)
+              ..show();
 
-              },
-              btnOkIcon: Icons.check_circle,
-              // onDissmissCallback: () {
-              //   debugPrint('Dialog Dissmiss from callback');
-              // }
-            )..show();
+
 
           },
         )

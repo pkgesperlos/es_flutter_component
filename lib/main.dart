@@ -2,6 +2,10 @@
 
 import 'package:es_flutter_component/constants.dart';
 import 'package:es_flutter_component/es_button/es_loading_button.dart';
+import 'package:es_flutter_component/es_dialog/es_awesome_dialog.dart';
+import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_autohide_dialog.dart';
+import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_error_dialog.dart';
+import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_warning_dialog.dart';
 import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker.dart';
@@ -19,6 +23,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'es_button/es_icon_button.dart';
+import 'es_dialog/es_awesome_dialog/es_body_dialog.dart';
+import 'es_dialog/es_awesome_dialog/es_info_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_success_dialog.dart';
 import 'es_form/es_radio_button.dart';
 import 'es_form.dart';
@@ -140,7 +146,8 @@ class MyApp extends StatelessWidget {
           // ),),
           // body: MyStatefulWidget(),
           body:Center(
-            child: EsSuccessDialog(text: "save",title: "Successful",desc: "save is ok!",),
+            child: EsAutoHideDialog(text: "save",title: "Successful",desc: "save is ok!",time: 2,),
+            // child: EsAwesomeDialog(),
           )));
     
   }

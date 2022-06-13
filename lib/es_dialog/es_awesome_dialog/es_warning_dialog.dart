@@ -6,26 +6,31 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import '../../constants.dart';
 
 
-class EsSuccessDialog extends StatefulWidget {
+
+class EsWarningDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
   Color buttonColor;
   Color buttonFontColor;
-  EsSuccessDialog({
+  VoidCallback btnCancelOnPress;
+  VoidCallback btnOkOnPress;
+  EsWarningDialog({
     required this.text,
     required this.title,
     required this.desc,
-    this.buttonColor=Constants.successButtonColor,
+    required this.btnCancelOnPress,
+    required this.btnOkOnPress,
+    this.buttonColor=Constants.warningButtonColor,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
   State<StatefulWidget> createState() {
-    return _EsSuccessDialog();
+    return _EsWarningDialog();
   }
 
 }
-class _EsSuccessDialog extends State<EsSuccessDialog>{
+class _EsWarningDialog extends State<EsWarningDialog>{
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,22 +39,20 @@ class _EsSuccessDialog extends State<EsSuccessDialog>{
           buttonColor: widget.buttonColor,
           buttonFontColor: widget.buttonFontColor,
           onPressed: () {
-
             AwesomeDialog(
-              context: context,
-              animType: AnimType.LEFTSLIDE,
-              headerAnimationLoop: false,
-              dialogType: DialogType.SUCCES,
-              title: widget.title,
-              desc: widget.desc,
-              btnOkOnPress: () {
+                context: context,
+                dialogType: DialogType.WARNING,
+                headerAnimationLoop: false,
+                animType: AnimType.TOPSLIDE,
+                showCloseIcon: true,
+                closeIcon: Icon(Icons.close_fullscreen_outlined),
+                title: widget.text,
+                desc: widget.desc,
+                btnCancelOnPress: () {},
+                btnOkOnPress: () {})
+              ..show();
 
-              },
-              btnOkIcon: Icons.check_circle,
-              // onDissmissCallback: () {
-              //   debugPrint('Dialog Dissmiss from callback');
-              // }
-            )..show();
+
 
           },
         )

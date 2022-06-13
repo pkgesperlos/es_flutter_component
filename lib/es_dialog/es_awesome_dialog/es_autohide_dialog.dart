@@ -6,26 +6,28 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import '../../constants.dart';
 
 
-class EsSuccessDialog extends StatefulWidget {
+class EsAutoHideDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
+  int time;
   Color buttonColor;
   Color buttonFontColor;
-  EsSuccessDialog({
+  EsAutoHideDialog({
     required this.text,
     required this.title,
     required this.desc,
+    required this.time,
     this.buttonColor=Constants.successButtonColor,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
   State<StatefulWidget> createState() {
-    return _EsSuccessDialog();
+    return _EsAutoHideDialog();
   }
 
 }
-class _EsSuccessDialog extends State<EsSuccessDialog>{
+class _EsAutoHideDialog extends State<EsAutoHideDialog>{
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -37,18 +39,11 @@ class _EsSuccessDialog extends State<EsSuccessDialog>{
 
             AwesomeDialog(
               context: context,
-              animType: AnimType.LEFTSLIDE,
-              headerAnimationLoop: false,
-              dialogType: DialogType.SUCCES,
-              title: widget.title,
+              dialogType: DialogType.INFO,
+              animType: AnimType.SCALE,
+              title:widget.title,
               desc: widget.desc,
-              btnOkOnPress: () {
-
-              },
-              btnOkIcon: Icons.check_circle,
-              // onDissmissCallback: () {
-              //   debugPrint('Dialog Dissmiss from callback');
-              // }
+              autoHide: Duration(seconds: widget.time),
             )..show();
 
           },
