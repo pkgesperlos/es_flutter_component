@@ -25,7 +25,6 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
     return Column(
       children: <Widget>[
 
-        EsOrdinaryText(data: data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),
         EsOrdinaryButton(
             text: widget.title,
             onPressed: () {
@@ -50,7 +49,8 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
                 });
                 // print('confirm $date');
               }, currentTime: DateTime.now(), locale: LocaleType.fa);
-            })
+            }),
+        EsOrdinaryText(data: data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),
       ],
     );
   }

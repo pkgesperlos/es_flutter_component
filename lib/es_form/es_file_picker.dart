@@ -1,8 +1,15 @@
+import 'package:es_flutter_component/constants.dart';
+import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_text/es_label_text.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class EsFilePicker extends StatefulWidget {
+  String openText;
+  String pickText;
+  String clearText;
+  EsFilePicker({required this.openText,required this.pickText,required this.clearText});
   @override
   _EsFilePicker createState() => _EsFilePicker();
 }
@@ -146,17 +153,22 @@ class _EsFilePicker extends State<EsFilePicker> {
                     padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
                     child: Column(
                       children: <Widget>[
-                        ElevatedButton(
+                        EsOrdinaryButton(
+                        text:widget.openText,
                           onPressed: () => _openFileExplorer(),
-                          child: const Text("Open file picker"),
+
                         ),
-                        ElevatedButton(
+                        SizedBox(height: Constants.paddingDimension,),
+                        EsOrdinaryButton(
+                          text:widget.pickText ,
                           onPressed: () => _selectFolder(),
-                          child: const Text("Pick folder"),
+
                         ),
-                        ElevatedButton(
+                        SizedBox(height: Constants.paddingDimension,),
+                        EsOrdinaryButton(
+                          text: widget.clearText,
                           onPressed: () => _clearCachedFiles(),
-                          child: const Text("Clear temporary files"),
+
                         ),
                       ],
                     ),

@@ -28,7 +28,7 @@ class _EsCupertino12HTimePicker extends State<EsCupertino12HTimePicker> {
     return Column(
       children: <Widget>[
 
-        EsOrdinaryText(data:dataH+":"+dataM),
+
         EsOrdinaryButton(
             onPressed: () {
               DatePicker.showTime12hPicker(context, showTitleActions: true,
@@ -46,6 +46,7 @@ class _EsCupertino12HTimePicker extends State<EsCupertino12HTimePicker> {
                   }, currentTime: DateTime.now());
             },
             text: widget.title),
+        EsOrdinaryText(data:dataH+":"+dataM),
 
 
       ],
