@@ -3,8 +3,8 @@ import 'package:es_flutter_component/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EsIconButton extends StatelessWidget {
-  IconData icon;
+class EsLoadingButton extends StatelessWidget {
+
   VoidCallback onPressed;
   Color buttonColor;
   Color buttonFontColor;
@@ -15,8 +15,8 @@ class EsIconButton extends StatelessWidget {
   double buttonFontSize;
   double buttonIconSize;
 
-  EsIconButton({
-    required this.icon,
+  EsLoadingButton({
+
     required this.onPressed,
     this.buttonColor = Constants.buttonColor,
     this.buttonFontColor = Constants.buttonFontColor,
@@ -39,7 +39,8 @@ class EsIconButton extends StatelessWidget {
           //   text,
           //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
           // ),
-          child: Icon(icon,size: buttonIconSize,color: Constants.buttonFontColor,),
+          // child: Icon(icon,size: buttonIconSize,color: Constants.buttonFontColor,),
+          child: CircularProgressIndicator(color:buttonFontColor,),
           decoration: BoxDecoration(
               color: buttonColor,
               borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 3)),
