@@ -5,6 +5,7 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class EsPersianDatePicker extends StatefulWidget {
   String title;
+
   EsPersianDatePicker({required this.title});
 
   @override
@@ -12,13 +13,19 @@ class EsPersianDatePicker extends StatefulWidget {
 }
 
 class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
+
+  DateTime data = DateTime(1410, 12, 31);
+  String datamonth="9";
+
+
+
   @override
   Widget build(BuildContext context) {
-    DateTime data=DateTime(1410, 12, 31);
+
     return Column(
       children: <Widget>[
 
-        EsOrdinaryText(data: data.toString()),
+        EsOrdinaryText(data: data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),
         EsOrdinaryButton(
             text: widget.title,
             onPressed: () {
@@ -34,18 +41,15 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
                           fontWeight: FontWeight.bold,
                           fontSize: 18),
                       doneStyle: TextStyle(color: Colors.white, fontSize: 16)),
-                  onChanged: (date) {
-                    //
-                    // print('change $date in time zone ' +
-                    //     date.timeZoneOffset.inHours.toString());
-                  },
-                  onConfirm: (date) {
+                  onChanged: (date) {}, onConfirm: (date) {
                 setState(() {
-                  data=date;
+                  data = date.toLocal() ;
+                  datamonth=(date.month-3).toString();
+
                   print(data);
                 });
-                    print('confirm $date');
-                  }, currentTime: DateTime.now(), locale: LocaleType.fa);
+                // print('confirm $date');
+              }, currentTime: DateTime.now(), locale: LocaleType.fa);
             })
       ],
     );

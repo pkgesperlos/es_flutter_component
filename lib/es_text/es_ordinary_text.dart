@@ -9,6 +9,7 @@ class EsOrdinaryText extends StatelessWidget {
   Color color;
   String fontFamily;
 
+
   EsOrdinaryText(
       {Key? key,
         required this.data,

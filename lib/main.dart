@@ -6,6 +6,8 @@ import 'package:es_flutter_component/es_dialog/es_awesome_dialog.dart';
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_autohide_dialog.dart';
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_error_dialog.dart';
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_warning_dialog.dart';
+import 'package:es_flutter_component/es_form/es_date_time_picker/es_android_time_picker.dart';
+import 'package:es_flutter_component/es_form/es_date_time_picker/es_cupertino_time_picker.dart';
 import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_date_time_picker.dart';
@@ -29,6 +31,7 @@ import 'es_button/es_icon_button.dart';
 import 'es_dialog/es_awesome_dialog/es_body_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_info_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_success_dialog.dart';
+import 'es_form/es_date_time_picker/es_cupertino_12h_time_picker.dart';
 import 'es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'es_form/es_radio_button.dart';
 import 'es_form.dart';
@@ -150,8 +153,10 @@ class MyApp extends StatelessWidget {
           // ),),
           // body: MyStatefulWidget(),
           // body:EsPersianDatePicker(title: "Select date",)
-          body: EsPersianDatePicker(title: "select",),
+          // body: EsPersianDatePicker(title: "select",),
 
+          // body:EsCupertinoTimePicker(title: "select",)
+          body: EsCupertino12HTimePicker(title: "select",),
         ));
     
   }

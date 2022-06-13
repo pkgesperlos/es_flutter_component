@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 
 
 
-class EsTimePicker extends StatefulWidget {
+class EsAndroidTimePicker extends StatefulWidget {
   @override
-  _EsTimePicker createState()
+  _EsAndroidTimePicker createState()
   {
-    return _EsTimePicker();
+    return _EsAndroidTimePicker();
   }
 }
 
-class _EsTimePicker extends State<EsTimePicker> {
+class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
   TimeOfDay selectedTime = TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
