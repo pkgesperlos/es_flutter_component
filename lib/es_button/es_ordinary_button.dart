@@ -5,30 +5,45 @@ import 'package:flutter/material.dart';
 class EsOrdinaryButton extends StatelessWidget {
   String text;
   VoidCallback onPressed;
+  Color buttonColor;
+  Color buttonFontColor;
+  Color buttonBorderColor;
+  Color buttonShadowColor;
+  double buttonSizeX;
+  double buttonSizeY;
+  double buttonFontSize;
 
-  EsOrdinaryButton({required this.text, required this.onPressed});
+  EsOrdinaryButton({
+    required this.text,
+    required this.onPressed,
+    this.buttonColor = Constants.buttonColor,
+    this.buttonFontColor = Constants.buttonFontColor,
+    this.buttonBorderColor = Constants.buttonBorderColor,
+    this.buttonShadowColor = Constants.buttonShadowColor,
+    this.buttonSizeX = Constants.buttonSizeX,
+    this.buttonSizeY = Constants.buttonSizeY,
+    this.buttonFontSize = Constants.buttonFontSize,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+          padding: EdgeInsets.symmetric(
+              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
           child: Text(
             text,
-            style: TextStyle(
-                color: Constants.shadowGray,
-            fontSize: 20
-            ),
+            style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
           ),
           decoration: BoxDecoration(
-              color: Constants.button,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              border: Border.all(color: Constants.borderGray, width: 2),
+              color: buttonColor,
+              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 3)),
+              border: Border.all(color: buttonBorderColor, width: 2),
               boxShadow: [
                 BoxShadow(
-                  offset:Offset (2,2),
-                    color: Constants.shadowGray,
+                    offset: Offset(2, 2),
+                    color: buttonShadowColor,
                     spreadRadius: 2,
                     blurRadius: 2)
               ]),

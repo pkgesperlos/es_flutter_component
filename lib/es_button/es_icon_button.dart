@@ -1,3 +1,4 @@
+
 import 'package:es_flutter_component/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,31 +6,52 @@ import 'package:flutter/material.dart';
 class EsIconButton extends StatelessWidget {
   IconData icon;
   VoidCallback onPressed;
+  Color buttonColor;
+  Color buttonFontColor;
+  Color buttonBorderColor;
+  Color buttonShadowColor;
+  double buttonSizeX;
+  double buttonSizeY;
+  double buttonFontSize;
+  double buttonIconSize;
 
-  EsIconButton({required this.icon, required this.onPressed});
+  EsIconButton({
+    required this.icon,
+    required this.onPressed,
+    this.buttonColor = Constants.buttonColor,
+    this.buttonFontColor = Constants.buttonFontColor,
+    this.buttonBorderColor = Constants.buttonBorderColor,
+    this.buttonShadowColor = Constants.buttonShadowColor,
+    this.buttonSizeX = Constants.buttonSizeX,
+    this.buttonSizeY = Constants.buttonSizeY,
+    this.buttonFontSize = Constants.buttonFontSize,
+    this.buttonIconSize = Constants.buttonIconSize,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Constants.shadowGray,
-        // radius: 300,
-        // splashFactory: InkSplash.splashFactory,
-
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-          child: Icon(icon,color: Constants.shadowGray,),
+          padding: EdgeInsets.symmetric(
+              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
+          // child: Text(
+          //   text,
+          //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
+          // ),
+          child: Icon(icon,size: buttonIconSize,color:buttonFontColor),
           decoration: BoxDecoration(
-              color: Constants.iconButton,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              border: Border.all(color: Constants.borderGray, width: 2),
+              color: buttonColor,
+              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 3)),
+              border: Border.all(color: buttonBorderColor, width: 2),
               boxShadow: [
                 BoxShadow(
-                  offset:Offset (2,2),
-                    color: Constants.shadowGray,
+                    offset: Offset(2, 2),
+                    color: buttonShadowColor,
                     spreadRadius: 2,
                     blurRadius: 2)
               ]),
         ));
   }
 }
+
