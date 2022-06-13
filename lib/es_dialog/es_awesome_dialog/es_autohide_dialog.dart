@@ -18,7 +18,7 @@ class EsAutoHideDialog extends StatefulWidget {
     required this.title,
     required this.desc,
     required this.time,
-    this.buttonColor=Constants.successButtonColor,
+    this.buttonColor=Constants.autoHideButtonColor,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override

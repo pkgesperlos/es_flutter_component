@@ -7,7 +7,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import '../../constants.dart';
 
 
-class EsSuccessDialog extends StatefulWidget {
+class EsInputDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
@@ -15,7 +15,7 @@ class EsSuccessDialog extends StatefulWidget {
   Color buttonFontColor;
   EsTextField esTextField1;
   EsTextField esTextField2;
-  EsSuccessDialog({
+  EsInputDialog({
     required this.text,
     required this.title,
     required this.desc,
@@ -27,11 +27,11 @@ class EsSuccessDialog extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return _EsSuccessDialog();
+    return _EsInputDialog();
   }
 
 }
-class _EsSuccessDialog extends State<EsSuccessDialog>{
+class _EsInputDialog extends State<EsInputDialog>{
 
 
   @override
