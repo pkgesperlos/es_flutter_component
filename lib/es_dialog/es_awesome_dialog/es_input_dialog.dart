@@ -38,6 +38,8 @@ class _EsInputDialog extends State<EsInputDialog>{
   Widget build(BuildContext context) {
     return Center(
         child: AnimatedButton(
+          width: Constants.buttonSizeX,
+          height: Constants.buttonSizeY,
           text: widget.text,
           color: widget.buttonColor,
           // buttonFontColor: widget.buttonFontColor,

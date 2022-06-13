@@ -40,7 +40,7 @@ class _EsBodyDialog extends State<EsBodyDialog>{
               dialogType: DialogType.INFO,
               body: Center(
                 child: Text(
-                 widget.text, style: TextStyle(fontStyle: FontStyle.italic),
+                 widget.desc, style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
               title: widget.title,

@@ -31,7 +31,7 @@ class Constants{
   static const Color infoButtonColor=Colors.blue;
   static const Color warningButtonColor=Colors.orange;
   static const Color bodyButtonColor=Colors.black38;
-  static const Color inputButtonColor=Colors.red;
+  static const Color inputButtonColor=Colors.indigo;
   static const Color autoHideButtonColor=Colors.purple;
 
 
