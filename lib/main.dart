@@ -8,7 +8,9 @@ import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_error_dialog
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_warning_dialog.dart';
 import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
-import 'package:es_flutter_component/es_form/es_date_time_picker.dart';
+import 'package:es_flutter_component/es_form/es_date_time_picker/es_date_time_picker.dart';
+import 'package:es_flutter_component/es_form/es_text_editor.dart';
+import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_side_navigator.dart';
 import 'package:es_flutter_component/es_text/es_dotted_text.dart';
@@ -18,6 +20,7 @@ import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:es_flutter_component/test2.dart';
 import 'package:es_flutter_component/test3.dart';
+import 'package:es_flutter_component/test4.dart';
 import 'package:es_flutter_component/testhtml.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +29,7 @@ import 'es_button/es_icon_button.dart';
 import 'es_dialog/es_awesome_dialog/es_body_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_info_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_success_dialog.dart';
+import 'es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'es_form/es_radio_button.dart';
 import 'es_form.dart';
 
@@ -75,7 +79,7 @@ class MyApp extends StatelessWidget {
         // },
         home: Scaffold(
             resizeToAvoidBottomInset: false,
-            appBar: AppBar(),
+            // appBar: AppBar(),
 
             // body: AnimatedCheckBox(),
             // body: CheckboxForm(
@@ -145,10 +149,9 @@ class MyApp extends StatelessWidget {
           //   ],
           // ),),
           // body: MyStatefulWidget(),
-          body:Center(
-            child: EsAutoHideDialog(text: "save",title: "Successful",desc: "save is ok!",time: 2,),
-            // child: EsAwesomeDialog(),
-          )));
+          body:EsPersianDatePicker(title: "Select date",)
+
+        ));
     
   }
 
