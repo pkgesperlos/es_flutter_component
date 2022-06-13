@@ -1,8 +1,23 @@
+import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
+import '../../constants.dart';
+
+
 class EsSuccessDialog extends StatefulWidget {
+  String text;
+  String title;
+  String desc;
+  Color buttonColor;
+  Color buttonFontColor;
+  EsSuccessDialog({
+    required this.text,
+    required this.title,
+    required this.desc,
+    this.buttonColor=Constants.successButtonColor,
+    this.buttonFontColor=Constants.buttonFontColor});
 
   @override
   State<StatefulWidget> createState() {
@@ -14,18 +29,19 @@ class _EsSuccessDialog extends State<EsSuccessDialog>{
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: AnimatedButton(
-          text: 'Succes Dialog',
-          color: Colors.green,
-          pressEvent: () {
+        child: EsOrdinaryButton(
+          text: widget.text,
+          buttonColor: widget.buttonColor,
+          buttonFontColor: widget.buttonFontColor,
+          onPressed: () {
 
             AwesomeDialog(
               context: context,
               animType: AnimType.LEFTSLIDE,
               headerAnimationLoop: false,
               dialogType: DialogType.SUCCES,
-              title: 'Succes',
-              desc: 'Dialog description here',
+              title: widget.title,
+              desc: widget.desc,
               btnOkOnPress: () {
                 debugPrint('OnClcik');
               },

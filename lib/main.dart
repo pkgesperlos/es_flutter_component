@@ -19,6 +19,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'es_button/es_icon_button.dart';
+import 'es_dialog/es_awesome_dialog/es_success_dialog.dart';
 import 'es_form/es_radio_button.dart';
 import 'es_form.dart';
 
@@ -139,7 +140,7 @@ class MyApp extends StatelessWidget {
           // ),),
           // body: MyStatefulWidget(),
           body:Center(
-            child: EsLoadingButton(onPressed: (){}),
+            child: EsSuccessDialog(text: "save",title: "Successful",desc: "save is ok!",),
           )));
     
   }

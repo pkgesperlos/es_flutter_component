@@ -20,11 +20,13 @@ class Constants{
   static const Color buttonFontColor=Colors.white;
   static const Color buttonBorderColor=Colors.black26;
   static const Color buttonShadowColor=Colors.black26;
+
   static const  double buttonSizeX=50;
   static const  double buttonSizeY=20;
   static const  double buttonFontSize=20;
   static const  double buttonIconSize=20;
 
+  static const Color successButtonColor=Colors.green;
 
 
 
