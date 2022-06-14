@@ -28,7 +28,7 @@ class _EsPhoneNumberField extends State<EsPhoneNumberField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      textAlign: TextAlign.left,
+      // textAlign: TextAlign.left,
       validator: widget.validator,
       inputFormatters: [maskFormatter],
       keyboardType: TextInputType.number,

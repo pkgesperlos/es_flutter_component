@@ -5,16 +5,16 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 import '../../constants.dart';
 
-class EsPersianDatePicker extends StatefulWidget {
+class EsEnglishDatePicker extends StatefulWidget {
   String title;
 
-  EsPersianDatePicker({required this.title});
+  EsEnglishDatePicker({required this.title});
 
   @override
-  State<EsPersianDatePicker> createState() => _EsPersianDatePickerState();
+  State<EsEnglishDatePicker> createState() => _EsEnglishDatePicker();
 }
 
-class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
+class _EsEnglishDatePicker extends State<EsEnglishDatePicker> {
 
   DateTime data = DateTime(1410, 12, 31);
   String datamonth="9";
@@ -50,7 +50,7 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
                   print(data);
                 });
                 // print('confirm $date');
-              }, currentTime: DateTime.now(), locale: LocaleType.fa);
+              }, currentTime: DateTime.now(), locale: LocaleType.en);
             }),
         SizedBox(height: Constants.paddingDimension,),
         EsOrdinaryText(data: data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),

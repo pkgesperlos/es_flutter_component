@@ -3,6 +3,8 @@ import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
+import '../../constants.dart';
+
 class EsCupertino12HTimePicker extends StatefulWidget {
   String title;
 
@@ -28,7 +30,6 @@ class _EsCupertino12HTimePicker extends State<EsCupertino12HTimePicker> {
     return Column(
       children: <Widget>[
 
-
         EsOrdinaryButton(
             onPressed: () {
               DatePicker.showTime12hPicker(context, showTitleActions: true,
@@ -46,6 +47,7 @@ class _EsCupertino12HTimePicker extends State<EsCupertino12HTimePicker> {
                   }, currentTime: DateTime.now());
             },
             text: widget.title),
+        SizedBox(height: Constants.paddingDimension,),
         EsOrdinaryText(data:dataH+":"+dataM),
 
 

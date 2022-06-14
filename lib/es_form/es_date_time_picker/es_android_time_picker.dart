@@ -1,3 +1,4 @@
+import 'package:es_flutter_component/constants.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
           },
           text:widget.title ,
         ),
+        SizedBox(height: Constants.paddingDimension,),
         EsOrdinaryText(data:"${selectedTime.hour}:${selectedTime.minute}")
       ],
     );

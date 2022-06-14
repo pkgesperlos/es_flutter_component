@@ -3,6 +3,8 @@ import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
+import '../../constants.dart';
+
 class EsCupertinoTimePicker extends StatefulWidget {
   String title;
 
@@ -18,8 +20,6 @@ class _EsCupertinoTimePicker extends State<EsCupertinoTimePicker> {
   String dataH= "07";
   String dataM= "07";
   String dataS= "07";
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +44,7 @@ class _EsCupertinoTimePicker extends State<EsCupertinoTimePicker> {
                   }, currentTime: DateTime.now());
             }, text: widget.title,
             ),
+        SizedBox(height: Constants.paddingDimension,),
         EsOrdinaryText(data:dataH+":"+dataM+":"+dataS),
 
       ],
