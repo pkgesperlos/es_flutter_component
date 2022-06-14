@@ -225,31 +225,6 @@ class _EsResponsiveTable extends State<EsResponsiveTable> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("RESPONSIVE DATA TABLE"),
-        actions: [
-          IconButton(
-            onPressed: _initializeData,
-            icon: Icon(Icons.refresh_sharp),
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text("home"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.storage),
-              title: Text("data"),
-              onTap: () {},
-            )
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
