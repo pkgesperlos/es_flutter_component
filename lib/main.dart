@@ -2,6 +2,7 @@
 
 
 import 'package:es_flutter_component/es-chart/es-pie-chart.dart';
+import 'package:es_flutter_component/es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
           // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
           //   NotificationApi.showNotification();
           // },),)
-          body: Center(child: EsPieChart(),),
+          body: Center(child: EsPersianDatePicker(title: 'Press',),),
         ));
 
     

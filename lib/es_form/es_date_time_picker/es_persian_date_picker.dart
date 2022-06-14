@@ -18,6 +18,7 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
 
   DateTime data = DateTime(1410, 12, 31);
   String datamonth="9";
+  int n=0;
 
 
 
@@ -32,8 +33,8 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
             onPressed: () {
               DatePicker.showDatePicker(context,
                   showTitleActions: true,
-                  minTime: DateTime(1350, 4, 1),
-                  maxTime: DateTime(1410, 12, 31),
+                  minTime: DateTime(1350, 1, 1),
+                  maxTime: DateTime(1410, 1, 1),
                   theme: DatePickerTheme(
                       headerColor: Colors.grey,
                       backgroundColor: Colors.white,
@@ -45,7 +46,8 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
                   onChanged: (date) {}, onConfirm: (date) {
                 setState(() {
                   data = date.toLocal() ;
-                  datamonth=(date.month-3).toString();
+                  n=(date.month>=4)?-3:8;
+                  datamonth=(date.month+n).toString();
 
                   print(data);
                 });
