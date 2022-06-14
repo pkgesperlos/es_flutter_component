@@ -22,7 +22,10 @@ import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_form/es_toggle_button.dart';
 import 'package:es_flutter_component/es_image/es_zooming_image.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
+import 'package:es_flutter_component/es_slider/es_carousel_slider.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_side_navigator.dart';
+import 'package:es_flutter_component/es_table/es_editable_table.dart';
+import 'package:es_flutter_component/es_table/es_simple_table.dart';
 import 'package:es_flutter_component/es_text/es_dotted_text.dart';
 import 'package:es_flutter_component/es_text/es_label_text.dart';
 import 'package:es_flutter_component/es_text/es_marked_text.dart';
@@ -75,10 +78,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List<Widget> titleList = List.generate(
-    //   20,
-    //   (index) => titleBox("ابزار کمکی", index),
-    // );
+    List<Widget> titleList = List.generate(
+      20,
+      (index) => titleBox("ابزار کمکی", index),
+    );
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -92,88 +95,8 @@ class MyApp extends StatelessWidget {
         // },
         home: Scaffold(
             resizeToAvoidBottomInset: false,
-            // appBar: AppBar(),
 
-            // body: AnimatedCheckBox(),
-            // body: CheckboxForm(
-            //   title: Text("check box"),
-            //   validator: (value){
-            //     if(value!=false){return "it is not OK";}
-            //     return null;
-            //   },
-            //   onSaved: (value){
-            //     if(value==true){}
-            //   },
-            // ),
-            // body:TimePicker1()
-            //     body: Center(
-            //   child: IconButton(
-            //
-            //     onPressed: () {},
-            //     icon:Icon(Icons.search),
-            //   ),
-            // )
-            // body: Center(child: EsPerspectiveSlider(itemList: titleList,horizental: true,)),
-
-            //     body: Center(
-            //   child: EsTopNavigator(
-            //     pagesContentList: titleList,
-            //     tabBarItemList: tabBarItemList
-            //   ),
-            // )
-            //
-            //   body: EsSideNavigator(pagesContentList: titleList,tabBarItemList:tabBarItemList2),
-            // home: EsCheckbox()
-            // body: EsOrdinaryList(itemList: titleList,),
-            // body: EsAccordionList(),
-            // body: Center(child: EsIconButton(icon: Icons.search, onPressed: () {  },))
-            // body: Center(child: EsRadioButton( ))
-            // body: EsEditableTable(),
-            // body: Container(
-            //   width: 300,
-            //   height: 300,
-            //   child: EsResponsiveImage(path: "assets/images/img1.jpg",),
-            // ),
-            // body: EsAvatarImage(path: "assets/images/img1.jpg",radius: 100,),
-            // body: EsLightBoxShowing(path: "assets/images/img1.jpg",),
-            // body: EsZoomingImage(img: AssetImage("assets/images/img1.jpg"),),
-            // body:Center(
-            //   // child:  EsLinearProgressbar(),
-            //   child:  EsDateTimePicker(),
-            // ),
-            // body: Center(child: EsTextArea(hint: "Enter your text:",),),
-            // body: Center(child: EsDropDownButton(items: ["I am Ok","I am happy ","3","4",])),
-            // body: Container()
-            // body: EsSlideIndicator(items: items,),
-            // body: EsDropDownButton(items: ["English","Persian"],
-            //   onTapItems: [(){print('English');},(){print('Persian');}],),
-            // body: EsSideNavigator(
-            //   pagesContentList: [EsDateTimePicker(), EsRadioButton()],
-            //   tabBarItemList: tabBarItemList2,
-            // )
-          // body: Center(child: Column(
-          //   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     EsTitle(data: "It is a nice day:)",),
-          //     EsDottedText(data: "It is a nice day:)",),
-          //     EsOrdinaryText(data: "It is a nice day:)",),
-          //     EsLableText(data: "It is a nice day:)",),
-          //
-          //   ],
-          // ),),
-          // body: MyStatefulWidget(),
-          // body:EsPersianDatePicker(title: "Select date",)
-          // body: EsPersianDatePicker(title: "select",),
-
-          // body:EsCupertinoTimePicker(title: "select",)
-          // body:EsFilePicker(
-          //   openText: "aaa",
-          //   pickText: "aaa",
-          //   clearText: "aaa",
-          // )
-          // body:EsDropDownButton(items: ["number1","number2","number3",],onTapItems: [(){},(){},(){}],)
-          // body: EsZoomingImage(img: ,),
-          body: EsZoomingImage(img: AssetImage("assets/images/img1.jpg"),),
+          body:EsEditableTable()
         ));
 
     
