@@ -8,7 +8,7 @@ class EsAvatarImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(aspectRatio: 1,child: CircleAvatar(
+    return CircleAvatar(
 
         backgroundColor: Constants.button,
         radius:radius,
@@ -20,7 +20,7 @@ class EsAvatarImage extends StatelessWidget {
               ),
             ))
       // backgroundImage: ,
-    ),);
+    );
 
   }
 
