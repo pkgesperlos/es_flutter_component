@@ -6,6 +6,9 @@ import 'package:es_flutter_component/es_dialog/es_awesome_dialog.dart';
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_autohide_dialog.dart';
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_error_dialog.dart';
 import 'package:es_flutter_component/es_dialog/es_awesome_dialog/es_warning_dialog.dart';
+import 'package:es_flutter_component/es_form/es_animated_checkbox.dart';
+import 'package:es_flutter_component/es_form/es_checkbox_vallidation.dart';
+
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_android_time_picker.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_cupertino_time_picker.dart';
 import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
@@ -34,6 +37,7 @@ import 'es_button/es_icon_button.dart';
 import 'es_dialog/es_awesome_dialog/es_body_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_info_dialog.dart';
 import 'es_dialog/es_awesome_dialog/es_success_dialog.dart';
+import 'es_form/es_checkbox.dart';
 import 'es_form/es_date_time_picker/es_cupertino_12h_time_picker.dart';
 import 'es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'es_form/es_radio_button.dart';
@@ -164,7 +168,7 @@ class MyApp extends StatelessWidget {
           //   pickText: "aaa",
           //   clearText: "aaa",
           // )
-          body: EsRengedSlider(),
+          body: EsAnimatedCheckBox(title: "kkkkk",),
         ));
     
   }

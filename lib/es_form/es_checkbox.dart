@@ -1,31 +1,7 @@
 import 'package:es_flutter_component/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 
-///////////////////////////////////
-// class AnimatedCheckBox extends StatefulWidget {
-//   const AnimatedCheckBox({Key? key}) : super(key: key);
-//
-//   @override
-//   State<AnimatedCheckBox> createState() => _AnimatedCheckBox();
-// }
-//
-// class _AnimatedCheckBox extends State<AnimatedCheckBox> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return CheckboxListTile(
-//       title: const Text('Animate Slowly'),
-//       value: timeDilation != 1.0,
-//       onChanged: (bool? value) {
-//         setState(() {
-//           timeDilation = value! ? 5.0 : 1.0;
-//         });
-//       },
-//       secondary: const Icon(Icons.hourglass_empty),
-//     );
-//   }
-// }
-////////////////////////////////////////////
+
 
 
 
