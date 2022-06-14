@@ -48,6 +48,7 @@ import 'es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'es_form/es_drop_down_button.dart';
 import 'es_form/es_radio_button.dart';
 import 'es_form.dart';
+import 'es_notification/es_ordinary_notification.dart';
 
 void main() {
   runApp(MyApp());
@@ -96,7 +97,9 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
 
-          body:EsEditableTable()
+          body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
+            NotificationApi.showNotification();
+          },),)
         ));
 
     
