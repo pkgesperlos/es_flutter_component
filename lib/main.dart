@@ -11,7 +11,7 @@ import 'package:es_flutter_component/es_form/es_checkbox_vallidation.dart';
 
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_android_time_picker.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_cupertino_time_picker.dart';
-import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
+
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_date_time_picker.dart';
 import 'package:es_flutter_component/es_form/es_file_picker.dart';
@@ -19,6 +19,7 @@ import 'package:es_flutter_component/es_form/es_ordinary_slider.dart';
 import 'package:es_flutter_component/es_form/es_ranged_slider.dart';
 import 'package:es_flutter_component/es_form/es_text_editor.dart';
 import 'package:es_flutter_component/es_form/es_text_field.dart';
+import 'package:es_flutter_component/es_form/es_toggle_button.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_side_navigator.dart';
 import 'package:es_flutter_component/es_text/es_dotted_text.dart';
@@ -40,6 +41,7 @@ import 'es_dialog/es_awesome_dialog/es_success_dialog.dart';
 import 'es_form/es_checkbox.dart';
 import 'es_form/es_date_time_picker/es_cupertino_12h_time_picker.dart';
 import 'es_form/es_date_time_picker/es_persian_date_picker.dart';
+import 'es_form/es_drop_down_button.dart';
 import 'es_form/es_radio_button.dart';
 import 'es_form.dart';
 
@@ -168,8 +170,10 @@ class MyApp extends StatelessWidget {
           //   pickText: "aaa",
           //   clearText: "aaa",
           // )
-          body:IntrinsicWidth(child: EsAnimatedCheckBox(title: "ddddd"),)
+          // body:EsDropDownButton(items: ["number1","number2","number3",],onTapItems: [(){},(){},(){}],)
+          body: ESToggleButton(),
         ));
+
     
   }
 
