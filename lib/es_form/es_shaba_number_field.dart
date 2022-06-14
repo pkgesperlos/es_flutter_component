@@ -23,6 +23,7 @@ class _EsShabaNumberField extends State<EsShabaNumberField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlign: TextAlign.left,
       validator: widget.validator,
       inputFormatters: [maskFormatter],
       keyboardType: TextInputType.number,

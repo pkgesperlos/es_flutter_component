@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:pattern_formatter/numeric_formatter.dart';
@@ -23,6 +25,7 @@ class _EsPriceField extends State<EsPriceField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlign: TextAlign.left,
       validator: widget.validator,
       keyboardType: TextInputType.number,
       inputFormatters: [
