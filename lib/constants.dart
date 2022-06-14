@@ -6,7 +6,7 @@ class Constants{
   static const  double titleFontSize=27;
   static const  double ordinaryFontSize=20;
   static const  double lableFontSize=17;
-  static const  double markedFontSize=27;
+  static const  double markedFontSize=20;
   //font color
   static const Color titleText=Colors.black;
   static const Color ordinaryText=Colors.black;

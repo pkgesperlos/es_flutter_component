@@ -30,7 +30,7 @@ class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
           },
           text:widget.title ,
         ),
-        EsOrdinaryText(data:"{selectedTime.hour}:${selectedTime.minute}")
+        EsOrdinaryText(data:"${selectedTime.hour}:${selectedTime.minute}")
       ],
     );
   }

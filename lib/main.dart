@@ -20,6 +20,7 @@ import 'package:es_flutter_component/es_form/es_ranged_slider.dart';
 import 'package:es_flutter_component/es_form/es_text_editor.dart';
 import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_form/es_toggle_button.dart';
+import 'package:es_flutter_component/es_image/es_zooming_image.dart';
 import 'package:es_flutter_component/es_list/es_accardion_list.dart';
 import 'package:es_flutter_component/es_tab_navigator/es_side_navigator.dart';
 import 'package:es_flutter_component/es_text/es_dotted_text.dart';
@@ -171,7 +172,8 @@ class MyApp extends StatelessWidget {
           //   clearText: "aaa",
           // )
           // body:EsDropDownButton(items: ["number1","number2","number3",],onTapItems: [(){},(){},(){}],)
-          body: ESToggleButton(),
+          // body: EsZoomingImage(img: ,),
+          body: EsZoomingImage(img: AssetImage("assets/images/img1.jpg"),),
         ));
 
     

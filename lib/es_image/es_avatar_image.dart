@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class EsAvatarImage extends StatelessWidget {
   String path;
   double radius;
-  EsAvatarImage({Key? key,required this.path,required this.radius}) : super(key: key);
+  EsAvatarImage({Key? key,required this.path,this.radius=100}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

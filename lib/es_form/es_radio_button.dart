@@ -1,15 +1,30 @@
+import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 
 
 enum SingingCharacter { number1, number2,number3 }
-// String num1=EnumToString.convertToString(SingingCharacter.number1);
-// List<String> itemList=List.generate(SingingCharacter, (index) => null)
 
 
+
+// extension MyEnumExtension on SingingCharacter {
+//   String get value {
+//     switch (this) {
+//       case SingingCharacter.number1:
+//         return "hello";
+//       case SingingCharacter.number2:
+//         return "seven";
+//       case SingingCharacter.number3:
+//         return "seven";
+//       default:
+//         return "";
+//     }
+//   }
+// }
 class EsRadioButton extends StatefulWidget {
 
   const EsRadioButton({Key? key}) : super(key: key);
+
 
 
   @override
@@ -21,13 +36,15 @@ class _EsRadioButton extends State<EsRadioButton> {
   SingingCharacter? _character = SingingCharacter.number2;
 
 
+
   @override
   Widget build(BuildContext context) {
-    print(_character);
+
+
     return Column(
       children: <Widget>[
         ListTile(
-          title: const Text("number1"),
+          title: EsOrdinaryText(data: "number1",),
           leading: Radio(
             value: SingingCharacter.number1,
             groupValue: _character,
@@ -39,7 +56,7 @@ class _EsRadioButton extends State<EsRadioButton> {
           ),
         ),
         ListTile(
-          title: const Text('number2'),
+          title: EsOrdinaryText(data: "number2",),
           leading: Radio(
             value: SingingCharacter.number2,
             groupValue: _character,
@@ -51,7 +68,7 @@ class _EsRadioButton extends State<EsRadioButton> {
           ),
         ),
         ListTile(
-          title: const Text('number3'),
+          title: EsOrdinaryText(data: "number3",),
           leading: Radio(
             value: SingingCharacter.number3,
             groupValue: _character,
@@ -65,4 +82,5 @@ class _EsRadioButton extends State<EsRadioButton> {
       ],
     );
   }
+
 }
