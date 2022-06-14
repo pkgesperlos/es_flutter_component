@@ -168,7 +168,7 @@ class MyApp extends StatelessWidget {
           //   pickText: "aaa",
           //   clearText: "aaa",
           // )
-          body: EsAnimatedCheckBox(title: "kkkkk",),
+          body:IntrinsicWidth(child: EsAnimatedCheckBox(title: "ddddd"),)
         ));
     
   }
