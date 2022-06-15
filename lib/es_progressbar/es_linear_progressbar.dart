@@ -16,12 +16,12 @@ class _EsLinearProgressbar extends State<EsLinearProgressbar> {
 
   @override
   void initState() {
-    Timer timer;
+    late Timer timer;
     timer = Timer.periodic(Duration(milliseconds:1000),(_){
       setState(() {
         percent+=10;
         if(percent > 100){
-          // timer.cancel();
+          timer.cancel();
           percent=0;
         }
       });

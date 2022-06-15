@@ -10,24 +10,23 @@ class EsCircularProgressbar extends StatefulWidget {
 }
 
 class _EsCircularProgressbar extends State<EsCircularProgressbar> {
-
   double percent = 0.0;
-
 
   @override
   void initState() {
-    Timer timer;
+    late Timer timer;
     timer = Timer.periodic(Duration(milliseconds:1000),(_){
       setState(() {
         percent+=10;
         if(percent > 100){
-          // timer.cancel();
+          timer.cancel();
           percent=0;
         }
       });
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
 
