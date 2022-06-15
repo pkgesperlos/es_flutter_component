@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 
 
-class EsCircleGraph extends StatefulWidget {
-  const EsCircleGraph({Key? key}) : super(key: key);
+class EsCircularChart extends StatefulWidget {
+  const EsCircularChart({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => PieChart2State();

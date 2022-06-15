@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 
 
 
-class EsLineargraph extends StatefulWidget {
-  const EsLineargraph({Key? key}) : super(key: key);
+class EsBarChart extends StatefulWidget {
+  const EsBarChart({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => EsLineargraphState();
+  State<StatefulWidget> createState() => EsBarChartState();
 }
 
-class EsLineargraphState extends State<EsLineargraph> {
+class EsBarChartState extends State<EsBarChart> {
   final Color leftBarColor = Constants.greenDark;
   final Color rightBarColor = Constants.redLight;
   final double width = 7;

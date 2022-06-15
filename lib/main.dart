@@ -1,12 +1,12 @@
 // @dart=2.9
 
 
-import 'package:es_flutter_component/es-chart/es-pie-chart.dart';
+import 'package:es_flutter_component/es-chart/es-linear-chart.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'es-chart/es-circle_graph.dart';
+import 'es-chart/es-circular_chart.dart';
 
 
 void main() {

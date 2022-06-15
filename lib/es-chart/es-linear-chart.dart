@@ -3,14 +3,14 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 
-class EsPieChart extends StatefulWidget {
-  const EsPieChart({Key? key}) : super(key: key);
+class EsLinearChart extends StatefulWidget {
+  const EsLinearChart({Key? key}) : super(key: key);
 
   @override
-  _EsPieChartState createState() => _EsPieChartState();
+  _EsLinearChartState createState() => _EsLinearChartState();
 }
 
-class _EsPieChartState extends State<EsPieChart> {
+class _EsLinearChartState extends State<EsLinearChart> {
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
