@@ -12,11 +12,11 @@ class EsLinearProgressbar extends StatefulWidget {
 class _EsLinearProgressbar extends State<EsLinearProgressbar> {
 
   double percent = 0.0;
-
+  late Timer timer;
 
   @override
   void initState() {
-    late Timer timer;
+
     timer = Timer.periodic(Duration(milliseconds:1000),(_){
       setState(() {
         percent+=10;
@@ -28,6 +28,15 @@ class _EsLinearProgressbar extends State<EsLinearProgressbar> {
     });
     super.initState();
   }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+
+    timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
