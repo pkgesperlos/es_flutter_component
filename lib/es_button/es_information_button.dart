@@ -58,10 +58,12 @@ class EsInformationButton extends StatelessWidget {
     return Dialog(
 
       child: Container(
-          width: 100,
-          height:100,
+          // width: 100,
+          // height:100,
           color:Colors.white,
-          child: EsOrdinaryText(data:dialogeText ,),
+          child:Container(
+            padding: EdgeInsets.all(Constants.paddingDimension),
+            child:  EsOrdinaryText(data:dialogeText ,),),
       ),
     );
   }
