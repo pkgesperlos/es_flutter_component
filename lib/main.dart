@@ -2,6 +2,7 @@
 
 
 import 'package:es_flutter_component/es-chart/es-linear-chart.dart';
+import 'package:es_flutter_component/es_button/es_information_button.dart';
 import 'package:es_flutter_component/es_form/es_date_time_picker/es_persian_date_picker.dart';
 import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -61,8 +62,7 @@ class MyApp extends StatelessWidget {
           // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
           //   NotificationApi.showNotification();
           // },),)
-          body: Center(child: Container(),
-              // child:EsFilePicker(openText: "aaa",pickText: "aaa",clearText: "aaa",)
+          body: Center(child:EsInformationButton(dialogeText: "it is a chart!",)
           ),
         ));
 

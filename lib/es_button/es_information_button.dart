@@ -1,11 +1,12 @@
 import 'package:es_flutter_component/constants.dart';
-import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EsOrdinaryButton extends StatelessWidget {
+import '../es_text/es_ordinary_text.dart';
+
+class EsInformationButton extends StatelessWidget {
   String text;
-  VoidCallback onPressed;
+  String dialogeText;
   Color buttonColor;
   Color buttonFontColor;
   Color buttonBorderColor;
@@ -14,9 +15,9 @@ class EsOrdinaryButton extends StatelessWidget {
   double buttonSizeY;
   double buttonFontSize;
 
-  EsOrdinaryButton({
-    required this.text,
-    required this.onPressed,
+  EsInformationButton({
+    this.text="i",
+    this.dialogeText="",
     this.buttonColor = Constants.buttonColor,
     this.buttonFontColor = Constants.buttonFontColor,
     this.buttonBorderColor = Constants.buttonBorderColor,
@@ -30,10 +31,10 @@ class EsOrdinaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
 
-        onTap: onPressed,
+        onTap: (){showDialog(context: context, builder: (context) => customDialog());},
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
+              vertical: buttonSizeY / 4, horizontal: buttonSizeX / 3),
           // child: Text(
           //   text,
           //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
@@ -41,7 +42,7 @@ class EsOrdinaryButton extends StatelessWidget {
           child: EsOrdinaryText(data: text,color: Constants.buttonFontColor,size: Constants.buttonFontSize,),
           decoration: BoxDecoration(
               color: buttonColor,
-              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 3)),
+              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 2)),
               border: Border.all(color: buttonBorderColor, width: 2),
               boxShadow: [
                 BoxShadow(
@@ -51,5 +52,17 @@ class EsOrdinaryButton extends StatelessWidget {
                     blurRadius: 2)
               ]),
         ));
+  }
+  Widget customDialog() {
+
+    return Dialog(
+
+      child: Container(
+          width: 100,
+          height:100,
+          color:Colors.white,
+          child: EsOrdinaryText(data:dialogeText ,),
+      ),
+    );
   }
 }
