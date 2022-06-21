@@ -34,7 +34,7 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
               DatePicker.showDatePicker(context,
                   showTitleActions: true,
                   minTime: DateTime(1350, 1, 1),
-                  maxTime: DateTime(1410, 1, 1),
+                  maxTime: DateTime(1410, 12, 1),
                   theme: DatePickerTheme(
                       headerColor: Colors.grey,
                       backgroundColor: Colors.white,

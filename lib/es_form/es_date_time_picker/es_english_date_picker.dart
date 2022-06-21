@@ -32,8 +32,8 @@ class _EsEnglishDatePicker extends State<EsEnglishDatePicker> {
             onPressed: () {
               DatePicker.showDatePicker(context,
                   showTitleActions: true,
-                  minTime: DateTime(1350, 4, 1),
-                  maxTime: DateTime(1410, 12, 31),
+                  minTime: DateTime(1800, 1, 1),
+                  maxTime: DateTime(2040, 12, 31),
                   theme: DatePickerTheme(
                       headerColor: Colors.grey,
                       backgroundColor: Colors.white,
@@ -53,7 +53,7 @@ class _EsEnglishDatePicker extends State<EsEnglishDatePicker> {
               }, currentTime: DateTime.now(), locale: LocaleType.en);
             }),
         SizedBox(height: Constants.paddingDimension,),
-        EsOrdinaryText(data: data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),
+        EsOrdinaryText(data: data.year.toString()+"/"+data.month.toString()+"/"+data.day.toString()),
       ],
     );
   }
