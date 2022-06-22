@@ -36,7 +36,7 @@ class EsFilePicker extends StatefulWidget {
 }
 
 class _EsFilePicker extends State<EsFilePicker> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String? _fileName;
   List<PlatformFile>? _paths;
   String? _directoryPath;
@@ -106,8 +106,8 @@ class _EsFilePicker extends State<EsFilePicker> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children:
-              Platform.isAndroid || Platform.isIOS || Platform.isFuchsia
-              ?<Widget>[
+              // Platform.isAndroid || Platform.isIOS || Platform.isFuchsia
+              <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: DropdownButton<FileType>(
@@ -246,7 +246,7 @@ class _EsFilePicker extends State<EsFilePicker> {
                       : const SizedBox(),
                 ),
               ]
-              :[]
+
             ),
           ),
         ));

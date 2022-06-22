@@ -1,16 +1,12 @@
 // @dart=2.9
 
 
-import 'package:es_flutter_component/es-chart/es-linear-chart.dart';
-import 'package:es_flutter_component/es_button/es_bordered_button.dart';
-import 'package:es_flutter_component/es_button/es_information_button.dart';
-import 'package:es_flutter_component/es_form/es_date_time_picker/es_persian_date_picker.dart';
-import 'package:es_flutter_component/es_form/es_drop_down_button.dart';
+import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'es-chart/es-circular_chart.dart';
 import 'es_form/es_file_picker/es_file_picker.dart';
+
 
 
 void main() {
@@ -63,7 +59,10 @@ class MyApp extends StatelessWidget {
           // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
           //   NotificationApi.showNotification();
           // },),)
-          body: Center(child:EsInformationButton(dialogeText: "",)
+          body: Center(
+              child:
+              // EsOrdinaryButton(text: "dddd",onPressed: (){},)
+              EsFilePicker(openText: "",pickText: "",clearText: "",),
           ),
         ));
 
