@@ -1,6 +1,7 @@
 // @dart=2.9
 
 
+import 'package:es_flutter_component/es_button/es_information_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,8 +62,8 @@ class MyApp extends StatelessWidget {
           // },),)
           body: Center(
               child:
-              // EsOrdinaryButton(text: "dddd",onPressed: (){},)
-              EsFilePicker(openText: "",pickText: "",clearText: "",),
+              EsInformationButton()
+
           ),
         ));
 

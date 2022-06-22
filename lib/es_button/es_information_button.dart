@@ -24,7 +24,7 @@ class EsInformationButton extends StatelessWidget {
     this.buttonShadowColor = Constants.buttonShadowColor,
     this.buttonSizeX = Constants.buttonSizeX,
     this.buttonSizeY = Constants.buttonSizeY,
-    this.buttonFontSize = Constants.buttonFontSize*0.9,
+    this.buttonFontSize = Constants.buttonFontSize*0.7,
   });
 
   @override
@@ -34,7 +34,7 @@ class EsInformationButton extends StatelessWidget {
         onTap: (){showDialog(context: context, builder: (context) => customDialog());},
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: 0, horizontal: buttonSizeX / 5),
+              vertical: 0, horizontal: buttonSizeX / 6),
           // child: Text(
           //   text,
           //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
