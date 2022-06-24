@@ -34,15 +34,11 @@ class EsOrdinaryButton extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(
               vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
-          // child: Text(
-          //   text,
-          //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
-          // ),
-          child: EsOrdinaryText(data: text,color: Constants.buttonFontColor,size: Constants.buttonFontSize,),
+          child: EsOrdinaryText(data: text,color:buttonFontColor,size:buttonFontSize,),
           decoration: BoxDecoration(
               color: buttonColor,
               borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)),
-              border: Border.all(color: buttonBorderColor, width: 2),
+              // border: Border.all(color: buttonBorderColor, width: 2),
               boxShadow: [
                 // BoxShadow(
                 //     offset: Offset(2, 2),

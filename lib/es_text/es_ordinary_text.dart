@@ -22,6 +22,7 @@ class EsOrdinaryText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(data,
+
     textAlign: align,
     style: TextStyle(
       color: color,

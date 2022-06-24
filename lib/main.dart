@@ -3,6 +3,7 @@
 
 import 'package:es_flutter_component/es_button/es_information_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -60,11 +61,12 @@ class MyApp extends StatelessWidget {
           // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
           //   NotificationApi.showNotification();
           // },),)
-          body: Center(
-              child:
-              EsOrdinaryButton(text: "ورود",onPressed: (){},)
-
-          ),
+          body:Column(
+            children: [
+              EsOrdinaryButton(text: "ورود",onPressed: (){},),
+              EsOrdinaryText(data: "ssssssssssss")
+            ],
+          )
         ));
 
     
