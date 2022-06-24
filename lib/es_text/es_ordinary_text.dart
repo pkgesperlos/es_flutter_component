@@ -14,7 +14,7 @@ class EsOrdinaryText extends StatelessWidget {
       {Key? key,
         required this.data,
         this.align = TextAlign.center,
-        this.size = Constants.ordinaryFontSize,
+        this.size = Constants.ordinaryFontSize ,
         this.color = Constants.ordinaryText,
         this.fontFamily = Constants.fontFamily})
       : super(key: key);

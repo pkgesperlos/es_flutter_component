@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 class Constants{
   //font
   static const String fontFamily="yekan";
 //font size:
+  static double commonFontSize(BuildContext context) {
+    if (Platform.isAndroid || Platform.isIOS) {
+      return displaySize(context).width * 0.033;
+    } else if (kIsWeb ||
+        Platform.isLinux ||
+        Platform.isWindows ||
+        Platform.isMacOS) {
+      return displaySize(context).width * 0.033;
+    } else {
+      return displaySize(context).width * 0.033;
+    }
+  }
   static const  double titleFontSize=27;
   static const  double ordinaryFontSize=18;
   static const  double lableFontSize=17;
@@ -38,9 +53,22 @@ class Constants{
 
 
 
-  static const  double radDimension=15;
-  static const  double paddingDimension=15;
-  static const  double spaceDimension=10;
+
+  static double paddingDimension(BuildContext context){
+    if (Platform.isAndroid || Platform.isIOS) {
+      return displaySize(context).width * 0.04;
+    } else if (kIsWeb ||
+        Platform.isLinux ||
+        Platform.isWindows ||
+        Platform.isMacOS) {
+      return displaySize(context).width * 0.04;
+    } else {
+      return displaySize(context).width * 0.04;
+    }
+  }
+  static   double borderRadiusDimension=paddingDimension as double;
+  static double spaceDimension=paddingDimension as double;
+  static double spaceBigDimension=paddingDimension as double;
 
   static const  double iconSize=30;
   // static const  double iconButtonSize=30;
@@ -63,5 +91,14 @@ class Constants{
   static const Color blueDark=Color(0xff0293ee);
   static const Color greenDark=Color(0xff13d38e);
 
+  static Size displaySize(BuildContext context) {
+    debugPrint('Size = ' + MediaQuery.of(context).size.toString());
+    return MediaQuery.of(context).size;
+  }
+
+  double displayHeight(BuildContext context) {
+    debugPrint('Height = ' + displaySize(context).height.toString());
+    return displaySize(context).height;
+  }
 
 }

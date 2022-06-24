@@ -31,7 +31,7 @@ class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
           },
           text:widget.title ,
         ),
-        SizedBox(height: Constants.paddingDimension,),
+        SizedBox(height: Constants.paddingDimension(context),),
         EsOrdinaryText(data:"${selectedTime.hour}:${selectedTime.minute}")
       ],
     );

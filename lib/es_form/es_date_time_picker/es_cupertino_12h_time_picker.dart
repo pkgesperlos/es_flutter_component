@@ -47,7 +47,7 @@ class _EsCupertino12HTimePicker extends State<EsCupertino12HTimePicker> {
                   }, currentTime: DateTime.now());
             },
             text: widget.title),
-        SizedBox(height: Constants.paddingDimension,),
+        SizedBox(height: Constants.paddingDimension(context),),
         EsOrdinaryText(data:dataH+":"+dataM),
 
 

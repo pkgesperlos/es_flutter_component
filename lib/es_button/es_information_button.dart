@@ -29,6 +29,20 @@ class EsInformationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget customDialog() {
+
+      return Dialog(
+
+        child: Container(
+          // width: 100,
+          // height:100,
+          color:Colors.white,
+          child:Container(
+            padding: EdgeInsets.all(Constants.paddingDimension(context)),
+            child:  EsOrdinaryText(data:dialogeText ,align: TextAlign.left,),),
+        ),
+      );
+    }
     return InkWell(
 
         onTap: (){showDialog(context: context, builder: (context) => customDialog());},
@@ -54,18 +68,5 @@ class EsInformationButton extends StatelessWidget {
           ),
         ));
   }
-  Widget customDialog() {
 
-    return Dialog(
-
-      child: Container(
-          // width: 100,
-          // height:100,
-          color:Colors.white,
-          child:Container(
-            padding: EdgeInsets.all(Constants.paddingDimension),
-            child:  EsOrdinaryText(data:dialogeText ,align: TextAlign.left,),),
-      ),
-    );
-  }
 }

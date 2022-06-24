@@ -21,10 +21,10 @@ class _EsLinearChartState extends State<EsLinearChart> {
   @override
   Widget build(BuildContext context) {
     return Padding(padding: EdgeInsets.only(
-        left: Constants.paddingDimension / 2,
-        right: Constants.paddingDimension / 2,
-        top: Constants.paddingDimension ,
-        bottom: Constants.paddingDimension),
+        left: Constants.paddingDimension (context)/ 2,
+        right: Constants.paddingDimension(context) / 2,
+        top: Constants.paddingDimension(context) ,
+        bottom: Constants.paddingDimension(context)),
     child:Card(
       color: Constants.purpleLight,
       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),

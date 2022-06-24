@@ -52,7 +52,7 @@ class _EsEnglishDatePicker extends State<EsEnglishDatePicker> {
                 // print('confirm $date');
               }, currentTime: DateTime.now(), locale: LocaleType.en);
             }),
-        SizedBox(height: Constants.paddingDimension,),
+        SizedBox(height: Constants.paddingDimension(context),),
         EsOrdinaryText(data: data.year.toString()+"/"+data.month.toString()+"/"+data.day.toString()),
       ],
     );
