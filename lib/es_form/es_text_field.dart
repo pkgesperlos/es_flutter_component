@@ -38,7 +38,7 @@ class _EsTextField extends State<EsTextField> {
       decoration: InputDecoration(
       prefixIcon:widget.icon,
         border:OutlineInputBorder(
-          borderRadius: BorderRadius.circular(Constants.paddingDimension),
+          borderRadius: BorderRadius.circular(Constants.borderRadiusDimension),
         ),
         // border:UnderlineInputBorder(
         //   borderRadius: BorderRadius.circular(25),
