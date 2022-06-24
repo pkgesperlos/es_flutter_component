@@ -54,10 +54,10 @@ class EsBarChartState extends State<EsBarChart> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: Constants.paddingDimension (context)/ 2,
-          right: Constants.paddingDimension(context) / 2,
-          top: Constants.paddingDimension(context) ,
-          bottom: Constants.paddingDimension(context)),
+          left: Constants.paddingDimension / 2,
+          right: Constants.paddingDimension / 2,
+          top: Constants.paddingDimension ,
+          bottom: Constants.paddingDimension),
       child: AspectRatio(
         aspectRatio: 1,
         child: Card(

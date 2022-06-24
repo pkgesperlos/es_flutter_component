@@ -20,9 +20,9 @@ class PieChart2State extends State {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: Constants.paddingDimension(context)/2,
-        right: Constants.paddingDimension(context)/2,
-        bottom: Constants.paddingDimension(context)/2,
+        left: Constants.paddingDimension/2,
+        right: Constants.paddingDimension/2,
+        bottom: Constants.paddingDimension/2,
       ),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),

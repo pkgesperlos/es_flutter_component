@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           // },),)
           body: Center(
               child:
-              EsInformationButton()
+              EsOrdinaryButton(text: "ورود",onPressed: (){},)
 
           ),
         ));
@@ -71,13 +71,4 @@ class MyApp extends StatelessWidget {
   }
 
 
-  Widget boxShow(Widget widget){
-    return Container(
-      padding:EdgeInsets.all(10) ,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          color: Colors.white
-      ),
-      child:widget ,
-    );
-}}
+}

@@ -176,13 +176,13 @@ class _EsFilePicker extends State<EsFilePicker> {
                         onPressed: () => _openFileExplorer(),
 
                       ),
-                      SizedBox(height: Constants.paddingDimension(context),),
+                      SizedBox(height: Constants.paddingDimension,),
                       EsOrdinaryButton(
                         text:widget.pickText ,
                         onPressed: () => _selectFolder(),
 
                       ),
-                      SizedBox(height: Constants.paddingDimension(context),),
+                      SizedBox(height: Constants.paddingDimension,),
                       EsOrdinaryButton(
                         text: widget.clearText,
                         onPressed: () => _clearCachedFiles(),

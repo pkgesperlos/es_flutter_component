@@ -38,9 +38,9 @@ class Constants{
   static const Color sidebarColor=Colors.black26;
 
   static const  double buttonSizeX=50;
-  static const  double buttonSizeY=20;
-  static const  double buttonFontSize=20;
-  static const  double buttonIconSize=20;
+  static const  double buttonSizeY=10;
+  static const  double buttonFontSize=17;
+  static const  double buttonIconSize=17;
 
   static const Color successButtonColor=Colors.green;
   static const Color errorButtonColor=Colors.red;
@@ -54,21 +54,22 @@ class Constants{
 
 
 
-  static double paddingDimension(BuildContext context){
-    if (Platform.isAndroid || Platform.isIOS) {
-      return displaySize(context).width * 0.04;
-    } else if (kIsWeb ||
-        Platform.isLinux ||
-        Platform.isWindows ||
-        Platform.isMacOS) {
-      return displaySize(context).width * 0.04;
-    } else {
-      return displaySize(context).width * 0.04;
-    }
-  }
+  // static double paddingDimension(BuildContext context){
+  //   if (Platform.isAndroid || Platform.isIOS) {
+  //     return displaySize(context).width * 0.03;
+  //   } else if (kIsWeb ||
+  //       Platform.isLinux ||
+  //       Platform.isWindows ||
+  //       Platform.isMacOS) {
+  //     return displaySize(context).width * 0.03;
+  //   } else {
+  //     return displaySize(context).width * 0.03;
+  //   }
+  // }
+  static   double paddingDimension=10;
   static   double borderRadiusDimension=paddingDimension as double;
-  static double spaceDimension=paddingDimension as double;
-  static double spaceBigDimension=paddingDimension as double;
+  static double spaceDimension=2*paddingDimension as double;
+  static double spaceBigDimension=5*paddingDimension as double;
 
   static const  double iconSize=30;
   // static const  double iconButtonSize=30;
