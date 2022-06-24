@@ -21,16 +21,16 @@ class EsOrdinaryText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(data,
+    return IntrinsicHeight(child: Text(
+      data,
+      textAlign: align,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
+        fontFamily: fontFamily,
+        fontWeight: FontWeight.w300,
+        // overflow: TextOverflow.ellipsis,
 
-    textAlign: align,
-    style: TextStyle(
-      color: color,
-      fontSize: size,
-      fontFamily: fontFamily,
-      fontWeight: FontWeight.w300,
-      // overflow: TextOverflow.ellipsis,
-
-    ),);
+      ),),);
   }
 }

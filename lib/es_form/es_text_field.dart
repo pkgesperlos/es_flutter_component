@@ -5,17 +5,17 @@ import 'package:validators/validators.dart';
 class EsTextField extends StatefulWidget {
   final String type;
   final String hint;
-  final  icon;
+  final icon;
   final validator;
   final controller;
 
-  const EsTextField({Key? key,
-    required this.type,
-    this.hint = "",
-    this.validator,
-    this.controller,
-    this.icon
-  })
+  const EsTextField(
+      {Key? key,
+      required this.type,
+      this.hint = "",
+      this.validator,
+      this.controller,
+      this.icon})
       : super(key: key);
 
   @override
@@ -25,19 +25,23 @@ class EsTextField extends StatefulWidget {
 }
 
 class _EsTextField extends State<EsTextField> {
-
   String _name = '';
-
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      // scrollPadding: EdgeInsets.symmetric(vertical: Constants.paddingDimension),
+
       validator: widget.validator,
       controller: widget.controller,
       onChanged: (text) => setState(() => _name = text),
       decoration: InputDecoration(
-      prefixIcon:widget.icon,
-        border:OutlineInputBorder(
+        contentPadding:
+            EdgeInsets.symmetric(vertical: Constants.paddingDimension
+                // ,horizontal:Constants.paddingDimension
+                ),
+        prefixIcon: widget.icon,
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Constants.borderRadiusDimension),
         ),
         // border:UnderlineInputBorder(

@@ -3,6 +3,7 @@
 
 import 'package:es_flutter_component/es_button/es_information_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,8 @@ class MyApp extends StatelessWidget {
           body:Column(
             children: [
               EsOrdinaryButton(text: "ورود",onPressed: (){},),
-              EsOrdinaryText(data: "ssssssssssss")
+              EsOrdinaryText(data: "ssssssssssss",size: 40,),
+              EsTextField(type: "type")
             ],
           )
         ));
