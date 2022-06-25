@@ -6,6 +6,7 @@ import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_form/es_dropp_down_button/es_bordered_drop_down_button.dart';
 import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
+import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -70,6 +71,16 @@ class MyApp extends StatelessWidget {
                 EsOrdinaryText(data: "ssssssssssss",size: 40,),
                 EsTextField(type: "type"),
                 IntrinsicWidth(child: EsBorderedDropDownButton(items: ["items1","items2"], onTapItems: [(){},(){}])),
+                Container(
+                    width: 300,
+                    child: EsOrdinaryText(
+                      overFlowTag: true,
+                        data: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد")),
+                Container(
+                    width: 300,
+                    child: EsTitle(
+align: TextAlign.start,
+                        data: "لورم ایی می باشد")),
                 IntrinsicWidth(child: EsOrdinaryButton(text: "ورود",onPressed: (){},
                   buttonColor: Color(0xff38C961),)),
               ],

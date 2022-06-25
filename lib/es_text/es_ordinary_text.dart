@@ -8,6 +8,7 @@ class EsOrdinaryText extends StatelessWidget {
   double size;
   Color color;
   String fontFamily;
+  bool overFlowTag;
 
 
   EsOrdinaryText(
@@ -16,7 +17,10 @@ class EsOrdinaryText extends StatelessWidget {
         this.align = TextAlign.center,
         this.size = Constants.ordinaryFontSize ,
         this.color = Constants.ordinaryText,
-        this.fontFamily = Constants.fontFamily})
+        this.fontFamily = Constants.fontFamily,
+        this.overFlowTag=false
+
+      })
       : super(key: key);
 
   @override
@@ -25,13 +29,15 @@ class EsOrdinaryText extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         data,
-      textAlign: align,
+      textAlign:align,
+      maxLines:overFlowTag?3:null ,
       style: TextStyle(
         color: color,
         fontSize: size,
         fontFamily: fontFamily,
         fontWeight: FontWeight.w300,
-        // overflow: TextOverflow.ellipsis,
+        overflow:overFlowTag? TextOverflow.ellipsis:null,
+
 
       ),),
     );
