@@ -40,10 +40,10 @@ class _EsTextField extends State<EsTextField> {
         controller: widget.controller,
         onChanged: (text) => setState(() => _name = text),
         decoration: InputDecoration(
-          // contentPadding:
-          //     EdgeInsets.symmetric(vertical: Constants.paddingDimension
-          //         // ,horizontal:Constants.paddingDimension
-          //         ),
+
+          contentPadding:
+              EdgeInsets.symmetric(vertical: Constants.paddingDimension),
+
           prefixIcon: widget.icon,
           border: OutlineInputBorder(
             borderRadius:

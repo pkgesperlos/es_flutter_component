@@ -32,8 +32,8 @@ class EsOrdinaryButton extends StatelessWidget {
 
         onTap: onPressed,
         child: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
+          padding: EdgeInsets.only(
+              bottom: buttonSizeY*0.5,top: buttonSizeY *0.4, left: buttonSizeX / 2, right: buttonSizeX / 2),
           child: EsOrdinaryText(data: text,color:buttonFontColor,size:buttonFontSize,),
           decoration: BoxDecoration(
               color: buttonColor,
