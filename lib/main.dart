@@ -11,7 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'es_form/es_file_picker/es_file_picker.dart';
-
+import 'es_form/es_search_text_field.dart';
 
 
 void main() {
@@ -39,13 +39,14 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-  String _data="Wishing is The reason of talent";
+
+  String _data = "Wishing is The reason of talent";
 
   @override
   Widget build(BuildContext context) {
     List<Widget> titleList = List.generate(
       20,
-      (index) => titleBox("ابزار کمکی", index),
+          (index) => titleBox("ابزار کمکی", index),
     );
 
     return MaterialApp(
@@ -61,34 +62,49 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
 
-          // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
-          //   NotificationApi.showNotification();
-          // },),)
-          body:Center(
-            child: Column(
-              children: [
-                EsOrdinaryButton(text: "ورود",onPressed: (){},),
-                EsOrdinaryText(data: "ssssssssssss",size: 40,),
-                EsTextField(type: "type"),
-                IntrinsicWidth(child: EsBorderedDropDownButton(items: ["items1","items2"], onTapItems: [(){},(){}])),
-                Container(
-                    width: 300,
-                    child: EsOrdinaryText(
-                      overFlowTag: true,
-                        data: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد")),
-                Container(
-                    width: 300,
-                    child: EsTitle(
-align: TextAlign.start,
-                        data: "لورم ایی می باشد")),
-                IntrinsicWidth(child: EsOrdinaryButton(text: "ورود",onPressed: (){},
-                  buttonColor: Color(0xff38C961),)),
-              ],
-            ),
-          )
-        ));
+            // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
+            //   NotificationApi.showNotification();
+            // },),)
+            body: Center(
+                child: Column(
+                  children: [
+                    EsOrdinaryButton(text: "ورود", onPressed: () {},),
+                    EsOrdinaryText(data: "ssssssssssss", size: 40,),
+                    EsSearchTextField(type: "type",hint: "type",),
+                    IntrinsicWidth(child: EsBorderedDropDownButton(
+                        items: ["items1", "items2"],
+                        onTapItems: [() {}, () {}])),
+                    Container(
+                        width: 300,
+                        child: EsOrdinaryText(
+                            overFlowTag: true,
+                            data: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد")),
+                    Container(
+                      height: 150,
+                      decoration: BoxDecoration(
+                          color: Colors.indigo,
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(15)),
+                          // boxShadow: [Styles.titleCardBoxShadow],
+                          border: Border(bottom: BorderSide(
+                              color: Colors.red,
+                              width: 20))
+                      ),
 
-    
+
+                    ),
+                    Container(
+                        width: 300,
+                        child: EsTitle(
+                            align: TextAlign.start,
+                            data: "لورم ایی می باشد")),
+                    IntrinsicWidth(
+                        child: EsOrdinaryButton(text: "ورود", onPressed: () {},
+                          buttonColor: Color(0xff38C961),)),
+                  ],
+                ),
+            )
+        ));
   }
 
 
