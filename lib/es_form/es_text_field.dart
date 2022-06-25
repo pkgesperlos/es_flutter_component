@@ -34,15 +34,23 @@ class _EsTextField extends State<EsTextField> {
     return SizedBox(
       height: Constants.textFieldHight,
       child: TextFormField(
+
         // scrollPadding: EdgeInsets.symmetric(vertical: Constants.paddingDimension),
 
         validator: widget.validator,
         controller: widget.controller,
         onChanged: (text) => setState(() => _name = text),
         decoration: InputDecoration(
-
+          // focusColor: Colors.red,
+          // fillColor:Colors.red ,
+          // prefixIconColor: Colors.red,
+          // hoverColor: Colors.red,
+          // hoverColor: Color(0xA1A1A1),
+          filled: true,
+          fillColor: Constants.textFieldFilledColor,
           contentPadding:
-              EdgeInsets.symmetric(vertical: Constants.paddingDimension,horizontal: Constants.paddingDimension),
+              EdgeInsets.symmetric(vertical: Constants.paddingDimension,
+                  horizontal: Constants.paddingDimension),
 
           prefixIcon: widget.icon,
           border: OutlineInputBorder(

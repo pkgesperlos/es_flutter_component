@@ -33,6 +33,7 @@ class Constants{
   //button size
   static const Color buttonColor=Color(0xff18186D);
   static const Color buttonFontColor=Colors.white;
+  static const Color textFieldFilledColor=Colors.white;
   static const Color buttonBorderColor=Colors.black26;
   static const Color buttonShadowColor=Colors.black26;
   static const Color sidebarColor=Colors.black26;
