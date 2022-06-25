@@ -3,6 +3,7 @@
 
 import 'package:es_flutter_component/es_button/es_information_button.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_form/es_dropp_down_button/es_bordered_drop_down_button.dart';
 import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -68,7 +69,9 @@ class MyApp extends StatelessWidget {
                 EsOrdinaryButton(text: "ورود",onPressed: (){},),
                 EsOrdinaryText(data: "ssssssssssss",size: 40,),
                 EsTextField(type: "type"),
-                IntrinsicWidth(child: EsOrdinaryButton(text: "ورود",onPressed: (){},buttonColor: Color(0xff38C961),)),
+                IntrinsicWidth(child: EsBorderedDropDownButton(items: ["items1","items2"], onTapItems: [(){},(){}], type: "type")),
+                IntrinsicWidth(child: EsOrdinaryButton(text: "ورود",onPressed: (){},
+                  buttonColor: Color(0xff38C961),)),
               ],
             ),
           )

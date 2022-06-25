@@ -4,7 +4,7 @@ import 'package:validators/validators.dart';
 
 class EsTextField extends StatefulWidget {
   final String type;
-  final String hint;
+  final  hint;
   final icon;
   final validator;
   final controller;
@@ -13,7 +13,7 @@ class EsTextField extends StatefulWidget {
   const EsTextField({
     Key? key,
     required this.type,
-    this.hint = "",
+    this.hint ,
     this.icon,
     this.validator,
     this.controller,
