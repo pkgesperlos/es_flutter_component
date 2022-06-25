@@ -37,7 +37,7 @@ class Constants{
   static const Color buttonShadowColor=Colors.black26;
   static const Color sidebarColor=Colors.black26;
 
-  static const  double buttonSizeX=50;
+  static const  double buttonSizeX=80;
   static const  double buttonSizeY=10;
   static const  double buttonFontSize=17;
   static const  double buttonIconSize=17;

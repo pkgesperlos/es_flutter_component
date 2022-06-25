@@ -62,12 +62,15 @@ class MyApp extends StatelessWidget {
           // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
           //   NotificationApi.showNotification();
           // },),)
-          body:Column(
-            children: [
-              EsOrdinaryButton(text: "ورود",onPressed: (){},),
-              EsOrdinaryText(data: "ssssssssssss",size: 40,),
-              EsTextField(type: "type")
-            ],
+          body:Center(
+            child: Column(
+              children: [
+                EsOrdinaryButton(text: "ورود",onPressed: (){},),
+                EsOrdinaryText(data: "ssssssssssss",size: 40,),
+                EsTextField(type: "type"),
+                IntrinsicWidth(child: EsOrdinaryButton(text: "ورود",onPressed: (){},buttonColor: Color(0xff38C961),)),
+              ],
+            ),
           )
         ));
 
