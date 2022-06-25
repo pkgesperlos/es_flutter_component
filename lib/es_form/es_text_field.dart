@@ -42,7 +42,7 @@ class _EsTextField extends State<EsTextField> {
         decoration: InputDecoration(
 
           contentPadding:
-              EdgeInsets.symmetric(vertical: Constants.paddingDimension),
+              EdgeInsets.symmetric(vertical: Constants.paddingDimension,horizontal: Constants.paddingDimension),
 
           prefixIcon: widget.icon,
           border: OutlineInputBorder(
