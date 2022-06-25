@@ -21,8 +21,10 @@ class EsOrdinaryText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(child: Text(
-      data,
+    return Align(
+      alignment: Alignment.center,
+      child: Text(
+        data,
       textAlign: align,
       style: TextStyle(
         color: color,
@@ -31,6 +33,7 @@ class EsOrdinaryText extends StatelessWidget {
         fontWeight: FontWeight.w300,
         // overflow: TextOverflow.ellipsis,
 
-      ),),);
+      ),),
+    );
   }
 }

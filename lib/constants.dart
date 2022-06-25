@@ -66,10 +66,11 @@ class Constants{
   //     return displaySize(context).width * 0.03;
   //   }
   // }
-  static   double paddingDimension=10;
-  static   double borderRadiusDimension=paddingDimension as double;
-  static double spaceDimension=2*paddingDimension as double;
-  static double spaceBigDimension=5*paddingDimension as double;
+  static const  double paddingDimension=10;
+  static const double borderRadiusDimension=paddingDimension as double;
+  static const double spaceDimension=2*paddingDimension as double;
+  static const double spaceBigDimension=5*paddingDimension as double;
+  static const double textFieldHight=4*paddingDimension as double;
 
   static const  double iconSize=30;
   // static const  double iconButtonSize=30;
