@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
                 EsOrdinaryButton(text: "ورود",onPressed: (){},),
                 EsOrdinaryText(data: "ssssssssssss",size: 40,),
                 EsTextField(type: "type"),
-                IntrinsicWidth(child: EsBorderedDropDownButton(items: ["items1","items2"], onTapItems: [(){},(){}], type: "type")),
+                IntrinsicWidth(child: EsBorderedDropDownButton(items: ["items1","items2"], onTapItems: [(){},(){}])),
                 IntrinsicWidth(child: EsOrdinaryButton(text: "ورود",onPressed: (){},
                   buttonColor: Color(0xff38C961),)),
               ],
