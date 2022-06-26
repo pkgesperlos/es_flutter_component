@@ -8,13 +8,23 @@ class EsBorderedDropDownButton extends StatefulWidget {
   final List<VoidCallback> onTapItems;
   final  hint;
   final icon;
+  final fillColor;
+  // final Color hintColor;
+  final  Color borderColor;
+  final double borderRadiusDimension;
+
 
   EsBorderedDropDownButton(
       {Key? key,
       required this.items,
       required this.onTapItems,
       this.hint,
-      this.icon})
+      this.icon,
+        this.fillColor = Constants.textFieldFilledColor,
+        // this.hintColor=Constants.ordinaryText,
+        this.borderColor=Constants.ordinaryText,
+        this.borderRadiusDimension = Constants.borderRadiusDimension,
+      })
       : super(key: key);
 
   @override
@@ -23,16 +33,16 @@ class EsBorderedDropDownButton extends StatefulWidget {
 
 class _EsBorderedDropDownButton extends State<EsBorderedDropDownButton> {
   late String dropdownValue = widget.items[0];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: Constants.textFieldHight,
       child: DropdownButtonFormField(
-
+        icon: const Icon(Icons.keyboard_arrow_down,color: Constants.ordinaryText,),
         hint: EsLableText(data: widget.hint,),
         value: dropdownValue,
         decoration: const InputDecoration(
+          hintStyle: TextStyle(color:Color(0xffA1A1A1)),
           filled: true,
           fillColor: Constants.textFieldFilledColor,
           contentPadding: EdgeInsets.symmetric(
@@ -40,7 +50,14 @@ class _EsBorderedDropDownButton extends State<EsBorderedDropDownButton> {
               horizontal: Constants.paddingDimension),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)),
+
           ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)),
+            borderSide: BorderSide(color:Color(0xffA1A1A1))
+            // borderSide:BorderSide(color:widget.borderColor ),
+          ),
+
 
 
         ),
