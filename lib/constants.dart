@@ -50,6 +50,7 @@ class Constants{
   static const Color bodyButtonColor=Colors.black38;
   static const Color inputButtonColor=Colors.indigo;
   static const Color autoHideButtonColor=Colors.purple;
+  static const Color enableCheckboxColor=Color(0xFF38C961);
 
 
 

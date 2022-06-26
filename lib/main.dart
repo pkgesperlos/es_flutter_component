@@ -68,6 +68,7 @@ class MyApp extends StatelessWidget {
             body: Center(
                 child: Column(
                   children: [
+
                     EsTextField(type: "type",hint: "jhkk",hintColor: Colors.red,borderColor:Colors.red ,)
                     // EsOrdinaryButton(text: "ورود", onPressed: () {},),
                     // EsOrdinaryText(data: "ssssssssssss", size: 40,),
