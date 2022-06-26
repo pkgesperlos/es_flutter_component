@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
-import '../../constants.dart';
+import '../../images/Constants/constants.dart';
 
 
 class EsInputDialog extends StatefulWidget {

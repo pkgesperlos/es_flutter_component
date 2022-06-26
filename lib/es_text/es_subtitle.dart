@@ -2,7 +2,7 @@ import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
-class EsTitle extends StatelessWidget {
+class EsSubtitle extends StatelessWidget {
   String data;
   TextAlign align;
   double? size;
@@ -10,7 +10,7 @@ class EsTitle extends StatelessWidget {
   String fontFamily;
   final weight;
 
-  EsTitle(
+  EsSubtitle(
       {Key? key,
         required this.data,
         this.weight= FontWeight.bold,
@@ -38,6 +38,6 @@ class EsTitle extends StatelessWidget {
   }
 
   void defaults(context) {
-    size=Dims.h1FontSize(context);
+    size=Dims.h2FontSize(context);
   }
 }

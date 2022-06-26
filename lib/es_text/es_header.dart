@@ -2,7 +2,7 @@ import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
-class EsTitle extends StatelessWidget {
+class EsHeader extends StatelessWidget {
   String data;
   TextAlign align;
   double? size;
@@ -10,10 +10,10 @@ class EsTitle extends StatelessWidget {
   String fontFamily;
   final weight;
 
-  EsTitle(
+  EsHeader(
       {Key? key,
         required this.data,
-        this.weight= FontWeight.bold,
+        this.weight= FontWeight.w900,
         this.align = TextAlign.center,
         this.size,
         this.color = Constants.titleText,

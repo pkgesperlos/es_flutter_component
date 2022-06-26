@@ -1,5 +1,5 @@
 import 'dart:io' show Platform;
-import 'package:es_flutter_component/constants.dart';
+import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
