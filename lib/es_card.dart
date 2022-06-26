@@ -6,7 +6,8 @@ import 'images/Constants/styles.dart';
 class EsCard extends StatefulWidget {
   final cardWidget;
    double ?padding;
-  EsCard({Key? key,this.cardWidget,this.padding}) : super(key: key);
+   final Color color;
+  EsCard({Key? key,this.cardWidget,this.padding,this.color=Styles.t6Color}) : super(key: key);
 
   @override
   _EsCardState createState() => _EsCardState();
@@ -24,7 +25,7 @@ class _EsCardState extends State<EsCard> {
       // margin: EdgeInsets.all( Dims.h1Padding(context),),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context))),
-          color: Styles.t6Color
+          color: widget.color
       ),
       child: widget.cardWidget,
     );
