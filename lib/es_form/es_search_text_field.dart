@@ -8,6 +8,9 @@ class EsSearchTextField extends StatefulWidget {
   final icon;
   final validator;
   final controller;
+  final fillColor;
+  final hintColor;
+  final borderColor;
   final double borderRadiusDimension;
 
   const EsSearchTextField({
@@ -17,6 +20,9 @@ class EsSearchTextField extends StatefulWidget {
     this.icon,
     this.validator,
     this.controller,
+    this.fillColor = Constants.textFieldFilledColor,
+    this.hintColor=Constants.ordinaryText,
+    this.borderColor=Constants.ordinaryText,
     this.borderRadiusDimension = Constants.borderRadiusDimension,
   }) : super(key: key);
 
@@ -41,11 +47,7 @@ class _EsSearchTextField extends State<EsSearchTextField> {
         controller: widget.controller,
         onChanged: (text) => setState(() => _name = text),
         decoration: InputDecoration(
-          // focusColor: Colors.red,
-          // fillColor:Colors.red ,
-          // prefixIconColor: Colors.red,
-          // hoverColor: Colors.red,
-          // hoverColor: Color(0xA1A1A1),
+          hintStyle: TextStyle(color:widget.hintColor),
           filled: true,
           fillColor: Constants.textFieldFilledColor,
           contentPadding:
@@ -56,6 +58,10 @@ class _EsSearchTextField extends State<EsSearchTextField> {
           border: OutlineInputBorder(
             borderRadius:
                 BorderRadius.circular(widget.borderRadiusDimension),
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(widget.borderRadiusDimension),
+              borderSide: BorderSide(color:widget.borderColor )
           ),
           // border:UnderlineInputBorder(
           //   borderRadius: BorderRadius.circular(25),

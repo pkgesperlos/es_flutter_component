@@ -48,7 +48,7 @@ class _EsTextField extends State<EsTextField> {
         decoration: InputDecoration(
           hintStyle: TextStyle(color:widget.hintColor),
           filled: true,
-          fillColor: Constants.textFieldFilledColor,
+          fillColor: widget.fillColor,
           contentPadding: EdgeInsets.symmetric(
               vertical: Constants.paddingDimension,
               horizontal: Constants.paddingDimension),
