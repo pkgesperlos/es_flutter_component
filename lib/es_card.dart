@@ -3,35 +3,34 @@ import 'package:flutter/material.dart';
 import 'images/Constants/dims.dart';
 import 'images/Constants/styles.dart';
 
-class EsCard extends StatefulWidget {
-  final cardWidget;
-   double ?padding;
-   final Color color;
-  EsCard({Key? key,this.cardWidget,this.padding,this.color=Styles.t6Color}) : super(key: key);
+class EsCard extends StatelessWidget {
 
-  @override
-  _EsCardState createState() => _EsCardState();
-}
+  final child;
+  EdgeInsetsGeometry ?padding;
+  EdgeInsetsGeometry ?margin;
+  final Color color;
+  EsCard({Key? key,this.child,this.padding,this.margin,this.color=Styles.t6Color}) : super(key: key);
 
-class _EsCardState extends State<EsCard> {
+
   @override
   Widget build(BuildContext context) {
+
     defaults(context);
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal:widget.padding!,
-        vertical: widget.padding!,
-      ),
-      // margin: EdgeInsets.all( Dims.h1Padding(context),),
+
+
+    return  Container(
+      padding: padding,
+      margin: margin,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context))),
-          color: widget.color
+          color: color
       ),
-      child: widget.cardWidget,
+      child: child,
     );
   }
 
+
   void defaults(context) {
-    widget.padding=Dims.h1Padding(context);
+    padding=EdgeInsets.all(Dims.h1Padding(context));
   }
 }
