@@ -6,6 +6,7 @@ class EsTextField extends StatefulWidget {
   final String type;
   final hint;
   final icon;
+  final TextAlign align;
   final validator;
   final controller;
   final fillColor;
@@ -18,6 +19,7 @@ class EsTextField extends StatefulWidget {
     required this.type,
     this.hint,
     this.icon,
+    this.align = TextAlign.center,
     this.validator,
     this.controller,
     this.fillColor = Constants.textFieldFilledColor,
@@ -40,6 +42,7 @@ class _EsTextField extends State<EsTextField> {
     return SizedBox(
       height: Constants.textFieldHight,
       child: TextFormField(
+        textAlign:widget.align ,
         // scrollPadding: EdgeInsets.symmetric(vertical: Constants.paddingDimension),
 
         validator: widget.validator,
