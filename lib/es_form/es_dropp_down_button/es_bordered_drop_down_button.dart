@@ -1,18 +1,19 @@
 import 'package:es_flutter_component/es_slider/es_slide_indicator.dart';
 import 'package:es_flutter_component/constants.dart';
+import 'package:es_flutter_component/es_text/es_label_text.dart';
 import 'package:flutter/material.dart';
 
 class EsBorderedDropDownButton extends StatefulWidget {
   final List<String> items;
   final List<VoidCallback> onTapItems;
-  // final String type;
+  final  hint;
   final icon;
 
   EsBorderedDropDownButton(
       {Key? key,
       required this.items,
       required this.onTapItems,
-      // required this.type,
+      this.hint,
       this.icon})
       : super(key: key);
 
@@ -28,26 +29,19 @@ class _EsBorderedDropDownButton extends State<EsBorderedDropDownButton> {
     return SizedBox(
       height: Constants.textFieldHight,
       child: DropdownButtonFormField(
+
+        hint: EsLableText(data: widget.hint,),
         value: dropdownValue,
         decoration: const InputDecoration(
-          // hintText: "widget.type",
-          // prefixText: "widget.type+:",
-          // prefixIcon: widget.icon,
-          // labelText: "widget.type",
-          // labelText: widget.type,
-
           filled: true,
           fillColor: Constants.textFieldFilledColor,
           contentPadding: EdgeInsets.symmetric(
               vertical: Constants.paddingDimension,
               horizontal: Constants.paddingDimension),
-
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)),
           ),
-          // border:UnderlineInputBorder(
-          //   borderRadius: BorderRadius.circular(25),
-          // ),
+
 
         ),
         onChanged: (String? newValue) {
