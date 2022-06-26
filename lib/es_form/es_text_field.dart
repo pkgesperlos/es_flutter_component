@@ -1,4 +1,5 @@
 import 'package:es_flutter_component/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart';
 
@@ -6,7 +7,7 @@ class EsTextField extends StatefulWidget {
   final String type;
   final hint;
   final icon;
-  final TextAlign align;
+  final  dir;
   final validator;
   final controller;
   final fillColor;
@@ -19,7 +20,7 @@ class EsTextField extends StatefulWidget {
     required this.type,
     this.hint,
     this.icon,
-    this.align = TextAlign.center,
+    this.dir,
     this.validator,
     this.controller,
     this.fillColor = Constants.textFieldFilledColor,
@@ -42,7 +43,7 @@ class _EsTextField extends State<EsTextField> {
     return SizedBox(
       height: Constants.textFieldHight,
       child: TextFormField(
-        textAlign:widget.align ,
+       textDirection: widget.dir,
         // scrollPadding: EdgeInsets.symmetric(vertical: Constants.paddingDimension),
 
         validator: widget.validator,
