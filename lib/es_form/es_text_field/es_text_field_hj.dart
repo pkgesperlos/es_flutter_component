@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart';
 
-class EsTextField extends StatefulWidget {
+class EsTextFieldHj extends StatefulWidget {
   final String type;
   final hint;
   final icon;
@@ -14,7 +14,7 @@ class EsTextField extends StatefulWidget {
   final borderColor;
   final double borderRadiusDimension;
 
-  const EsTextField({
+  const EsTextFieldHj({
     Key? key,
     required this.type,
     this.hint,
@@ -29,11 +29,11 @@ class EsTextField extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return _EsTextField();
+    return _EsTextFieldHj();
   }
 }
 
-class _EsTextField extends State<EsTextField> {
+class _EsTextFieldHj extends State<EsTextFieldHj> {
   String _name = '';
 
   @override
