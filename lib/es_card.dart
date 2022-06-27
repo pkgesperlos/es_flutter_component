@@ -8,6 +8,7 @@ class EsCard extends StatelessWidget {
   final child;
   EdgeInsetsGeometry ?padding;
   EdgeInsetsGeometry ?margin;
+
   final Color color;
   EsCard({Key? key,this.child,this.padding,this.margin,this.color=Styles.t6Color}) : super(key: key);
 

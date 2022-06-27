@@ -9,6 +9,7 @@ class EsOrdinaryText extends StatelessWidget {
   Color color;
   String fontFamily;
   bool overFlowTag;
+  int maxLine;
 
 
   EsOrdinaryText(
@@ -18,7 +19,8 @@ class EsOrdinaryText extends StatelessWidget {
         this.size = Constants.ordinaryFontSize ,
         this.color = Constants.ordinaryText,
         this.fontFamily = Constants.fontFamily,
-        this.overFlowTag=false
+        this.overFlowTag=false,
+        this.maxLine=3
 
       })
       : super(key: key);
@@ -30,7 +32,7 @@ class EsOrdinaryText extends StatelessWidget {
       child: Text(
         data,
       textAlign:align,
-      maxLines:overFlowTag?3:null ,
+      maxLines:overFlowTag?maxLine:null ,
       style: TextStyle(
         color: color,
         fontSize: size,
