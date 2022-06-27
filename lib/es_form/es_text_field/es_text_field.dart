@@ -1,7 +1,6 @@
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter/services.dart';
 ///this class is a customized text field that use in whole of app
 class EsTextField extends StatefulWidget {
   String? hint = "";
@@ -9,57 +8,78 @@ class EsTextField extends StatefulWidget {
   TextEditingController tec = new TextEditingController();
   TextAlign? textAlign;
   int? maxLength;
-  int maxLines = 1;
-  bool checkRegex = false;
-  bool border;
-  bool obscure;
-  bool repeatedPassword;
+  int? maxLines = 1;
+  bool? checkRegex = false;
+  bool? border = false;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
-  String Function(String value)? checkRepeat;
-  FocusNode focusNode = FocusNode();
-  FocusNode nextFocusNode = FocusNode();
-  final bool needValidate;
 
-  EsTextField(
+  EditTextController? editTextController = EditTextController();
+
+  EsTextField({this.hint});
+
+  EsTextField.withInput({this.hint, this.textInput, this.textAlign});
+
+  EsTextField.withMaxLength(
+      {this.hint, this.textInput, this.textAlign, this.maxLength});
+
+  EsTextField.checker(
+      {this.hint,
+      this.textInput,
+      this.textAlign,
+      this.maxLength,
+      this.controller,
+      this.onChanged,
+      this.editTextController,
+      this.checkRegex})
+      : assert(editTextController != null);
+
+  EsTextField.text(
+      {this.hint,
+      this.textInput,
+      this.textAlign,
+      this.maxLength,
+      this.controller,
+      this.onChanged,
+      this.maxLines,
+      this.checkRegex,
+      this.border = false});
+
+
+  EsTextField.form(
       {this.hint,
         this.textInput,
         this.textAlign,
         this.maxLength,
         this.controller,
         this.onChanged,
-        this.maxLines = 1,
-        this.repeatedPassword = false,
-        this.border = false,
-        this.checkRepeat,
-        this.checkRegex = false,
-        this.obscure = false,
-        required this.focusNode,
-        required this.nextFocusNode,
-        this.needValidate = true});
+        this.maxLines,
+        this.border,
+        this.checkRegex
+      });
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _EsTextFieldState();
+    return _EsTextField();
   }
 }
 
-class _EsTextFieldState extends State<EsTextField> {
-  late String Function(String value) _checkRepeat;
+class _EsTextField extends State<EsTextField> {
+  Color borderColor = Colors.black54;
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _checkRepeat = widget.checkRepeat!;
-  }
 
-  @override
-  void didUpdateWidget(EsTextField oldWidget) {
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-    _checkRepeat = widget.checkRepeat!;
+    if(widget.checkRegex == null){
+      widget.checkRegex = false;
+    }
+    if(widget.border == null){
+      widget.border = false;
+    }
   }
 
   @override
@@ -67,24 +87,28 @@ class _EsTextFieldState extends State<EsTextField> {
     // TODO: implement build
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: TextFormField(
-        focusNode: widget.focusNode,
-        validator: widget.needValidate? doValidate(widget.controller!.text):null,
+      child: TextField(
         maxLength: widget.maxLength,
         controller: widget.controller,
-        onChanged: widget.onChanged,
+        onChanged: checkChange,
         keyboardType: widget.textInput,
         maxLines: widget.maxLines,
-        obscureText: widget.obscure,
-        onFieldSubmitted: (v) {
-          if (widget.nextFocusNode != null)
-            FocusScope.of(context).requestFocus(widget.nextFocusNode);
-        },
         textAlign:
-        widget.textAlign?? TextAlign.right,
-        style:
-        new TextStyle(fontSize: Dims.h3FontSize(context)),
-        decoration: decoration(),
+        widget.textAlign ?? TextAlign.right ,
+        style: new TextStyle(fontSize: Dims.h3FontSize(context)),
+        decoration: new InputDecoration(
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor),
+              borderRadius:
+              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
+          contentPadding: EdgeInsets.all(Dims.h3Padding(context)),
+          alignLabelWithHint: false,
+          border: OutlineInputBorder(
+              borderRadius:
+              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
+          labelText: widget.hint,
+          labelStyle: TextStyle(fontSize: Dims.h3FontSize(context)),
+        ),
       ),
     );
   }
@@ -99,97 +123,70 @@ class _EsTextFieldState extends State<EsTextField> {
     caseSensitive: false,
     multiLine: false,
   );
-  RegExp number = new RegExp(
-    "[0-9]",
-    caseSensitive: false,
-    multiLine: false,
-  );
 
-  doValidate(String value) {
-    if (value.isEmpty) {
-      return "این قسمت نمی تواند خالی باشد";
-    } else if (value.isNotEmpty &&
-        widget.textInput == TextInputType.emailAddress) {
-      if (emailReg.hasMatch(value)) {
-        return null;
-      } else {
-        return "ایمیل به درستی وارد نشده است";
-      }
-    } else if (value.isNotEmpty &&
-        widget.textInput ==
-            TextInputType.numberWithOptions(decimal: false) ||
-        widget.textInput == TextInputType.number) {
-      if (number.hasMatch(value)) {
-        return null;
-      } else {
-        return "مقدار حتما باید عدد باشد";
-      }
-    } else if (value.isNotEmpty && widget.textInput == TextInputType.phone) {
-      if (phoneReg.hasMatch(value)) {
-        return null;
-      } else {
-        return "شماره همراه به درستی وارد نشده است";
-      }
-    } else if (value.isNotEmpty && widget.obscure) {
-      if (widget.repeatedPassword) {
-        return _checkRepeat(value);
-      } else {
-        if (value.length > 3) {
-          return null;
-        } else {
-          return "تعداد حروف باید بیشتر از6 حرف باشد ";
-        }
-      }
-    } else if (widget.maxLength != null) {
-      if (value.length == widget.maxLength) {
-        return null;
-      } else {
-        return "تعداد کاراکترها کمتر از تعداد مورد نیاز است";
-      }
+  checkChange(String value) {
+
+    if(widget.onChanged != null) widget.onChanged!(value);
+    if (value.length > 0) {
+      setState(() {
+        borderColor = Colors.red;
+
+        widget.editTextController?.isAccepted = false;
+      });
+
+      checkSuccess(value);
     } else {
-      return null;
+      setState(() {
+        borderColor = Colors.black54;
+
+        widget.editTextController?.isAccepted = false;
+      });
     }
   }
 
-  decoration() {
-    bool isObscure = false;
-    if (widget.hint == "رمز عبور" || widget.hint == "تکرار رمز عبور")
-      isObscure = true;
-
-    if (isObscure) {
-      return InputDecoration(
-          contentPadding: EdgeInsets.only(right: 8),
-          suffixIcon: InkWell(
-            onTap: () {
-              // Update the state i.e. toogle the state of passwordVisible variable
-              setState(() {
-                widget.obscure = !widget.obscure;
-              });
-            },
-            child: Icon(widget.obscure ? Icons.visibility : Icons.visibility_off,
-                color: Colors.black38),
-          ),
-
-          alignLabelWithHint: true,
-          border: widget.border
-              ? OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)))
-              : null,
-          labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: 16)
-      );
+  void checkSuccess(String value) {
+    if (widget.checkRegex!) {
+      if (widget.textInput == TextInputType.phone && phoneReg.hasMatch(value)) {
+        setAccept();
+      } else if (widget.textInput == TextInputType.emailAddress &&
+          emailReg.hasMatch(value)) {
+        setAccept();
+      } else {
+        setState(() {
+          widget.editTextController?.isAccepted = false;
+        });
+      }
     } else {
-      return new InputDecoration(
-          alignLabelWithHint: true,
-          border: widget.border
-              ? OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)))
-              : null,
-          labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: 16),
+      if (widget.maxLength != null) {
+        print(widget.maxLength);
 
-          contentPadding:
-          EdgeInsets.only(left: 8, right: 8, bottom: 12, top: 12));
+        if (value.length == widget.maxLength) {
+          setAccept();
+        } else {
+          setState(() {
+            widget.editTextController?.isAccepted = false;
+          });
+        }
+      } else {
+        setAccept();
+      }
     }
+  }
+
+  setAccept() {
+    setState(() {
+      borderColor = Colors.green;
+      widget.editTextController?.isAccepted = true;
+    });
+  }
+}
+
+class EditTextController {
+  bool _isAccepted = false;
+
+  bool get isAccepted => _isAccepted;
+
+  set isAccepted(bool value) {
+    _isAccepted = value;
   }
 }
