@@ -68,15 +68,12 @@ class MyApp extends StatelessWidget {
             //   NotificationApi.showNotification();
             // },),)
             body: Center(
-              child: Column(
-                children: [
-                  EsHeader(data: "data"),
-                  EsTitle(data: "data"),
-                  EsSubtitle(data: "data"),
-                  EsParagraph(data: "data",weight: FontWeight.w500,),
-                  EsCard()
-                ],
-              ),
+              child: EsOrdinaryButton(
+                text: "dsdsd",
+                onPressed: onClick(),
+              )
             )));
   }
+
+  onClick() {}
 }
