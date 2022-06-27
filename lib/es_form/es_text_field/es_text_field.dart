@@ -4,30 +4,30 @@ import 'package:flutter/material.dart';
 
 ///this class is a customized text field that use in whole of app
 class EsTextField extends StatefulWidget {
-  String hint = "";
-  TextInputType textInput = TextInputType.text;
+  String? hint = "";
+  TextInputType? textInput = TextInputType.text;
   TextEditingController tec = new TextEditingController();
-  TextAlign textAlign;
-  int maxLength;
+  TextAlign? textAlign;
+  int? maxLength;
   int maxLines = 1;
   bool checkRegex = false;
   bool border;
   bool obscure;
   bool repeatedPassword;
-  TextEditingController controller = TextEditingController();
-  ValueChanged<String> onChanged;
+  TextEditingController? controller = TextEditingController();
+  ValueChanged<String>? onChanged;
   String Function(String value)? checkRepeat;
   FocusNode focusNode = FocusNode();
   FocusNode nextFocusNode = FocusNode();
   final bool needValidate;
 
   EsTextField(
-      {required this.hint,
-        required this.textInput,
-        required this.textAlign,
-        required this.maxLength,
-        required this.controller,
-        required this.onChanged,
+      {this.hint,
+        this.textInput,
+        this.textAlign,
+        this.maxLength,
+        this.controller,
+        this.onChanged,
         this.maxLines = 1,
         this.repeatedPassword = false,
         this.border = false,
@@ -69,7 +69,7 @@ class _EsTextFieldState extends State<EsTextField> {
       textDirection: TextDirection.rtl,
       child: TextFormField(
         focusNode: widget.focusNode,
-        validator: widget.needValidate?doValidate(widget.controller.text):null,
+        validator: widget.needValidate? doValidate(widget.controller!.text):null,
         maxLength: widget.maxLength,
         controller: widget.controller,
         onChanged: widget.onChanged,
@@ -81,7 +81,7 @@ class _EsTextFieldState extends State<EsTextField> {
             FocusScope.of(context).requestFocus(widget.nextFocusNode);
         },
         textAlign:
-        widget.textAlign == null ? TextAlign.right : widget.textAlign,
+        widget.textAlign?? TextAlign.right,
         style:
         new TextStyle(fontSize: Dims.h3FontSize(context)),
         decoration: decoration(),
