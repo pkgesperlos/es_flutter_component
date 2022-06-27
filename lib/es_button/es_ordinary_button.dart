@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class EsOrdinaryButton extends StatelessWidget {
   String text;
-  GestureTapCallback onPressed;
+  GestureTapCallback? onPressed;
   Color buttonColor;
   Color buttonFontColor;
   Color buttonBorderColor;

@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
             body: Center(
               child: EsOrdinaryButton(
                 text: "dsdsd",
-                onPressed: onClick(),
+                onPressed: null,
               )
             )));
   }
