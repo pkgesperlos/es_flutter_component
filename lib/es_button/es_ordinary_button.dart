@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class EsOrdinaryButton extends StatelessWidget {
   String text;
-  VoidCallback onPressed;
+  Function onPressed;
   Color buttonColor;
   Color buttonFontColor;
   Color buttonBorderColor;
@@ -30,7 +30,9 @@ class EsOrdinaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
 
-        onTap: onPressed,
+        onTap: (){
+          onPressed();
+        },
         child: Container(
           padding: EdgeInsets.only(
               bottom: buttonSizeY*0.8,top: buttonSizeY *0.4, left: buttonSizeX / 2, right: buttonSizeX / 2),
