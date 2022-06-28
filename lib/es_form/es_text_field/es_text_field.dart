@@ -78,7 +78,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
             FocusScope.of(context).requestFocus(widget.nextFocusNode);
         },
         textAlign: widget.textAlign ?? TextAlign.right,
-        style: new TextStyle(fontSize: Dims.h3FontSize(context)),
+        style: new TextStyle(fontSize: Dims.h1FontSize(context)),
         decoration: decoration(),
       ),
     );
@@ -110,7 +110,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: 16));
+          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)));
     } else {
       return new InputDecoration(
           alignLabelWithHint: true,
@@ -119,7 +119,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: 16),
+          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)),
           contentPadding:
               EdgeInsets.only(left: 8, right: 8, bottom: 12, top: 12));
     }
