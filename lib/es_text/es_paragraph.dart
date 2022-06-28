@@ -9,15 +9,18 @@ class EsParagraph extends StatelessWidget {
   Color color;
   String fontFamily;
   final weight;
+  bool isBold;
 
   EsParagraph(
+      this.data,
       {Key? key,
-        required this.data,
         this.weight= FontWeight.w500,
         this.align = TextAlign.center,
         this.size,
         this.color = Constants.titleText,
-        this.fontFamily = Constants.fontFamily})
+        this.fontFamily = Constants.fontFamily,
+        this.isBold=false
+      })
       : super(key: key);
 
   @override
@@ -30,7 +33,7 @@ class EsParagraph extends StatelessWidget {
         color: color,
         fontSize: size,
         fontFamily:fontFamily,
-        fontWeight: weight,
+        fontWeight: isBold?FontWeight.bold:weight,
         // overflow: TextOverflow.ellipsis,
       ),
     );

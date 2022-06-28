@@ -26,7 +26,7 @@ class _EsOrdinarySliderState extends State<EsOrdinarySlider> {
             _value = value;
           });
         }),
-        EsOrdinaryText(data: _value.round().toString())
+        EsOrdinaryText(_value.round().toString())
       ],
     );
     // return Slider(

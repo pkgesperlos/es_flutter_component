@@ -29,7 +29,7 @@ class _EsEnglishDatePicker extends State<EsEnglishDatePicker> {
 
         EsOrdinaryButton(
             text: widget.title,
-            onPressed: () {
+            onTap: () {
               DatePicker.showDatePicker(context,
                   showTitleActions: true,
                   minTime: DateTime(1800, 1, 1),
@@ -53,7 +53,7 @@ class _EsEnglishDatePicker extends State<EsEnglishDatePicker> {
               }, currentTime: DateTime.now(), locale: LocaleType.en);
             }),
         SizedBox(height: Constants.paddingDimension,),
-        EsOrdinaryText(data: data.year.toString()+"/"+data.month.toString()+"/"+data.day.toString()),
+        EsOrdinaryText(data.year.toString()+"/"+data.month.toString()+"/"+data.day.toString()),
       ],
     );
   }

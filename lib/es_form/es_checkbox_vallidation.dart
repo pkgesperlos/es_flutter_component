@@ -22,7 +22,7 @@ class EsCheckBoxvalidation extends StatelessWidget {
         child: Column(children: [
           EsCheckBox(
             title: EsOrdinaryText(
-              data: title,
+               title,
             ),
             validator: (value) {
               if (!value!) {
@@ -32,7 +32,7 @@ class EsCheckBoxvalidation extends StatelessWidget {
             onSaved: (bool? newValue) {},
           ),
           EsOrdinaryButton(
-              onPressed: () {
+              onTap: () {
                 _formkey.currentState?.validate();
               },
               text: buttonText)

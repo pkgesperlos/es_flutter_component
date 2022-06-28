@@ -7,14 +7,16 @@ class EsLabelText extends StatelessWidget {
   double size;
   Color color;
   String fontFamily;
+  bool isBold;
 
-  EsLabelText(
+  EsLabelText(this.data,
       {Key? key,
-        required this.data,
         this.align = TextAlign.center,
         this.size = Constants.labelFontSize,
         this.color = Constants.labelText,
-        this.fontFamily = Constants.fontFamily})
+        this.fontFamily = Constants.fontFamily,
+        this.isBold=false
+      })
       : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class EsLabelText extends StatelessWidget {
         color: color,
         fontSize: size,
         fontFamily:fontFamily,
-        fontWeight: FontWeight.w200,
+        fontWeight: isBold?FontWeight.bold:FontWeight.w200,
         // overflow: TextOverflow.ellipsis,
       ),
     );

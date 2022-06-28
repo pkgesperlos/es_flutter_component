@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class EsBorderedDropDownButton extends StatefulWidget {
   final List<String> items;
   final List<VoidCallback> onTapItems;
-  final  hint;
+  final String? hint;
   final icon;
   final fillColor;
   // final Color hintColor;
@@ -39,7 +39,7 @@ class _EsBorderedDropDownButton extends State<EsBorderedDropDownButton> {
       height: Constants.textFieldHight,
       child: DropdownButtonFormField(
         icon: const Icon(Icons.keyboard_arrow_down,color: Constants.ordinaryText,),
-        hint: EsLabelText(data: widget.hint,),
+        hint: EsLabelText(widget.hint!),
         value: dropdownValue,
         decoration: const InputDecoration(
           hintStyle: TextStyle(color:Color(0xffA1A1A1)),

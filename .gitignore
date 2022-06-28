@@ -46,4 +46,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+<<<<<<< HEAD
 
+=======
+#lib
+/lib/test.dart
+>>>>>>> 2adfbf274c6502a6646416f30a3119fd6a569f15

@@ -39,34 +39,34 @@ class EsInformationButton extends StatelessWidget {
           color:Colors.white,
           child:Container(
             padding: EdgeInsets.all(Constants.paddingDimension),
-            child:  EsOrdinaryText(data:dialogeText ,align: TextAlign.left,),),
+            child:  EsOrdinaryText(dialogeText ,align: TextAlign.left,),),
         ),
       );
     }
-    return InkWell(
+    return IntrinsicWidth(
+      child: InkWell(
 
-        onTap: (){showDialog(context: context, builder: (context) => customDialog());},
-        child: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 0, horizontal: buttonSizeX / 6),
-          // child: Text(
-          //   text,
-          //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
-          // ),
-          child: EsOrdinaryText(data: text,color:buttonFontColor,size: buttonFontSize,),
-          decoration: BoxDecoration(
-              color: buttonColor,
-              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 2)),
-              border: Border.all(color: buttonFontColor, width: 2),
-              // boxShadow: [
-              //   BoxShadow(
-              //       offset: Offset(2, 2),
-              //       color: buttonShadowColor,
-              //       spreadRadius: 2,
-              //       blurRadius: 2)
-              // ]
-          ),
-        ));
+          onTap: (){showDialog(context: context, builder: (context) => customDialog());},
+          child: Container(
+
+            width: buttonSizeX/3,
+            height: buttonSizeX/3,
+
+            child: EsOrdinaryText(text,color:buttonFontColor,size: buttonFontSize,),
+            decoration: BoxDecoration(
+                color: buttonColor,
+                borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 2)),
+                border: Border.all(color: buttonFontColor, width: 2),
+                // boxShadow: [
+                //   BoxShadow(
+                //       offset: Offset(2, 2),
+                //       color: buttonShadowColor,
+                //       spreadRadius: 2,
+                //       blurRadius: 2)
+                // ]
+            ),
+          )),
+    );
   }
 
 }

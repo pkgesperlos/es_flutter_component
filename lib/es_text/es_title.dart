@@ -8,16 +8,20 @@ class EsTitle extends StatelessWidget {
   double? size;
   Color color;
   String fontFamily;
+  bool isBold;
   final weight;
 
   EsTitle(
+      this.data,
       {Key? key,
-        required this.data,
+
         this.weight= FontWeight.bold,
         this.align = TextAlign.center,
         this.size,
         this.color = Constants.titleText,
-        this.fontFamily = Constants.fontFamily})
+        this.fontFamily = Constants.fontFamily,
+      this.isBold=true
+      })
       : super(key: key);
 
   @override
@@ -30,7 +34,7 @@ class EsTitle extends StatelessWidget {
         color: color,
         fontSize: size,
         fontFamily:fontFamily,
-        fontWeight: weight,
+        fontWeight: isBold?FontWeight.bold:weight,
         // overflow: TextOverflow.ellipsis,
       ),
     );

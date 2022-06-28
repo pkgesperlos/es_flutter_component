@@ -26,13 +26,13 @@ class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         EsOrdinaryButton(
-          onPressed: () {
+          onTap: () {
             _selectTime(context);
           },
           text:widget.title ,
         ),
         SizedBox(height: Constants.paddingDimension,),
-        EsOrdinaryText(data:"${selectedTime.hour}:${selectedTime.minute}")
+        EsOrdinaryText("${selectedTime.hour}:${selectedTime.minute}")
       ],
     );
   }

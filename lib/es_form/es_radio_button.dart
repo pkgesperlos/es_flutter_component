@@ -44,7 +44,7 @@ class _EsRadioButton extends State<EsRadioButton> {
     return Column(
       children: <Widget>[
         ListTile(
-          title: EsOrdinaryText(data: "number1",),
+          title: EsOrdinaryText( "number1",),
           leading: Radio(
             value: SingingCharacter.number1,
             groupValue: _character,
@@ -56,7 +56,7 @@ class _EsRadioButton extends State<EsRadioButton> {
           ),
         ),
         ListTile(
-          title: EsOrdinaryText(data: "number2",),
+          title: EsOrdinaryText("number2",),
           leading: Radio(
             value: SingingCharacter.number2,
             groupValue: _character,
@@ -68,7 +68,7 @@ class _EsRadioButton extends State<EsRadioButton> {
           ),
         ),
         ListTile(
-          title: EsOrdinaryText(data: "number3",),
+          title: EsOrdinaryText( "number3",),
           leading: Radio(
             value: SingingCharacter.number3,
             groupValue: _character,

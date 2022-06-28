@@ -38,8 +38,8 @@ class _EsRengedSliderState extends State<EsRengedSlider> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [EsOrdinaryText(data:"Start Value:" +_startValue.round().toString()),
-          EsOrdinaryText(data:"End Value:" +_endValue.round().toString()),],)
+          children: [EsOrdinaryText("Start Value:" +_startValue.round().toString()),
+          EsOrdinaryText("End Value:" +_endValue.round().toString()),],)
       ],
     );
   }

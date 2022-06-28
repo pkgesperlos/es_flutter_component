@@ -17,7 +17,7 @@ class _EsAnimatedCheckBox extends State<EsAnimatedCheckBox> {
   @override
   Widget build(BuildContext context) {
     return CheckboxListTile(
-      title:EsOrdinaryText(data:widget.title+"   "),
+      title:EsOrdinaryText(widget.title+"   "),
       value: timeDilation != 1.0,
       onChanged: (bool? value) {
         setState(() {

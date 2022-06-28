@@ -1,57 +1,82 @@
-
-import 'package:es_flutter_component/images/Constants/constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 
-class EsIconButton extends StatelessWidget {
-  IconData icon;
-  VoidCallback onPressed;
-  Color buttonColor;
-  Color buttonFontColor;
-  Color buttonBorderColor;
-  Color buttonShadowColor;
-  double buttonSizeX;
-  double buttonSizeY;
-  double buttonFontSize;
-  double buttonIconSize;
+import '../images/Constants/dims.dart';
+import '../images/Constants/styles.dart';
 
-  EsIconButton({
-    required this.icon,
-    required this.onPressed,
-    this.buttonColor = Constants.buttonColor,
-    this.buttonFontColor = Constants.buttonFontColor,
-    this.buttonBorderColor = Constants.buttonBorderColor,
-    this.buttonShadowColor = Constants.buttonShadowColor,
-    this.buttonSizeX = Constants.buttonSizeX,
-    this.buttonSizeY = Constants.buttonSizeY,
-    this.buttonFontSize = Constants.buttonFontSize,
-    this.buttonIconSize = Constants.buttonIconSize,
-  });
+///this class is a customized flat button that use in whole of app
+class EsIconButton extends StatefulWidget {
+
+  VoidCallback? onTap;
+  IconData? icon;
+  Color textColor = Styles.t6Color;
+  Color? borderColor;
+  Color fillColor = Styles.primaryColor;
+  Color iconColor;
+  double? size;
+  bool useShadow;
+  bool usePadding;
+
+  EsIconButton(
+      this.icon ,
+      {this.onTap,
+      this.textColor = Styles.t6Color,
+      this.borderColor,
+      this.iconColor = Styles.t6Color,
+      this.fillColor = Styles.primaryColor,
+      this.useShadow = true,
+      this.usePadding = true,
+      this.size,
+      });
 
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-        onTap: onPressed,
-        child: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
-          // child: Text(
-          //   text,
-          //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
-          // ),
-          child: Icon(icon,size: buttonIconSize,color: Constants.buttonFontColor,),
-          decoration: BoxDecoration(
-              color: buttonColor,
-              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 3)),
-              border: Border.all(color: buttonBorderColor, width: 2),
-              boxShadow: [
-                BoxShadow(
-                    offset: Offset(2, 2),
-                    color: buttonShadowColor,
-                    spreadRadius: 2,
-                    blurRadius: 2)
-              ]),
-        ));
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new EsIconButtonState();
   }
 }
 
+class EsIconButtonState extends State<EsIconButton> {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return IntrinsicHeight(
+      child: IntrinsicWidth(
+        child: Container(
+          decoration: widget.useShadow ? Styles.cardBoxDecoration() : null,
+          child: InkWell(
+            onTap: widget.onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                color: widget.fillColor,
+                border: border(),
+                borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
+              ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dims.h2Padding(context),
+                  vertical: Dims.h2Padding(context)),
+              child: Icon(
+                widget.icon,
+                size: widget.size ??Dims.h1FontSize(context),
+                color: widget.iconColor == null
+                    ? Colors.white
+                    : widget.iconColor,
+              )
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+ border() {
+
+    if(widget.borderColor == null){
+      return null;
+    }else{
+      return Border.all(color: widget.borderColor ?? Colors.white);
+    }
+
+  }
+}
