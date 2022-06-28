@@ -1,29 +1,32 @@
+import 'dart:async';
+
 import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:validators/validators.dart';
 
 class EsSearchTextField extends StatefulWidget {
-  final String type;
-  final  hint;
-  final icon;
-  final validator;
-  final controller;
-  final fillColor;
-  final hintColor;
-  final borderColor;
+  final String? hint;
+  final Icon? icon;
+  final Function(String text)? onChange;
+  final TextEditingController? controller;
+  final Color? fillColor;
+  final Color? hintColor;
+  final Color? borderColor;
   final double borderRadiusDimension;
+  final Duration duration;
 
   const EsSearchTextField({
     Key? key,
-    required this.type,
-    this.hint ,
+    this.hint,
     this.icon,
-    this.validator,
+    this.onChange,
     this.controller,
     this.fillColor = Constants.textFieldFilledColor,
-    this.hintColor=Constants.ordinaryText,
-    this.borderColor=Constants.ordinaryText,
+    this.hintColor = Constants.ordinaryText,
+    this.borderColor = Colors.white,
     this.borderRadiusDimension = Constants.borderRadiusDimension,
+    this.duration = const Duration(seconds: 2)
   }) : super(key: key);
 
   @override
@@ -33,36 +36,52 @@ class EsSearchTextField extends StatefulWidget {
 }
 
 class _EsSearchTextField extends State<EsSearchTextField> {
-  String _name = '';
+  bool _isTying = false;
+  late String _text;
+  late Timer _timer;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: Constants.textFieldHight,
-      child: TextFormField(
-
-        // scrollPadding: EdgeInsets.symmetric(vertical: Constants.paddingDimension),
-
-        validator: widget.validator,
+      child: TextField(
         controller: widget.controller,
-        onChanged: (text) => setState(() => _name = text),
+        onChanged: (String text) {
+          _text = text;
+
+          _timer = Timer.periodic(widget.duration, (timer) {
+            if (_text.length > text.length)
+              _isTying = true;
+            else {
+              _isTying = false;
+              _timer.cancel();
+              try{
+                widget.onChange!(_text);
+              }
+              catch(e){
+
+              }
+
+            }
+          });
+
+          _isTying = true;
+        },
         decoration: InputDecoration(
-          hintStyle: TextStyle(color:widget.hintColor),
+          hintStyle: TextStyle(color: widget.hintColor),
           filled: true,
           fillColor: Constants.textFieldFilledColor,
-          contentPadding:
-              EdgeInsets.symmetric(vertical: Constants.paddingDimension,
-                  horizontal: Constants.paddingDimension),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: Constants.paddingDimension,
+              horizontal: Constants.paddingDimension),
 
           prefixIcon: widget.icon,
           border: OutlineInputBorder(
-            borderRadius:
-                BorderRadius.circular(widget.borderRadiusDimension),
+            borderRadius: BorderRadius.circular(widget.borderRadiusDimension),
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadiusDimension),
-              borderSide: BorderSide(color:widget.borderColor )
-          ),
+              borderSide: BorderSide(color: widget.borderColor!)),
           // border:UnderlineInputBorder(
           //   borderRadius: BorderRadius.circular(25),
           // ),
