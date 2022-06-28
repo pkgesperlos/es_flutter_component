@@ -17,8 +17,8 @@ class EsTextFieldForm extends StatefulWidget {
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
   String Function(String value)? checkRepeat;
-  FocusNode focusNode = FocusNode();
-  FocusNode nextFocusNode = FocusNode();
+  FocusNode? focusNode;
+  FocusNode? nextFocusNode;
   final bool needValidate;
 
   EsTextFieldForm(
@@ -34,8 +34,8 @@ class EsTextFieldForm extends StatefulWidget {
         this.checkRepeat,
         this.checkRegex = false,
         this.obscure = false,
-        required this.focusNode,
-        required this.nextFocusNode,
+        this.focusNode,
+        this.nextFocusNode,
         this.needValidate = true});
 
   @override
