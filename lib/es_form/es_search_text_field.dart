@@ -17,7 +17,7 @@ class EsSearchTextField extends StatefulWidget {
     Key? key,
     required this.type,
     this.hint ,
-    this.icon,
+    this.icon=Icons.search,
     this.validator,
     this.controller,
     this.fillColor = Constants.textFieldFilledColor,

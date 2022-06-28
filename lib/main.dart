@@ -10,6 +10,7 @@ import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:es_flutter_component/es_text/es_paragraph.dart';
 import 'package:es_flutter_component/es_text/es_subtitle.dart';
 import 'package:es_flutter_component/es_text/es_title.dart';
+import 'package:es_flutter_component/test.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -67,12 +68,9 @@ class MyApp extends StatelessWidget {
             // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
             //   NotificationApi.showNotification();
             // },),)
-            body: Center(
-              child: EsOrdinaryButton(
-                text: "dsdsd",
-                onPressed: null,
-              )
-            )));
+
+            body: Test()));
+
   }
 
   onClick() {}
