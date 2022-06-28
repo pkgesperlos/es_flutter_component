@@ -34,7 +34,7 @@ class EsIconButton extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
+              vertical: buttonSizeY / 3, horizontal: buttonSizeX / 5),
           // child: Text(
           //   text,
           //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),

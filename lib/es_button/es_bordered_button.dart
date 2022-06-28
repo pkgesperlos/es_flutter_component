@@ -28,26 +28,27 @@ class EsBorderedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return IntrinsicWidth(
+      child: InkWell(
+          onTap: onPressed,
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                vertical: 0, horizontal: buttonSizeX / 5),
+            child: EsOrdinaryText(text,color:buttonFontColor,size:buttonFontSize,),
+            decoration: BoxDecoration(
+                color: buttonColor,
+                borderRadius: BorderRadius.all(Radius.circular(buttonSizeX)),
 
-        onTap: onPressed,
-        child: Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 0, horizontal: buttonSizeX / 5),
-          child: EsOrdinaryText(data: text,color:buttonFontColor,size:buttonFontSize,),
-          decoration: BoxDecoration(
-              color: buttonColor,
-              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX)),
-
-              border: Border.all(color: buttonFontColor, width: 2),
-              // boxShadow: [
-              //   BoxShadow(
-              //       offset: Offset(2, 2),
-              //       color: buttonShadowColor,
-              //       spreadRadius: 2,
-              //       blurRadius: 2)
-              // ]
-          ),
-        ));
+                border: Border.all(color: buttonFontColor, width: 2),
+                // boxShadow: [
+                //   BoxShadow(
+                //       offset: Offset(2, 2),
+                //       color: buttonShadowColor,
+                //       spreadRadius: 2,
+                //       blurRadius: 2)
+                // ]
+            ),
+          )),
+    );
   }
 }

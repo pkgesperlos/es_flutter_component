@@ -29,7 +29,7 @@ class _EsCupertinoTimePicker extends State<EsCupertinoTimePicker> {
 
         EsOrdinaryButton(
 
-            onPressed: () {
+            onTap: () {
               DatePicker.showTimePicker(context, showTitleActions: true,
                   onChanged: (date) {
                     print('change $date in time zone ' +
@@ -45,7 +45,7 @@ class _EsCupertinoTimePicker extends State<EsCupertinoTimePicker> {
             }, text: widget.title,
             ),
         SizedBox(height: Constants.paddingDimension,),
-        EsOrdinaryText(data:dataH+":"+dataM+":"+dataS),
+        EsOrdinaryText(dataH+":"+dataM+":"+dataS),
 
       ],
     );

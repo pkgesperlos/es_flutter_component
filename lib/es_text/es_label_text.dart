@@ -7,14 +7,18 @@ class EsLableText extends StatelessWidget {
   double size;
   Color color;
   String fontFamily;
+  bool isBold;
 
   EsLableText(
+      this.data,
       {Key? key,
-        required this.data,
+
         this.align = TextAlign.center,
         this.size = Constants.lableFontSize,
         this.color = Constants.lableText,
-        this.fontFamily = Constants.fontFamily})
+        this.fontFamily = Constants.fontFamily,
+        this.isBold=false
+      })
       : super(key: key);
 
   @override
@@ -26,7 +30,7 @@ class EsLableText extends StatelessWidget {
         color: color,
         fontSize: size,
         fontFamily:fontFamily,
-        fontWeight: FontWeight.w200,
+        fontWeight: isBold?FontWeight.bold:FontWeight.w200,
         // overflow: TextOverflow.ellipsis,
       ),
     );

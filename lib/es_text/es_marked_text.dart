@@ -8,14 +8,18 @@ class EsMarkedText extends StatelessWidget {
   double size;
   Color color;
   String fontFamily;
+  bool isBold;
 
   EsMarkedText(
+      this.data,
       {Key? key,
-        required this.data,
+
         this.align = TextAlign.center,
         this.size = Constants.markedFontSize,
         this.color = Constants.dottedText,
-        this.fontFamily = Constants.fontFamily})
+        this.fontFamily = Constants.fontFamily,
+        this.isBold=true
+      })
       : super(key: key);
 
   @override
@@ -37,7 +41,7 @@ class EsMarkedText extends StatelessWidget {
               color: color,
               fontSize: size,
               fontFamily: fontFamily,
-              fontWeight: FontWeight.bold,
+              fontWeight: isBold?FontWeight.bold:FontWeight.w500,
               // overflow: TextOverflow.ellipsis,
             ),
           )),

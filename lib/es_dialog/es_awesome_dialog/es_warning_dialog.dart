@@ -36,9 +36,9 @@ class _EsWarningDialog extends State<EsWarningDialog>{
     return Center(
         child: EsOrdinaryButton(
           text: widget.text,
-          buttonColor: widget.buttonColor,
-          buttonFontColor: widget.buttonFontColor,
-          onPressed: () {
+          fillColor: widget.buttonColor,
+          textColor: widget.buttonFontColor,
+          onTap: () {
             AwesomeDialog(
                 context: context,
                 dialogType: DialogType.WARNING,

@@ -30,7 +30,7 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
 
         EsOrdinaryButton(
             text: widget.title,
-            onPressed: () {
+            onTap: () {
               DatePicker.showDatePicker(context,
                   showTitleActions: true,
                   minTime: DateTime(1350, 1, 1),
@@ -55,7 +55,7 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
               }, currentTime: DateTime.now(), locale: LocaleType.fa);
             }),
         SizedBox(height: Constants.paddingDimension,),
-        EsOrdinaryText(data: data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),
+        EsOrdinaryText(data.year.toString()+"/"+datamonth.toString()+"/"+data.day.toString()),
       ],
     );
   }

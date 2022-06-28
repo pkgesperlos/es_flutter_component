@@ -1,55 +1,104 @@
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EsOrdinaryButton extends StatelessWidget {
-  String text;
-  GestureTapCallback? onPressed;
-  Color buttonColor;
-  Color buttonFontColor;
-  Color buttonBorderColor;
-  Color buttonShadowColor;
-  double buttonSizeX;
-  double buttonSizeY;
-  double buttonFontSize;
+import '../images/Constants/dims.dart';
+import '../images/Constants/styles.dart';
 
-  EsOrdinaryButton({
-    required this.text,
-    required this.onPressed,
-    this.buttonColor = Constants.buttonColor,
-    this.buttonFontColor = Constants.buttonFontColor,
-    this.buttonBorderColor = Constants.buttonBorderColor,
-    this.buttonShadowColor = Constants.buttonShadowColor,
-    this.buttonSizeX = Constants.buttonSizeX,
-    this.buttonSizeY = Constants.buttonSizeY,
-    this.buttonFontSize = Constants.buttonFontSize,
-  });
+///this class is a customized flat button that use in whole of app
+class EsOrdinaryButton extends StatefulWidget {
+
+  String? text = "";
+  VoidCallback? onTap;
+  bool useIcon;
+  IconData? icon;
+  Color textColor = Styles.t6Color;
+  Color? borderColor;
+  Color fillColor = Styles.primaryColor;
+  Color iconColor;
+
+  bool useShadow;
+  bool usePadding;
+
+  EsOrdinaryButton(
+      {this.onTap,
+      this.text,
+      this.icon ,
+      this.textColor = Styles.t6Color,
+      this.borderColor,
+      this.iconColor = Styles.t6Color,
+      this.fillColor = Styles.primaryColor,
+      this.useIcon = true,
+      this.useShadow = true,
+      this.usePadding = true});
 
   @override
-  Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: InkWell(
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new EsOrdinaryButtonState();
+  }
+}
 
-          onTap: onPressed,
-          child: Container(
-            padding: EdgeInsets.only(
-                bottom: buttonSizeY*0.8,top: buttonSizeY *0.4, left: buttonSizeX / 2, right: buttonSizeX / 2),
-            child: EsOrdinaryText(data: text,color:buttonFontColor,size:buttonFontSize,),
-            decoration: BoxDecoration(
-                color: buttonColor,
-                borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)),
-                // border: Border.all(color: buttonBorderColor, width: 2),
-                boxShadow: [
-                  // BoxShadow(
-                  //     offset: Offset(2, 2),
-                  //     color: buttonShadowColor,
-                  //     spreadRadius: 2,
-                  //     blurRadius: 2)
-                ]),
-          )),
+class EsOrdinaryButtonState extends State<EsOrdinaryButton> {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return IntrinsicHeight(
+      child: IntrinsicWidth(
+        child: Container(
+          decoration: widget.useShadow ? Styles.cardBoxDecoration() : null,
+          child: InkWell(
+            onTap: widget.onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                color: widget.fillColor,
+                border: border(),
+                borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
+              ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dims.h2Padding(context),
+                  vertical: Dims.h2Padding(context)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  widget.useIcon
+                      ? Icon(
+                          widget.icon,
+                          size: 24,
+                          color: widget.iconColor == null
+                              ? Colors.white
+                              : widget.iconColor,
+                        )
+                      : SizedBox(
+                          width: 24,
+                        ),
+                  Expanded(
+                    child: EsOrdinaryText(
+                      widget.text!,
+                      color: widget.textColor,
+                      align: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 24,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
-  sad() {}
+ border() {
+
+    if(widget.borderColor == null){
+      return null;
+    }else{
+      return Border.all(color: widget.borderColor ?? Colors.white);
+    }
+
+  }
 }

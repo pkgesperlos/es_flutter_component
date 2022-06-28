@@ -31,9 +31,9 @@ class _EsBodyDialog extends State<EsBodyDialog>{
     return Center(
         child: EsOrdinaryButton(
           text: widget.text,
-          buttonColor: widget.buttonColor,
-          buttonFontColor: widget.buttonFontColor,
-          onPressed: () {
+          fillColor: widget.buttonColor,
+          textColor: widget.buttonFontColor,
+          onTap: () {
             AwesomeDialog(
               context: context,
               animType: AnimType.SCALE,

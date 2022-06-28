@@ -1,5 +1,6 @@
 
 import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/images/Constants/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,10 +19,10 @@ class EsLoadingButton extends StatelessWidget {
   EsLoadingButton({
 
     required this.onPressed,
-    this.buttonColor = Constants.buttonColor,
-    this.buttonFontColor = Constants.buttonFontColor,
-    this.buttonBorderColor = Constants.buttonBorderColor,
-    this.buttonShadowColor = Constants.buttonShadowColor,
+    this.buttonColor = Styles.primaryColor,
+    this.buttonFontColor =Styles.t6Color,
+    this.buttonBorderColor = Styles.t6Color,
+    this.buttonShadowColor =Styles.t4Color,
     this.buttonSizeX = Constants.buttonSizeX,
     this.buttonSizeY = Constants.buttonSizeY,
     this.buttonFontSize = Constants.buttonFontSize,
@@ -33,13 +34,11 @@ class EsLoadingButton extends StatelessWidget {
     return InkWell(
         onTap: onPressed,
         child: Container(
+          // width: buttonSizeX,
+          // height: buttonSizeX,
           padding: EdgeInsets.symmetric(
-              vertical: buttonSizeY / 2, horizontal: buttonSizeX / 2),
-          // child: Text(
-          //   text,
-          //   style: TextStyle(color: buttonFontColor, fontSize: buttonFontSize),
-          // ),
-          // child: Icon(icon,size: buttonIconSize,color: Constants.buttonFontColor,),
+              vertical: buttonSizeX / 4, horizontal: buttonSizeX / 4),
+
           child: CircularProgressIndicator(color:buttonFontColor,),
           decoration: BoxDecoration(
               color: buttonColor,
