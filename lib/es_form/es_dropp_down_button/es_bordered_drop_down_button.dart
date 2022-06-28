@@ -39,7 +39,7 @@ class _EsBorderedDropDownButton extends State<EsBorderedDropDownButton> {
       height: Constants.textFieldHight,
       child: DropdownButtonFormField(
         icon: const Icon(Icons.keyboard_arrow_down,color: Constants.ordinaryText,),
-        hint: EsLableText(data: widget.hint,),
+        hint: EsLabelText(data: widget.hint,),
         value: dropdownValue,
         decoration: const InputDecoration(
           hintStyle: TextStyle(color:Color(0xffA1A1A1)),

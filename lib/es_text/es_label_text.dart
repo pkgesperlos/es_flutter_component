@@ -1,19 +1,19 @@
 import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
-class EsLableText extends StatelessWidget {
+class EsLabelText extends StatelessWidget {
   String data;
   TextAlign align;
   double size;
   Color color;
   String fontFamily;
 
-  EsLableText(
+  EsLabelText(
       {Key? key,
         required this.data,
         this.align = TextAlign.center,
-        this.size = Constants.lableFontSize,
-        this.color = Constants.lableText,
+        this.size = Constants.labelFontSize,
+        this.color = Constants.labelText,
         this.fontFamily = Constants.fontFamily})
       : super(key: key);
 

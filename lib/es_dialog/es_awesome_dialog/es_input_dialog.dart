@@ -1,11 +1,11 @@
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
-import 'package:es_flutter_component/es_form/es_text_field/es_text_field_hj.dart';
+
+
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 
+import '../../es_form/es_text_field/es_text_field_hj.dart';
 import '../../images/Constants/constants.dart';
-
 
 class EsInputDialog extends StatefulWidget {
   String text;

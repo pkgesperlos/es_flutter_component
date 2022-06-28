@@ -20,12 +20,12 @@ class Constants{
   }
   static const  double titleFontSize=27;
   static const  double ordinaryFontSize=18;
-  static const  double lableFontSize=17;
+  static const  double labelFontSize=17;
   static const  double markedFontSize=15;
   //font color
   static const Color titleText=Colors.black;
-  static const Color ordinaryText=Colors.black;
-  static const Color lableText=Colors.black87;
+  static const Color ordinaryText=Colors.black38;
+  static const Color labelText=Colors.black87;
   static const Color dottedText=Colors.black87;
   static const Color markedText=Colors.black;
 
@@ -33,7 +33,7 @@ class Constants{
   //button size
   static const Color buttonColor=Color(0xff18186D);
   static const Color buttonFontColor=Colors.white;
-  static const Color textFieldFilledColor=Colors.white;
+  static const Color textFieldFilledColor=Colors.black12;
   static const Color buttonBorderColor=Colors.black26;
   static const Color buttonShadowColor=Colors.black26;
   static const Color sidebarColor=Colors.black26;
