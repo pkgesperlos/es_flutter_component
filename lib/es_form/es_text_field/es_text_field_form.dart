@@ -1,6 +1,8 @@
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
+import '../../images/Constants/constants.dart';
+
 ///this class is a customized text field that use in whole of app
 class EsTextFieldForm extends StatefulWidget {
   String? hint = "";
@@ -77,7 +79,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
             FocusScope.of(context).requestFocus(widget.nextFocusNode);
         },
         textAlign: widget.textAlign ?? TextAlign.right,
-        style: new TextStyle(fontSize: Dims.h3FontSize(context)),
+        style: new TextStyle(fontSize: Dims.h1FontSize(context)),
         decoration: decoration(),
       ),
     );
@@ -94,7 +96,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
 
     if (isObscure) {
       return InputDecoration(
-          contentPadding: EdgeInsets.only(right: 8),
+          contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
           suffixIcon: InkWell(
             onTap: () {
               // Update the state i.e. toogle the state of passwordVisible variable
@@ -112,16 +114,16 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: 16));
+          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)));
     } else {
       return new InputDecoration(
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)))
+                  borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: 16),
+          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)),
           contentPadding:
               EdgeInsets.only(left: 8, right: 8, bottom: 12, top: 12));
     }

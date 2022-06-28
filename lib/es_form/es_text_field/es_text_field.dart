@@ -1,6 +1,8 @@
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
+import '../../images/Constants/constants.dart';
+
 ///this class is a customized text field that use in whole of app
 class EsTextField extends StatefulWidget {
   String? hint = "";
@@ -92,7 +94,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
 
     if (isObscure) {
       return InputDecoration(
-          contentPadding: EdgeInsets.only(right: 8),
+          contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
           suffixIcon: InkWell(
             onTap: () {
               // Update the state i.e. toogle the state of passwordVisible variable
@@ -116,7 +118,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)))
+                  borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)))
               : null,
           labelText: widget.hint,
           labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)),
