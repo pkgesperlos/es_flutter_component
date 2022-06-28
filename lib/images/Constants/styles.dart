@@ -7,11 +7,11 @@ import 'dims.dart';
 class Styles{
 
   //
-  // static const BoxShadow centerBoxShadow = BoxShadow(
-  //     color: Colors.black12,
-  //     blurRadius: 10,
-  //     spreadRadius: 0
-  // );
+  static const BoxShadow centerBoxShadow = BoxShadow(
+      color: Colors.black12,
+      blurRadius: 10,
+      spreadRadius: 0
+  );
   //
   // static const BoxShadow lowBoxShadow = BoxShadow(
   //     color: Colors.black12,
@@ -111,11 +111,11 @@ class Styles{
   // static const Color starsRateColor = Color(0xFFFF9900);
   // static const Color secondaryIconColor = Color(0xFFA8A8A8);
   // static const Color iconButtonsColor = Color(0xFFFF96C6);
-  static BoxDecoration cardBoxDecoration(BuildContext context) {
+  static BoxDecoration cardBoxDecoration() {
    return BoxDecoration(
         color: Styles.t6Color,
         borderRadius: BorderRadius.all(
-        Radius.circular(Dims.h2BorderRadius(context)),
+        Radius.circular(10),
     ),
     boxShadow: [Styles.CardBoxShadow],);
   }

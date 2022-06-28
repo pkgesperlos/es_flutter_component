@@ -1,5 +1,5 @@
 import 'package:es_flutter_component/es_form/es_checkbox.dart';
-import 'package:es_flutter_component/es_form/es_text_field.dart';
+import 'package:es_flutter_component/es_form/es_text_field/es_text_field_hj.dart';
 import 'package:flutter/material.dart';
 
 
@@ -38,7 +38,7 @@ class _EsForm extends State<EsForm> {
                   key: _formkey,
                   child: Column(
                     children: <Widget>[
-                      EsTextField(
+                      EsTextFieldHj(
                         type: "AppLocalizations.of(context)!.username",
                         hint: "AppLocalizations.of(context)!.usernamehint",
                         validator: (text) {
@@ -54,7 +54,7 @@ class _EsForm extends State<EsForm> {
                       SizedBox(
                         height: 20,
                       ),
-                      EsTextField(
+                      EsTextFieldHj(
                         type: "AppLocalizations.of(context)!.password",
                         hint: "AppLocalizations.of(context)!.passwordhint",
                         validator: (text) {

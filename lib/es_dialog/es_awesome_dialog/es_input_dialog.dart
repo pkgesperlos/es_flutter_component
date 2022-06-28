@@ -1,5 +1,5 @@
 import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
-import 'package:es_flutter_component/es_form/es_text_field.dart';
+import 'package:es_flutter_component/es_form/es_text_field/es_text_field_hj.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -13,8 +13,8 @@ class EsInputDialog extends StatefulWidget {
   String desc;
   Color buttonColor;
   Color buttonFontColor;
-  EsTextField esTextField1;
-  EsTextField esTextField2;
+  EsTextFieldHj esTextField1;
+  EsTextFieldHj esTextField2;
   EsInputDialog({
     required this.text,
     required this.title,
