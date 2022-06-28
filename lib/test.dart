@@ -11,6 +11,8 @@ import 'package:es_flutter_component/es_form/es_text_field/es_text_field_form.da
 
 import 'package:flutter/material.dart';
 
+import 'es_text_field/es_search_text_field.dart';
+
 
 class Test extends StatelessWidget {
   @override
@@ -18,10 +20,12 @@ class Test extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          // EsOrdinaryButton(text: "ddd",icon: Icons.star,),
-          EsLoadingButton(onTap: (){},size: 40,),
-          EsIconButton(Icons.star, onTap: (){},size:100,),
-          EsTextFieldForm(validator: (value){},)
+         EsSearchTextField(hint: "aa",
+         onChange: (String s){
+
+           print(s);
+
+         },)
 
         ],
       ),

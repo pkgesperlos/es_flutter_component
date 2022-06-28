@@ -36,9 +36,7 @@ class EsSearchTextField extends StatefulWidget {
 }
 
 class _EsSearchTextField extends State<EsSearchTextField> {
-  bool _isTying = false;
-  late String _text;
-  late Timer _timer;
+  late String _startText;
 
   @override
   Widget build(BuildContext context) {
@@ -47,25 +45,22 @@ class _EsSearchTextField extends State<EsSearchTextField> {
       child: TextField(
         controller: widget.controller,
         onChanged: (String text) {
-          _text = text;
+          _startText = text;
 
-          _timer = Timer.periodic(widget.duration, (timer) {
-            if (_text.length > text.length)
-              _isTying = true;
-            else {
-              _isTying = false;
-              _timer.cancel();
+          Timer.periodic(widget.duration, (timer) {
+            timer.cancel();
+            if (_startText.length == text.length ) {
+
               try{
-                widget.onChange!(_text);
+                widget.onChange!(_startText);
               }
               catch(e){
 
               }
-
             }
           });
 
-          _isTying = true;
+
         },
         decoration: InputDecoration(
           hintStyle: TextStyle(color: widget.hintColor),
