@@ -16,14 +16,7 @@ class Test extends StatelessWidget {
         FlatButtonIcon(
             text: "kkkkk",
             onTap: () {},
-            icon: Icons.start,
-            useIcon: false,
-            useShadow: true,
-            fillColor: Colors.red,
-            borderColor: Colors.black38,
-            iconColor: Colors.black54,
-            needPadding: true,
-            textColor: Colors.black
+
         )
       ],
     );

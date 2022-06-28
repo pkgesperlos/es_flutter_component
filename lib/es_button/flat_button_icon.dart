@@ -10,10 +10,10 @@ class FlatButtonIcon extends StatefulWidget {
   VoidCallback? onTap;
   String? text = "";
   IconData icon;
-  Color? textColor = Colors.white;
-  Color? borderColor = Colors.white;
+  Color textColor = Colors.black;
+  final borderColor;
   Color fillColor = Colors.white;
-  Color iconColor = Colors.white;
+  Color iconColor;
   bool useIcon;
   bool useShadow;
   bool needPadding;
@@ -22,7 +22,7 @@ class FlatButtonIcon extends StatefulWidget {
       {this.onTap,
         this.text,
         this.icon = Icons.add,
-        this.textColor,
+        this.textColor=Colors.black,
         this.borderColor,
         this.iconColor =Colors.black,
         this.fillColor = Colors.white,
@@ -72,7 +72,7 @@ class FlatButtonIconState extends State<FlatButtonIcon> {
               Expanded(
                 child: EsOrdinaryText(
                   data: widget.text!,
-                  color: widget.textColor!,
+                  color: widget.textColor,
                   align: TextAlign.center,
                 ),
               ),
