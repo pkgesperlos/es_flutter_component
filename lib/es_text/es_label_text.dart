@@ -14,8 +14,8 @@ class EsLabelText extends StatelessWidget {
   EsLabelText(this.data,
       {Key? key,
         this.align = TextAlign.center,
-        this.size = Constants.lableFontSize,
-        this.color = Constants.lableText,
+        this.size = Constants.labelFontSize,
+        this.color = Constants.labelText,
         this.fontFamily = Constants.fontFamily,
         this.isBold=false
       })
