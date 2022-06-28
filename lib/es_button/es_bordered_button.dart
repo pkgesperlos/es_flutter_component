@@ -5,39 +5,35 @@ import 'package:flutter/material.dart';
 
 class EsBorderedButton extends StatelessWidget {
   String text;
-  VoidCallback onPressed;
+  VoidCallback onTap;
   Color buttonColor;
   Color buttonFontColor;
   Color buttonBorderColor;
   Color buttonShadowColor;
-  double buttonSizeX;
-  double buttonSizeY;
-  double buttonFontSize;
+  double size;
 
   EsBorderedButton({
     required this.text,
-    required this.onPressed,
+    required this.onTap,
     this.buttonColor = Constants.buttonFontColor,
     this.buttonFontColor = Constants.buttonColor,
     this.buttonBorderColor = Constants.buttonBorderColor,
     this.buttonShadowColor = Constants.buttonShadowColor,
-    this.buttonSizeX = Constants.buttonSizeX,
-    this.buttonSizeY = Constants.buttonSizeY,
-    this.buttonFontSize = Constants.buttonFontSize,
+    this.size = Constants.buttonFontSize,
   });
 
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
       child: InkWell(
-          onTap: onPressed,
+          onTap: onTap,
           child: Container(
             padding: EdgeInsets.symmetric(
-                vertical: 0, horizontal: buttonSizeX / 5),
-            child: EsOrdinaryText(text,color:buttonFontColor,size:buttonFontSize,),
+                vertical: 0, horizontal: size/2 ),
+            child: EsOrdinaryText(text,color:buttonFontColor,size:size,),
             decoration: BoxDecoration(
                 color: buttonColor,
-                borderRadius: BorderRadius.all(Radius.circular(buttonSizeX)),
+                borderRadius: BorderRadius.all(Radius.circular(size)),
 
                 border: Border.all(color: buttonFontColor, width: 2),
                 // boxShadow: [

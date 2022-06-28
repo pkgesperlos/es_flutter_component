@@ -23,11 +23,9 @@ class Test extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          EsOrdinaryButton(text: "ddd",),
-          EsLoadingButton(onPressed: (){}),
-          EsInformationButton(),
-          EsIconButton(icon: Icons.star, onPressed: (){}),
-          EsBorderedButton(text: "text", onPressed: (){})
+          // EsOrdinaryButton(text: "ddd",icon: Icons.star,),
+          EsLoadingButton(onTap: (){},size: 40,),
+          EsIconButton(Icons.star, onTap: (){},size:100,)
         ],
       ),
     );
