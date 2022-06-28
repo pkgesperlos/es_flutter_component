@@ -1,5 +1,7 @@
-import 'package:es_flutter_component/images/Constants/constants.dart';
+
 import 'package:flutter/material.dart';
+
+import '../images/Constants/constants.dart';
 
 class EsLabelText extends StatelessWidget {
   String data;
@@ -12,8 +14,8 @@ class EsLabelText extends StatelessWidget {
   EsLabelText(this.data,
       {Key? key,
         this.align = TextAlign.center,
-        this.size = Constants.labelFontSize,
-        this.color = Constants.labelText,
+        this.size = Constants.lableFontSize,
+        this.color = Constants.lableText,
         this.fontFamily = Constants.fontFamily,
         this.isBold=false
       })

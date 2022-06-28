@@ -65,7 +65,7 @@ class _EsSideNavigator extends State<EsSideNavigator> {
                         },
                         labelType: NavigationRailLabelType.selected,
                         // indicatorColor: Colors.white,
-                        selectedIconTheme: IconThemeData(color: Constants.labelText),
+                        selectedIconTheme: IconThemeData(color: Constants.lableText),
                         destinations:widget.tabBarItemList
                     ),
                   ),

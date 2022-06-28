@@ -2,7 +2,7 @@ import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 ///this class is a customized text field that use in whole of app
-class EsTextFieldArv extends StatefulWidget {
+class EsSpecificTextField extends StatefulWidget {
   String? hint = "";
   TextInputType? textInput = TextInputType.text;
   TextEditingController tec = new TextEditingController();
@@ -16,14 +16,14 @@ class EsTextFieldArv extends StatefulWidget {
 
   EditTextController? editTextController = EditTextController();
 
-  EsTextFieldArv({this.hint});
+  EsSpecificTextField({this.hint});
 
-  EsTextFieldArv.withInput({this.hint, this.textInput, this.textAlign});
+  EsSpecificTextField.withInput({this.hint, this.textInput, this.textAlign});
 
-  EsTextFieldArv.withMaxLength(
+  EsSpecificTextField.withMaxLength(
       {this.hint, this.textInput, this.textAlign, this.maxLength});
 
-  EsTextFieldArv.checker(
+  EsSpecificTextField.checker(
       {this.hint,
       this.textInput,
       this.textAlign,
@@ -34,7 +34,7 @@ class EsTextFieldArv extends StatefulWidget {
       this.checkRegex})
       : assert(editTextController != null);
 
-  EsTextFieldArv.text(
+  EsSpecificTextField.text(
       {this.hint,
       this.textInput,
       this.textAlign,
@@ -46,7 +46,7 @@ class EsTextFieldArv extends StatefulWidget {
       this.border = false});
 
 
-  EsTextFieldArv.form(
+  EsSpecificTextField.form(
       {this.hint,
         this.textInput,
         this.textAlign,
@@ -61,11 +61,11 @@ class EsTextFieldArv extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _EsTextFieldArv();
+    return _EsSpecificTextField();
   }
 }
 
-class _EsTextFieldArv extends State<EsTextFieldArv> {
+class _EsSpecificTextField extends State<EsSpecificTextField> {
   Color borderColor = Colors.black54;
 
 
