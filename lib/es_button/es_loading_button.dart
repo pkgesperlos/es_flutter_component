@@ -6,44 +6,40 @@ import 'package:flutter/material.dart';
 
 class EsLoadingButton extends StatelessWidget {
 
-  VoidCallback onPressed;
-  Color buttonColor;
-  Color buttonFontColor;
-  Color buttonBorderColor;
+  VoidCallback onTap;
+  Color color;
+  Color iconColor;
+  Color? borderColor;
   Color buttonShadowColor;
-  double buttonSizeX;
-  double buttonSizeY;
-  double buttonFontSize;
-  double buttonIconSize;
+  double? size;
+
 
   EsLoadingButton({
 
-    required this.onPressed,
-    this.buttonColor = Styles.primaryColor,
-    this.buttonFontColor =Styles.t6Color,
-    this.buttonBorderColor = Styles.t6Color,
+    required this.onTap,
+    this.color = Styles.primaryColor,
+    this.iconColor =Styles.t6Color,
+    this.borderColor,
     this.buttonShadowColor =Styles.t4Color,
-    this.buttonSizeX = Constants.buttonSizeX,
-    this.buttonSizeY = Constants.buttonSizeY,
-    this.buttonFontSize = Constants.buttonFontSize,
-    this.buttonIconSize = Constants.buttonIconSize,
+    this.size,
+    t
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: onPressed,
+        onTap: onTap,
         child: Container(
-          // width: buttonSizeX,
-          // height: buttonSizeX,
+          width: size,
+          height: size,
           padding: EdgeInsets.symmetric(
-              vertical: buttonSizeX / 4, horizontal: buttonSizeX / 4),
+              vertical: size! / 4, horizontal: size! / 4),
 
-          child: CircularProgressIndicator(color:buttonFontColor,),
+          child: CircularProgressIndicator(color:iconColor,),
           decoration: BoxDecoration(
-              color: buttonColor,
-              borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 3)),
-              border: Border.all(color: buttonBorderColor, width: 2),
+              color: color,
+              borderRadius: BorderRadius.all(Radius.circular(size! / 3)),
+              border: border(),
               boxShadow: [
                 BoxShadow(
                     offset: Offset(2, 2),
@@ -52,6 +48,15 @@ class EsLoadingButton extends StatelessWidget {
                     blurRadius: 2)
               ]),
         ));
+  }
+  border() {
+
+    if(borderColor == null){
+      return null;
+    }else{
+      return Border.all(color: borderColor ?? Colors.white);
+    }
+
   }
 }
 

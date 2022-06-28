@@ -16,7 +16,7 @@ class EsOrdinaryButton extends StatefulWidget {
   Color? borderColor;
   Color fillColor = Styles.primaryColor;
   Color iconColor;
-
+  double? size;
   bool useShadow;
   bool usePadding;
 
@@ -30,7 +30,9 @@ class EsOrdinaryButton extends StatefulWidget {
       this.fillColor = Styles.primaryColor,
       this.useIcon = true,
       this.useShadow = true,
-      this.usePadding = true});
+      this.usePadding = true,
+      this.size,
+      });
 
   @override
   State<StatefulWidget> createState() {
@@ -65,7 +67,7 @@ class EsOrdinaryButtonState extends State<EsOrdinaryButton> {
                   widget.useIcon
                       ? Icon(
                           widget.icon,
-                          size: 24,
+                          size: widget.size ??Dims.h1FontSize(context),
                           color: widget.iconColor == null
                               ? Colors.white
                               : widget.iconColor,
@@ -76,6 +78,7 @@ class EsOrdinaryButtonState extends State<EsOrdinaryButton> {
                   Expanded(
                     child: EsOrdinaryText(
                       widget.text!,
+                      size: widget.size ??Dims.h1FontSize(context) ,
                       color: widget.textColor,
                       align: TextAlign.center,
                     ),
