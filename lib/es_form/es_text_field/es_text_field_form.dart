@@ -15,7 +15,6 @@ class EsTextFieldForm extends StatefulWidget {
   bool repeatedPassword;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
-  String Function(String value)? checkRepeat;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
   String? Function(String?)? validator;
@@ -30,7 +29,6 @@ class EsTextFieldForm extends StatefulWidget {
       this.maxLines = 1,
       this.repeatedPassword = false,
       this.border = false,
-      this.checkRepeat,
       this.checkRegex = false,
       this.obscure = false,
       this.focusNode,
@@ -51,14 +49,13 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _checkRepeat = widget.checkRepeat!;
+
   }
 
   @override
   void didUpdateWidget(EsTextFieldForm oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
-    _checkRepeat = widget.checkRepeat!;
   }
 
   @override
