@@ -1,9 +1,10 @@
 import 'package:es_flutter_component/es_form/es_checkbox.dart';
-import 'package:es_flutter_component/es_form/es_text_field.dart';
 import 'package:flutter/material.dart';
 
 
 import 'package:validators/validators.dart';
+
+import 'es_text_field/es_text_field.dart';
 
 class EsForm extends StatefulWidget {
   @override

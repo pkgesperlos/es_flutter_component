@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:validators/validators.dart';
 
-class EsShabaNumberField extends StatefulWidget {
+class EsShabaNumberFieldForm extends StatefulWidget {
   final validator;
 
-  const EsShabaNumberField({Key? key, this.validator}) : super(key: key);
+  const EsShabaNumberFieldForm({Key? key, this.validator}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _EsShabaNumberField();
+    return _EsShabaNumberFieldForm();
   }
 }
 
-class _EsShabaNumberField extends State<EsShabaNumberField> {
+class _EsShabaNumberFieldForm extends State<EsShabaNumberFieldForm> {
   var maskFormatter = new MaskTextInputFormatter(
       mask: 'IR-####-####-####-####-####-####',
       filter: {"#": RegExp(r'[0-9]')},

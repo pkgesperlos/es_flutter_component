@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart';
 
-class EsTextArea extends StatefulWidget {
+class EsTextAreaForm extends StatefulWidget {
   final String type;
   final String hint;
   final validator;
 
-  const EsTextArea({Key? key, required this.type, this.hint = "", this.validator})
+  const EsTextAreaForm({Key? key, required this.type, this.hint = "", this.validator})
       : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _EsTextArea();
+    return _EsTextAreaForm();
   }
 }
 
-class _EsTextArea extends State<EsTextArea> {
+class _EsTextAreaForm extends State<EsTextAreaForm> {
 
   String _name = '';
 
