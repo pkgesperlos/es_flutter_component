@@ -2,7 +2,7 @@ import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
 ///this class is a customized text field that use in whole of app
-class EsTextFieldForm extends StatefulWidget {
+class EsSpecificTextFieldForm extends StatefulWidget {
   String? hint = "";
   TextInputType? textInput = TextInputType.text;
   TextEditingController tec = new TextEditingController();
@@ -18,35 +18,35 @@ class EsTextFieldForm extends StatefulWidget {
   String Function(String value)? checkRepeat;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
-  bool needValidate;
-  String? Function(String?)? validator;
 
-  EsTextFieldForm(
-      {this.hint,
-      this.textInput,
-      this.textAlign,
-      this.maxLength,
-      this.controller,
-      this.onChanged,
-      this.maxLines = 1,
-      this.repeatedPassword = false,
-      this.border = false,
-      this.checkRepeat,
-      this.checkRegex = false,
-      this.obscure = false,
-      this.focusNode,
-      this.nextFocusNode,
-      required this.needValidate,
-      this.validator});
+  // final bool needValidate;
+
+  EsSpecificTextFieldForm({
+    this.hint,
+    this.textInput,
+    this.textAlign,
+    this.maxLength,
+    this.controller,
+    this.onChanged,
+    this.maxLines = 1,
+    this.repeatedPassword = false,
+    this.border = false,
+    this.checkRepeat,
+    this.checkRegex = false,
+    this.obscure = false,
+    this.focusNode,
+    this.nextFocusNode,
+    // this.needValidate = true
+  });
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _EsTextFieldFormState();
+    return _EsSpecificTextFieldFormState();
   }
 }
 
-class _EsTextFieldFormState extends State<EsTextFieldForm> {
+class _EsSpecificTextFieldFormState extends State<EsSpecificTextFieldForm> {
   late String Function(String value) _checkRepeat;
 
   @override
@@ -57,7 +57,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
   }
 
   @override
-  void didUpdateWidget(EsTextFieldForm oldWidget) {
+  void didUpdateWidget(EsSpecificTextFieldForm oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     _checkRepeat = widget.checkRepeat!;
@@ -70,7 +70,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
       textDirection: TextDirection.rtl,
       child: TextFormField(
         focusNode: widget.focusNode,
-        validator: widget.needValidate ? widget.validator : null,
+        validator: doValidate(widget.controller!.text),
         maxLength: widget.maxLength,
         controller: widget.controller,
         onChanged: widget.onChanged,
@@ -88,9 +88,67 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
     );
   }
 
+  RegExp phoneReg = new RegExp(
+    "(09)[0-9]{9}",
+    caseSensitive: false,
+    multiLine: false,
+  );
+  RegExp emailReg = new RegExp(
+    r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    caseSensitive: false,
+    multiLine: false,
+  );
+  RegExp number = new RegExp(
+    "[0-9]",
+    caseSensitive: false,
+    multiLine: false,
+  );
 
-
-
+  doValidate(String value) {
+    if (value.isEmpty) {
+      return "این قسمت نمی تواند خالی باشد";
+    } else if (value.isNotEmpty &&
+        widget.textInput == TextInputType.emailAddress) {
+      if (emailReg.hasMatch(value)) {
+        return null;
+      } else {
+        return "ایمیل به درستی وارد نشده است";
+      }
+    } else if (value.isNotEmpty &&
+            widget.textInput ==
+                TextInputType.numberWithOptions(decimal: false) ||
+        widget.textInput == TextInputType.number) {
+      if (number.hasMatch(value)) {
+        return null;
+      } else {
+        return "مقدار حتما باید عدد باشد";
+      }
+    } else if (value.isNotEmpty && widget.textInput == TextInputType.phone) {
+      if (phoneReg.hasMatch(value)) {
+        return null;
+      } else {
+        return "شماره همراه به درستی وارد نشده است";
+      }
+    } else if (value.isNotEmpty && widget.obscure) {
+      if (widget.repeatedPassword) {
+        return _checkRepeat(value);
+      } else {
+        if (value.length > 3) {
+          return null;
+        } else {
+          return "تعداد حروف باید بیشتر از6 حرف باشد ";
+        }
+      }
+    } else if (widget.maxLength != null) {
+      if (value.length == widget.maxLength) {
+        return null;
+      } else {
+        return "تعداد کاراکترها کمتر از تعداد مورد نیاز است";
+      }
+    } else {
+      return null;
+    }
+  }
 
   decoration() {
     bool isObscure = false;
