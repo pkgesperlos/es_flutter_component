@@ -18,7 +18,6 @@ class EsTextFieldForm extends StatefulWidget {
   String Function(String value)? checkRepeat;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
-  bool needValidate;
   String? Function(String?)? validator;
 
   EsTextFieldForm(
@@ -36,8 +35,7 @@ class EsTextFieldForm extends StatefulWidget {
       this.obscure = false,
       this.focusNode,
       this.nextFocusNode,
-      required this.needValidate,
-      this.validator});
+      required this.validator});
 
   @override
   State<StatefulWidget> createState() {
@@ -70,7 +68,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
       textDirection: TextDirection.rtl,
       child: TextFormField(
         focusNode: widget.focusNode,
-        validator: widget.needValidate ? widget.validator : null,
+        validator: widget.validator,
         maxLength: widget.maxLength,
         controller: widget.controller,
         onChanged: widget.onChanged,
