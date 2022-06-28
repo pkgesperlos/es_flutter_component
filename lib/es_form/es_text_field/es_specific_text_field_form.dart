@@ -14,6 +14,7 @@ class EsSpecificTextFieldForm extends StatefulWidget {
   bool obscure;
   bool repeatedPassword;
   TextEditingController? controller = TextEditingController();
+  EditTextController? editTextController = EditTextController();
   ValueChanged<String>? onChanged;
   String Function(String value)? checkRepeat;
   FocusNode? focusNode;
@@ -36,6 +37,7 @@ class EsSpecificTextFieldForm extends StatefulWidget {
     this.obscure = false,
     this.focusNode,
     this.nextFocusNode,
+    this.editTextController
     // this.needValidate = true
   });
 
@@ -189,4 +191,14 @@ class _EsSpecificTextFieldFormState extends State<EsSpecificTextFieldForm> {
               EdgeInsets.only(left: 8, right: 8, bottom: 12, top: 12));
     }
   }
+
+
 }
+class EditTextController {
+  bool _isAccepted = false;
+
+  bool get isAccepted => _isAccepted;
+
+  set isAccepted(bool value) {
+    _isAccepted = value;
+  }}
