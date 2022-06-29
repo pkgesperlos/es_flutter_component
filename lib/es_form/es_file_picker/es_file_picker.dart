@@ -5,6 +5,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../images/Constants/styles.dart';
+
 // import 'package:flutter/foundation.dart' show kIsWeb;
 // void main() {
 //   final file = OpenFilePicker()
@@ -107,10 +109,11 @@ class _EsFilePicker extends State<EsFilePicker> {
             child: Column(
               children: <Widget>[
                 TextField(
-                  style:TextStyle(fontSize: Dims.h1FontSize(context)),
+                  style:Styles.inputStyle(context),
                   decoration: InputDecoration(
                     prefix: Icon(Icons.attach_file),
-                    labelText: widget.label
+                    labelText: widget.label,
+                    labelStyle: Styles.inputStyle(context)
                   ),
                   onTap: () {
                     _openFileExplorer();

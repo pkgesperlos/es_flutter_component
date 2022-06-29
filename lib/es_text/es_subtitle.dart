@@ -2,38 +2,38 @@ import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
+import '../images/Constants/styles.dart';
+
 class EsSubtitle extends StatelessWidget {
   String data;
   TextAlign align;
   double? size;
   Color color;
   String fontFamily;
-  final weight;
   bool isBold;
 
   EsSubtitle(
       this.data,
       {Key? key,
-        this.weight= FontWeight.bold,
         this.align = TextAlign.center,
         this.size,
-        this.color = Constants.titleText,
+        this.color = Styles.textSecondaryColor,
         this.fontFamily = Constants.fontFamily,
-      this.isBold=true
+      this.isBold=false
       })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    defaults(context);
+
     return Text(
       data,
       textAlign: align,
       style: TextStyle(
         color: color,
-        fontSize: size,
+        fontSize: size ?? Dims.h4FontSize(context),
         fontFamily:fontFamily,
-        fontWeight: isBold?FontWeight.bold:weight,
+        fontWeight: isBold?FontWeight.bold:FontWeight.normal,
 
         // overflow: TextOverflow.ellipsis,
       ),
@@ -41,7 +41,4 @@ class EsSubtitle extends StatelessWidget {
 
   }
 
-  void defaults(context) {
-    size=Dims.h2FontSize(context);
-  }
 }

@@ -6,6 +6,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:validators/validators.dart';
 
 import '../../images/Constants/dims.dart';
+import '../../images/Constants/styles.dart';
 
 
 class EsSearchTextField extends StatefulWidget {
@@ -65,7 +66,7 @@ class _EsSearchTextField extends State<EsSearchTextField> {
 
 
         },
-        style: TextStyle(fontSize: Dims.h1FontSize(context)),
+        style: Styles.inputStyle(context),
         decoration: InputDecoration(
           hintStyle: TextStyle(color: widget.hintColor),
           filled: true,

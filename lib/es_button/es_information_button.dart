@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../es_text/es_ordinary_text.dart';
+import '../images/Constants/dims.dart';
 
 class EsInformationButton extends StatelessWidget {
   String text;
@@ -11,9 +12,7 @@ class EsInformationButton extends StatelessWidget {
   Color buttonFontColor;
   Color buttonBorderColor;
   Color buttonShadowColor;
-  double buttonSizeX;
-  double buttonSizeY;
-  double buttonFontSize;
+  double? size;
 
   EsInformationButton({
     this.text="i",
@@ -22,9 +21,8 @@ class EsInformationButton extends StatelessWidget {
     this.buttonFontColor = Constants.buttonColor,
     this.buttonBorderColor = Constants.buttonBorderColor,
     this.buttonShadowColor = Constants.buttonShadowColor,
-    this.buttonSizeX = Constants.buttonSizeX,
-    this.buttonSizeY = Constants.buttonSizeY,
-    this.buttonFontSize = Constants.buttonFontSize*0.7,
+    this.size ,
+
   });
 
   @override
@@ -49,13 +47,13 @@ class EsInformationButton extends StatelessWidget {
           onTap: (){showDialog(context: context, builder: (context) => customDialog());},
           child: Container(
 
-            width: buttonSizeX/3,
-            height: buttonSizeX/3,
+            width: size?? Dims.h0Padding(context)*0.7,
+            height: size?? Dims.h0Padding(context)*0.7,
 
-            child: EsOrdinaryText(text,color:buttonFontColor,size: buttonFontSize,),
+            child: EsOrdinaryText(text,color:buttonFontColor,size:size?? Dims.h2FontSize(context)),
             decoration: BoxDecoration(
                 color: buttonColor,
-                borderRadius: BorderRadius.all(Radius.circular(buttonSizeX / 2)),
+                borderRadius: BorderRadius.all(Radius.circular(size?? Dims.h0Padding(context)/ 2)),
                 border: Border.all(color: buttonFontColor, width: 2),
                 // boxShadow: [
                 //   BoxShadow(

@@ -1,5 +1,5 @@
 import 'package:es_flutter_component/images/Constants/constants.dart';
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class _EsAndroidTimePicker extends State<EsAndroidTimePicker> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        EsOrdinaryButton(
+        EsButton(
           onTap: () {
             _selectTime(context);
           },

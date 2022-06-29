@@ -2,6 +2,7 @@ import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
 import '../../images/Constants/constants.dart';
+import '../../images/Constants/styles.dart';
 
 ///this class is a customized text field that use in whole of app
 class EsTextFieldForm extends StatefulWidget {
@@ -79,7 +80,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
             FocusScope.of(context).requestFocus(widget.nextFocusNode);
         },
         textAlign: widget.textAlign ?? TextAlign.right,
-        style: new TextStyle(fontSize: Dims.h1FontSize(context)),
+        style: Styles.inputStyle(context),
         decoration: decoration(),
       ),
     );
@@ -114,7 +115,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)));
+          labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
           alignLabelWithHint: true,
@@ -123,7 +124,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
                   borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)),
+          labelStyle: Styles.inputStyle(context),
           contentPadding:
               EdgeInsets.only(left: 8, right: 8, bottom: 12, top: 12));
     }

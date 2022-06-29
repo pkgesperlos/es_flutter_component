@@ -1,4 +1,4 @@
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -31,7 +31,7 @@ class _EsAutoHideDialog extends State<EsAutoHideDialog>{
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: EsOrdinaryButton(
+        child: EsButton(
           text: widget.text,
           fillColor: widget.buttonColor,
           textColor: widget.buttonFontColor,

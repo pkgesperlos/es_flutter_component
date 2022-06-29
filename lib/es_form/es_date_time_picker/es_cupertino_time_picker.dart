@@ -1,4 +1,4 @@
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -27,7 +27,7 @@ class _EsCupertinoTimePicker extends State<EsCupertinoTimePicker> {
     return Column(
       children: <Widget>[
 
-        EsOrdinaryButton(
+        EsButton(
 
             onTap: () {
               DatePicker.showTimePicker(context, showTitleActions: true,

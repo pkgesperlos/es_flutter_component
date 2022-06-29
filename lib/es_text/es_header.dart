@@ -2,25 +2,25 @@ import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
+import '../images/Constants/styles.dart';
+
 class EsHeader extends StatelessWidget {
   String data;
   TextAlign align;
   double? size;
   Color color;
   String fontFamily;
-  final weight;
   bool isBold;
 
   EsHeader(
       this.data,
       {Key? key,
 
-        this.weight= FontWeight.w900,
         this.align = TextAlign.center,
         this.size,
-        this.color = Constants.titleText,
+        this.color = Styles.textPrimaryColor,
         this.fontFamily = Constants.fontFamily,
-        this.isBold=true
+        this.isBold=false
       })
       : super(key: key);
 
@@ -32,9 +32,9 @@ class EsHeader extends StatelessWidget {
       textAlign: align,
       style: TextStyle(
         color: color,
-        fontSize: size,
+        fontSize: size ?? Dims.h1FontSize(context),
         fontFamily:fontFamily,
-        fontWeight:isBold?FontWeight.w900:FontWeight.normal,
+        fontWeight:isBold?FontWeight.bold:FontWeight.normal,
         // overflow: TextOverflow.ellipsis,
       ),
     );

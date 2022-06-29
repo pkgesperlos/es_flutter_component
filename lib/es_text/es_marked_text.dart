@@ -1,11 +1,14 @@
 import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../images/Constants/dims.dart';
+import '../images/Constants/styles.dart';
+
 
 class EsMarkedText extends StatelessWidget {
   String data;
   TextAlign align;
-  double size;
+  double? size;
   Color color;
   String fontFamily;
   bool isBold;
@@ -15,10 +18,10 @@ class EsMarkedText extends StatelessWidget {
       {Key? key,
 
         this.align = TextAlign.center,
-        this.size = Constants.markedFontSize,
-        this.color = Constants.dottedText,
+        this.size ,
+        this.color = Styles.textPrimaryColor,
         this.fontFamily = Constants.fontFamily,
-        this.isBold=true
+        this.isBold=false
       })
       : super(key: key);
 
@@ -31,7 +34,7 @@ class EsMarkedText extends StatelessWidget {
         children: [
           Icon(Icons.check,size:size,color: color,),
           SizedBox(
-            width: size/5,
+            width: size ?? Dims.h3FontSize(context)/5,
           ),
           Expanded(child: Text(
             data,
@@ -39,9 +42,9 @@ class EsMarkedText extends StatelessWidget {
             textAlign: align,
             style: TextStyle(
               color: color,
-              fontSize: size,
+              fontSize: size ?? Dims.h3FontSize(context),
               fontFamily: fontFamily,
-              fontWeight: isBold?FontWeight.bold:FontWeight.w500,
+              fontWeight: isBold?FontWeight.bold:FontWeight.normal,
               // overflow: TextOverflow.ellipsis,
             ),
           )),
