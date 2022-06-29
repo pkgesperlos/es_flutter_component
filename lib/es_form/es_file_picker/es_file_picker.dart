@@ -1,9 +1,10 @@
-import 'dart:io' show Platform;
-import 'package:es_flutter_component/images/Constants/constants.dart';
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+
+import 'dart:convert';
+import 'package:es_flutter_component/images/Constants/dims.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 // import 'package:flutter/foundation.dart' show kIsWeb;
 // void main() {
 //   final file = OpenFilePicker()
@@ -24,22 +25,19 @@ import 'package:flutter/services.dart';
 // }
 
 class EsFilePicker extends StatefulWidget {
-  String openText;
-  String pickText;
-  String clearText;
-  EsFilePicker({required this.openText,required this.pickText,required this.clearText});
+  EsFilePickerController controller;
+  String label;
+  EsFilePicker(
+      {required this.controller,this.label = "انتخاب فایل"});
+
   @override
   _EsFilePicker createState() => _EsFilePicker();
 }
 
 class _EsFilePicker extends State<EsFilePicker> {
   // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String? _fileName;
   List<PlatformFile>? _paths;
-  String? _directoryPath;
   String? _extension;
-  bool _loadingPath = false;
-  bool _multiPick = false;
   FileType _pickingType = FileType.any;
   TextEditingController _controller = TextEditingController();
 
@@ -50,202 +48,91 @@ class _EsFilePicker extends State<EsFilePicker> {
   }
 
   void _openFileExplorer() async {
-    setState(() => _loadingPath = true);
+
+    setState((){
+      _controller.text = "";
+    });
     try {
-      _directoryPath = null;
       _paths = (await FilePicker.platform.pickFiles(
+        withData: true,
         type: _pickingType,
-        allowMultiple: _multiPick,
+        allowMultiple: false,
         allowedExtensions: (_extension?.isNotEmpty ?? false)
             ? _extension?.replaceAll(' ', '').split(',')
             : null,
       ))
           ?.files;
     } on PlatformException catch (e) {
+
       print("Unsupported operation" + e.toString());
     } catch (ex) {
+
       print(ex);
     }
     if (!mounted) return;
     setState(() {
-      _loadingPath = false;
-      print(_paths!.first.extension);
-      _fileName =
-      _paths != null ? _paths!.map((e) => e.name).toString() : '...';
+      //print(_paths!.first.extension);
+
+      _controller.text = _paths!.first.name;
+
+
+      widget.controller.base64File = unit8ListTob64(_paths!);
+
+
     });
+
+
   }
 
-  void _clearCachedFiles() {
-    FilePicker.platform.clearTemporaryFiles().then((result) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: result! ? Colors.green : Colors.red,
-          content: Text((result
-              ? 'Temporary files removed with success.'
-              : 'Failed to clean temporary files')),
-        ),
-      );
-    });
+
+  String unit8ListTob64(List<PlatformFile> path) {
+    String base64String = base64Encode(path.first.bytes!);
+    String header = "data:${path.first.name};base64,";
+    return header+base64String;
   }
 
-  void _selectFolder() {
-    FilePicker.platform.getDirectoryPath().then((value) {
-      setState(() => _directoryPath = value);
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
     return Center(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-          child: SingleChildScrollView(
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+      child: SingleChildScrollView(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children:
+            // Platform.isAndroid || Platform.isIOS || Platform.isFuchsia
+            <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children:
-              // Platform.isAndroid || Platform.isIOS || Platform.isFuchsia
-              <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: DropdownButton<FileType>(
-                      hint: const Text('LOAD PATH FROM'),
-                      value: _pickingType,
-                      items: <DropdownMenuItem<FileType>>[
-                        DropdownMenuItem(
-                          child: const Text('FROM AUDIO'),
-                          value: FileType.audio,
-                        ),
-                        DropdownMenuItem(
-                          child: const Text('FROM IMAGE'),
-                          value: FileType.image,
-                        ),
-                        DropdownMenuItem(
-                          child: const Text('FROM VIDEO'),
-                          value: FileType.video,
-                        ),
-                        DropdownMenuItem(
-                          child: const Text('FROM MEDIA'),
-                          value: FileType.media,
-                        ),
-                        DropdownMenuItem(
-                          child: const Text('FROM ANY'),
-                          value: FileType.any,
-                        ),
-                        DropdownMenuItem(
-                          child: const Text('CUSTOM FORMAT'),
-                          value: FileType.custom,
-                        ),
-                      ],
-                      onChanged: (value) => setState(() {
-                        _pickingType = value!;
-                        if (_pickingType != FileType.custom) {
-                          _controller.text = _extension = '';
-                        }
-                      })),
-                ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints.tightFor(width: 100.0),
-                  child: _pickingType == FileType.custom
-                      ? TextFormField(
-                    maxLength: 15,
-                    autovalidateMode: AutovalidateMode.always,
-                    controller: _controller,
-                    decoration:
-                    InputDecoration(labelText: 'File extension'),
-                    keyboardType: TextInputType.text,
-                    textCapitalization: TextCapitalization.none,
-                  )
-                      : const SizedBox(),
-                ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints.tightFor(width: 200.0),
-                  child: SwitchListTile.adaptive(
-                    title:
-                    Text('Pick multiple files', textAlign: TextAlign.right),
-                    onChanged: (bool value) =>
-                        setState(() => _multiPick = value),
-                    value: _multiPick,
+              children: <Widget>[
+                TextField(
+                  style:TextStyle(fontSize: Dims.h1FontSize(context)),
+                  decoration: InputDecoration(
+                    prefix: Icon(Icons.attach_file),
+                    labelText: widget.label
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 50.0, bottom: 20.0),
-                  child: Column(
-                    children: <Widget>[
-                      EsOrdinaryButton(
-                        text:widget.openText,
-                        onTap: () => _openFileExplorer(),
-
-                      ),
-                      SizedBox(height: Constants.paddingDimension,),
-                      EsOrdinaryButton(
-                        text:widget.pickText ,
-                        onTap: () => _selectFolder(),
-
-                      ),
-                      SizedBox(height: Constants.paddingDimension,),
-                      EsOrdinaryButton(
-                        text: widget.clearText,
-                        onTap: () => _clearCachedFiles(),
-
-                      ),
-                    ],
-                  ),
-                ),
-                Builder(
-                  builder: (BuildContext context) => _loadingPath
-                      ? Padding(
-                    padding: const EdgeInsets.only(bottom: 10.0),
-                    child: const CircularProgressIndicator(),
-                  )
-                      : _directoryPath != null
-                      ? ListTile(
-                    title: const Text('Directory path'),
-                    subtitle: Text(_directoryPath!),
-                  )
-                      : _paths != null
-                      ? Container(
-                    padding: const EdgeInsets.only(bottom: 30.0),
-                    height:
-                    MediaQuery.of(context).size.height * 0.50,
-                    child: Scrollbar(
-                        child: ListView.separated(
-                          itemCount:
-                          _paths != null && _paths!.isNotEmpty
-                              ? _paths!.length
-                              : 1,
-                          itemBuilder:
-                              (BuildContext context, int index) {
-                            final bool isMultiPath =
-                                _paths != null && _paths!.isNotEmpty;
-                            final String name = 'File $index: ' +
-                                (isMultiPath
-                                    ? _paths!
-                                    .map((e) => e.name)
-                                    .toList()[index]
-                                    : _fileName ?? '...');
-                            final path = _paths!
-                                .map((e) => e.path)
-                                .toList()[index]
-                                .toString();
-
-                            return ListTile(
-                              title: Text(
-                                name,
-                              ),
-                              subtitle: Text(path),
-                            );
-                          },
-                          separatorBuilder:
-                              (BuildContext context, int index) =>
-                          const Divider(),
-                        )),
-                  )
-                      : const SizedBox(),
-                ),
-              ]
-
+                  onTap: () {
+                    _openFileExplorer();
+                  },
+                  controller: _controller,
+                )
+              ],
             ),
           ),
-        ));
+        ]),
+      ),
+    ));
+  }
+}
+
+
+class EsFilePickerController{
+  String _base64File = "";
+
+  String get  base64File => _base64File;
+
+  set base64File(String value) {
+    _base64File = value;
   }
 }
