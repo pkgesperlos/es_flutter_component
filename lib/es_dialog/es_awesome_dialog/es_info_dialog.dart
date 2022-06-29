@@ -10,13 +10,13 @@ class EsInfoDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   EsInfoDialog({
     required this.text,
     required this.title,
     required this.desc,
-    this.buttonColor=Constants.infoButtonColor,
+    this.ColorAsset=Constants.infoColorAsset,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
@@ -31,7 +31,7 @@ class _EsInfoDialog extends State<EsInfoDialog>{
     return Center(
         child: EsButton(
           text: widget.text,
-          fillColor: widget.buttonColor,
+          fillColor: widget.ColorAsset,
           textColor: widget.buttonFontColor,
           onTap: () {
             AwesomeDialog(

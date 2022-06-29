@@ -11,7 +11,7 @@ class EsInputDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   EsTextFieldHj esTextField1;
   EsTextFieldHj esTextField2;
@@ -21,7 +21,7 @@ class EsInputDialog extends StatefulWidget {
     required this.desc,
     required this.esTextField1,
     required this.esTextField2,
-    this.buttonColor=Constants.inputButtonColor,
+    this.ColorAsset=Constants.inputColorAsset,
     this.buttonFontColor=Constants.buttonFontColor,
   });
 
@@ -41,7 +41,7 @@ class _EsInputDialog extends State<EsInputDialog>{
           width: Constants.buttonSizeX*4,
           height: Constants.buttonSizeY,
           text: widget.text,
-          color: widget.buttonColor,
+          color: widget.ColorAsset,
           // buttonFontColor: widget.buttonFontColor,
         pressEvent: () {
       AwesomeDialog dialog;

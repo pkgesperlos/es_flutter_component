@@ -10,13 +10,13 @@ class EsSuccessDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   EsSuccessDialog({
     required this.text,
     required this.title,
     required this.desc,
-    this.buttonColor=Constants.successButtonColor,
+    this.ColorAsset=Constants.successColorAsset,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
@@ -31,7 +31,7 @@ class _EsSuccessDialog extends State<EsSuccessDialog>{
     return Center(
         child: EsButton(
           text: widget.text,
-          fillColor: widget.buttonColor,
+          fillColor: widget.ColorAsset,
           textColor: widget.buttonFontColor,
           onTap: () {
 

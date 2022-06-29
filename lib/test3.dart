@@ -1,134 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'es_alert/toast/toast_alert.dart';
 
-
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key? key}) : super(key: key);
+class Test3 extends StatefulWidget {
+  Test3({Key? key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _Test3State createState() => _Test3State();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
+class _Test3State extends State<Test3> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: <Widget>[
-          LayoutBuilder(
-            builder: (context, constraint) {
-              return SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: constraint.maxHeight),
-                  child: IntrinsicHeight(
-                    child: NavigationRail(
-                      selectedIndex: _selectedIndex,
-                      onDestinationSelected: (int index) {
-                        setState(() {
-                          _selectedIndex = index;
-                        });
-                      },
-                      labelType: NavigationRailLabelType.selected,
-                      destinations: [
-                        NavigationRailDestination(
-                          icon: Icon(Icons.favorite_border),
-                          selectedIcon: Icon(Icons.favorite),
-                          label: Text('First'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.bookmark_border),
-                          selectedIcon: Icon(Icons.book),
-                          label: Text('Second'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.star_border),
-                          selectedIcon: Icon(Icons.star),
-                          label: Text('Third'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.favorite_border),
-                          selectedIcon: Icon(Icons.favorite),
-                          label: Text('First'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.bookmark_border),
-                          selectedIcon: Icon(Icons.book),
-                          label: Text('Second'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.star_border),
-                          selectedIcon: Icon(Icons.star),
-                          label: Text('Third'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.bookmark_border),
-                          selectedIcon: Icon(Icons.book),
-                          label: Text('Second'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.star_border),
-                          selectedIcon: Icon(Icons.star),
-                          label: Text('Third'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.favorite_border),
-                          selectedIcon: Icon(Icons.favorite),
-                          label: Text('First'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.bookmark_border),
-                          selectedIcon: Icon(Icons.book),
-                          label: Text('Second'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.star_border),
-                          selectedIcon: Icon(Icons.star),
-                          label: Text('Third'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.bookmark_border),
-                          selectedIcon: Icon(Icons.book),
-                          label: Text('Second'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.star_border),
-                          selectedIcon: Icon(Icons.star),
-                          label: Text('Third'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.favorite_border),
-                          selectedIcon: Icon(Icons.favorite),
-                          label: Text('First'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.bookmark_border),
-                          selectedIcon: Icon(Icons.book),
-                          label: Text('Second'),
-                        ),
-                        NavigationRailDestination(
-                          icon: Icon(Icons.star_border),
-                          selectedIcon: Icon(Icons.star),
-                          label: Text('Third'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-          VerticalDivider(thickness: 1, width: 1),
-          // This is the main content.
-          Expanded(
-            child: Center(
-              child: Text('selectedIndex: $_selectedIndex'),
-            ),
-          )
-        ],
-      ),
-    );
+    return ElevatedButton(
+        onPressed: () {
+          ToastAlert.show(context, text: "عملیات با موفیت انجام شد",textColor: Colors.white);
+        },
+        child: Text("sad"));
   }
+
 }

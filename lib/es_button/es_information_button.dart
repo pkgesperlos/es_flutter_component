@@ -8,7 +8,7 @@ import '../resources/Constants/dims.dart';
 class EsInformationButton extends StatelessWidget {
   String text;
   String dialogeText;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   Color buttonBorderColor;
   Color buttonShadowColor;
@@ -17,8 +17,8 @@ class EsInformationButton extends StatelessWidget {
   EsInformationButton({
     this.text="i",
     this.dialogeText="",
-    this.buttonColor = Constants.buttonFontColor,
-    this.buttonFontColor = Constants.buttonColor,
+    this.ColorAsset = Constants.buttonFontColor,
+    this.buttonFontColor = Constants.ColorAsset,
     this.buttonBorderColor = Constants.buttonBorderColor,
     this.buttonShadowColor = Constants.buttonShadowColor,
     this.size ,
@@ -52,7 +52,7 @@ class EsInformationButton extends StatelessWidget {
 
             child: EsOrdinaryText(text,color:buttonFontColor,size:size?? Dims.h2FontSize(context)),
             decoration: BoxDecoration(
-                color: buttonColor,
+                color: ColorAsset,
                 borderRadius: BorderRadius.all(Radius.circular(size?? Dims.h0Padding(context)/ 2)),
                 border: Border.all(color: buttonFontColor, width: 2),
                 // boxShadow: [

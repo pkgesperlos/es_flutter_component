@@ -46,8 +46,8 @@ class EsIconButtonState extends State<EsIconButton> {
     // TODO: implement initState
     super.initState();
 
-    // if(widget.fillColor == ButtonColor.primary)
-    //   _hoverColor = ButtonColor.primary[100];
+    // if(widget.fillColor == ColorAsset.primary)
+    //   _hoverColor = ColorAsset.primary[100];
   }
 
   @override
@@ -59,7 +59,7 @@ class EsIconButtonState extends State<EsIconButton> {
           decoration:
               widget.useShadow ? Styles.cardBoxDecoration(context) : null,
           child: Material(
-            color: widget.fillColor ?? ButtonColor.primary,
+            color: widget.fillColor ?? ColorAsset.primary,
             borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
             clipBehavior: Clip.antiAlias,
             child: InkWell(
@@ -92,7 +92,7 @@ class EsIconButtonState extends State<EsIconButton> {
     if (widget.borderColor == null) {
       return null;
     } else {
-      return Border.all(color: widget.borderColor ?? ButtonColor.primary);
+      return Border.all(color: widget.borderColor ?? ColorAsset.primary);
     }
   }
 }

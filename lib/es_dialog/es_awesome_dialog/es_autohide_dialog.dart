@@ -11,14 +11,14 @@ class EsAutoHideDialog extends StatefulWidget {
   String title;
   String desc;
   int time;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   EsAutoHideDialog({
     required this.text,
     required this.title,
     required this.desc,
     required this.time,
-    this.buttonColor=Constants.autoHideButtonColor,
+    this.ColorAsset=Constants.autoHideColorAsset,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
@@ -33,7 +33,7 @@ class _EsAutoHideDialog extends State<EsAutoHideDialog>{
     return Center(
         child: EsButton(
           text: widget.text,
-          fillColor: widget.buttonColor,
+          fillColor: widget.ColorAsset,
           textColor: widget.buttonFontColor,
           onTap: () {
 

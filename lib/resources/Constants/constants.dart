@@ -31,7 +31,7 @@ class Constants{
 
   //button
   //button size
-  static const Color buttonColor=Color(0xff18186D);
+  static const Color ColorAsset=Color(0xff18186D);
   static const Color buttonFontColor=Colors.white;
   static const Color textFieldFilledColor=Colors.black12;
   static const Color buttonBorderColor=Colors.black26;
@@ -43,13 +43,13 @@ class Constants{
   static const  double buttonFontSize=17;
   static const  double buttonIconSize=17;
 
-  static const Color successButtonColor=Colors.green;
-  static const Color errorButtonColor=Colors.red;
-  static const Color infoButtonColor=Colors.blue;
-  static const Color warningButtonColor=Colors.orange;
-  static const Color bodyButtonColor=Colors.black38;
-  static const Color inputButtonColor=Colors.indigo;
-  static const Color autoHideButtonColor=Colors.purple;
+  static const Color successColorAsset=Colors.green;
+  static const Color errorColorAsset=Colors.red;
+  static const Color infoColorAsset=Colors.blue;
+  static const Color warningColorAsset=Colors.orange;
+  static const Color bodyColorAsset=Colors.black38;
+  static const Color inputColorAsset=Colors.indigo;
+  static const Color autoHideColorAsset=Colors.purple;
   static const Color enableCheckboxColor=Color(0xFF38C961);
 
 

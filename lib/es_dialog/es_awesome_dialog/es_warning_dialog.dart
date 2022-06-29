@@ -11,7 +11,7 @@ class EsWarningDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   VoidCallback btnCancelOnPress;
   VoidCallback btnOkOnPress;
@@ -21,7 +21,7 @@ class EsWarningDialog extends StatefulWidget {
     required this.desc,
     required this.btnCancelOnPress,
     required this.btnOkOnPress,
-    this.buttonColor=Constants.warningButtonColor,
+    this.ColorAsset=Constants.warningColorAsset,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
@@ -36,7 +36,7 @@ class _EsWarningDialog extends State<EsWarningDialog>{
     return Center(
         child: EsButton(
           text: widget.text,
-          fillColor: widget.buttonColor,
+          fillColor: widget.ColorAsset,
           textColor: widget.buttonFontColor,
           onTap: () {
             AwesomeDialog(

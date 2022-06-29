@@ -26,7 +26,7 @@ class _EsRengedSliderState extends State<EsRengedSlider> {
           max: 100.0,
           values: RangeValues(_startValue, _endValue),
 
-          activeColor: Constants.buttonColor,
+          activeColor: Constants.ColorAsset,
           inactiveColor: Constants.sidebarColor,
 
           onChanged: (values) {

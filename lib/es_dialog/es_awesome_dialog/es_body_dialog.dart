@@ -10,13 +10,13 @@ class EsBodyDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   EsBodyDialog({
     required this.text,
     required this.title,
     required this.desc,
-    this.buttonColor=Constants.bodyButtonColor,
+    this.ColorAsset=Constants.bodyColorAsset,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
@@ -31,7 +31,7 @@ class _EsBodyDialog extends State<EsBodyDialog>{
     return Center(
         child: EsButton(
           text: widget.text,
-          fillColor: widget.buttonColor,
+          fillColor: widget.ColorAsset,
           textColor: widget.buttonFontColor,
           onTap: () {
             AwesomeDialog(

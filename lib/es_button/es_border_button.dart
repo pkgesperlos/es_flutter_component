@@ -47,8 +47,8 @@ class EsBorderButtonState extends State<EsBorderButton> {
     super.initState();
 
 
-    // if(widget.fillColor == ButtonColor.primary)
-    //   _hoverColor = ButtonColor.primary[100];
+    // if(widget.fillColor == ColorAsset.primary)
+    //   _hoverColor = ColorAsset.primary[100];
 
   }
 
@@ -69,7 +69,7 @@ class EsBorderButtonState extends State<EsBorderButton> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.transparent,
-                  border: Border.all(color: widget.borderColor ?? ButtonColor.primary),
+                  border: Border.all(color: widget.borderColor ?? ColorAsset.primary),
                   borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
                 padding: EdgeInsets.symmetric(
@@ -94,7 +94,7 @@ class EsBorderButtonState extends State<EsBorderButton> {
                       child: EsOrdinaryText(
                         widget.text!,
                         size: widget.size ?? ButtonSize.ordinary(context),
-                        color: widget.borderColor ?? ButtonColor.primary,
+                        color: widget.borderColor ?? ColorAsset.primary,
                         align: TextAlign.center,
                       ),
                     ),

@@ -10,13 +10,13 @@ class EsErrorDialog extends StatefulWidget {
   String text;
   String title;
   String desc;
-  Color buttonColor;
+  Color ColorAsset;
   Color buttonFontColor;
   EsErrorDialog({
     required this.text,
     required this.title,
     required this.desc,
-    this.buttonColor=Constants.errorButtonColor,
+    this.ColorAsset=Constants.errorColorAsset,
     this.buttonFontColor=Constants.buttonFontColor});
 
   @override
@@ -31,7 +31,7 @@ class _EsErrorDialog extends State<EsErrorDialog>{
     return Center(
         child: EsButton(
           text: widget.text,
-          fillColor: widget.buttonColor,
+          fillColor: widget.ColorAsset,
           textColor: widget.buttonFontColor,
           onTap: () {
             AwesomeDialog(

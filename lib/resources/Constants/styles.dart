@@ -150,7 +150,7 @@ class Styles {
 }
 
 
-class ButtonColor{
+class ColorAsset{
 
  // static Color primary = Styles.primaryColor;
   static Color warning = Styles.warningColor;
