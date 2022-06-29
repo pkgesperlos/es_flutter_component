@@ -89,7 +89,7 @@ class Dims {
     return MediaQuery.of(context).size;
   }
 
-  double displayHeight(BuildContext context) {
+  static double displayHeight(BuildContext context) {
     //debugPrint('Height = ' + displaySize(context).height.toString());
     return displaySize(context).height;
   }
