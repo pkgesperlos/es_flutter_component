@@ -1,11 +1,12 @@
 import 'dart:async';
 
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:validators/validators.dart';
 
-import '../../images/Constants/dims.dart';
+import '../../resources/Constants/dims.dart';
+import '../../resources/Constants/styles.dart';
 
 
 class EsSearchTextField extends StatefulWidget {
@@ -65,7 +66,7 @@ class _EsSearchTextField extends State<EsSearchTextField> {
 
 
         },
-        style: TextStyle(fontSize: Dims.h1FontSize(context)),
+        style: Styles.inputStyle(context),
         decoration: InputDecoration(
           hintStyle: TextStyle(color: widget.hintColor),
           filled: true,

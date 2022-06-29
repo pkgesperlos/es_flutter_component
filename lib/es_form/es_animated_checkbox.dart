@@ -1,4 +1,4 @@
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;

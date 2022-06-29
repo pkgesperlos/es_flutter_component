@@ -1,5 +1,5 @@
 import 'package:es_flutter_component/es_slider/es_slide_indicator.dart';
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../es_text/es_label_text.dart';

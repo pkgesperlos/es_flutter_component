@@ -1,12 +1,13 @@
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
-import '../images/Constants/styles.dart';
+import '../resources/Constants/styles.dart';
 
 class EsDottedText extends StatelessWidget {
   String data;
   TextAlign align;
-  double size;
+  double? size;
   Color color;
   String fontFamily;
   bool isBold;
@@ -15,10 +16,10 @@ class EsDottedText extends StatelessWidget {
       this.data,
       {Key? key,
       this.align = TextAlign.center,
-      this.size = Constants.markedFontSize,
+      this.size ,
       this.color = Styles.textPrimaryColor,
       this.fontFamily = Constants.fontFamily,
-        this.isBold=true
+        this.isBold=false
       })
       : super(key: key);
 
@@ -30,22 +31,22 @@ class EsDottedText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: size/2.5,
-            height: size/2.5,
+            width: size ?? Dims.h3FontSize(context)/2.5,
+            height: size ?? Dims.h3FontSize(context)/2.5,
             decoration: BoxDecoration(
                 color: color,
                 borderRadius:
-                    BorderRadius.all(Radius.circular(size ))),
+                    BorderRadius.all(Radius.circular(size ?? Dims.h3FontSize(context) ))),
           ),
           SizedBox(
-            width: size/5,
+            width: size ?? Dims.h3FontSize(context)/5,
           ),
           Expanded(child: Text(
             data,
             textAlign: align,
             style: TextStyle(
               color: color,
-              fontSize: size,
+              fontSize: size ?? Dims.h3FontSize(context),
               fontFamily: fontFamily,
               fontWeight: isBold?FontWeight.bold:FontWeight.normal,
               // overflow: TextOverflow.ellipsis,

@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../es_form/es_text_field/es_text_field_hj.dart';
-import '../../images/Constants/constants.dart';
+import '../../resources/Constants/constants.dart';
 
 class EsInputDialog extends StatefulWidget {
   String text;

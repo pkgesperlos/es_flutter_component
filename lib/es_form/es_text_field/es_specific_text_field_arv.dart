@@ -1,4 +1,5 @@
-import 'package:es_flutter_component/images/Constants/dims.dart';
+import 'package:es_flutter_component/resources/Constants/dims.dart';
+import 'package:es_flutter_component/resources/Constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 ///this class is a customized text field that use in whole of app
@@ -95,7 +96,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
         maxLines: widget.maxLines,
         textAlign:
         widget.textAlign ?? TextAlign.right ,
-        style: new TextStyle(fontSize: Dims.h3FontSize(context)),
+        style:Styles.inputStyle(context),
         decoration: new InputDecoration(
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: borderColor),
@@ -107,7 +108,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
               borderRadius:
               BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: Dims.h3FontSize(context)),
+          labelStyle: Styles.inputStyle(context),
         ),
       ),
     );

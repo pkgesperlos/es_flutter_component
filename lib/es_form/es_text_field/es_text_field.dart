@@ -1,7 +1,8 @@
-import 'package:es_flutter_component/images/Constants/dims.dart';
+import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:flutter/material.dart';
 
-import '../../images/Constants/constants.dart';
+import '../../resources/Constants/constants.dart';
+import '../../resources/Constants/styles.dart';
 
 ///this class is a customized text field that use in whole of app
 class EsTextField extends StatefulWidget {
@@ -46,43 +47,39 @@ class EsTextField extends StatefulWidget {
 }
 
 class _EsTextFieldFormState extends State<EsTextField> {
-  late String Function(String value) _checkRepeat;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _checkRepeat = widget.checkRepeat!;
+
   }
 
   @override
   void didUpdateWidget(EsTextField oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
-    _checkRepeat = widget.checkRepeat!;
+
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: TextFormField(
-        focusNode: widget.focusNode,
-        maxLength: widget.maxLength,
-        controller: widget.controller,
-        onChanged: widget.onChanged,
-        keyboardType: widget.textInput,
-        maxLines: widget.maxLines,
-        obscureText: widget.obscure,
-        onFieldSubmitted: (v) {
-          if (widget.nextFocusNode != null)
-            FocusScope.of(context).requestFocus(widget.nextFocusNode);
-        },
-        textAlign: widget.textAlign ?? TextAlign.right,
-        style: new TextStyle(fontSize: Dims.h1FontSize(context)),
-        decoration: decoration(),
-      ),
+    return TextFormField(
+      focusNode: widget.focusNode,
+      maxLength: widget.maxLength,
+      controller: widget.controller,
+      onChanged: widget.onChanged,
+      keyboardType: widget.textInput,
+      maxLines: widget.maxLines,
+      obscureText: widget.obscure,
+      onFieldSubmitted: (v) {
+        if (widget.nextFocusNode != null)
+          FocusScope.of(context).requestFocus(widget.nextFocusNode);
+      },
+      textAlign: widget.textAlign ?? TextAlign.right,
+      style:Styles.inputStyle(context),
+      decoration: decoration(),
     );
   }
 
@@ -112,7 +109,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)));
+          labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
           alignLabelWithHint: true,
@@ -121,7 +118,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
                   borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)))
               : null,
           labelText: widget.hint,
-          labelStyle: TextStyle(fontSize: Dims.h1FontSize(context)),
+          labelStyle: Styles.inputStyle(context),
           contentPadding:
               EdgeInsets.only(left: 8, right: 8, bottom: 12, top: 12));
     }

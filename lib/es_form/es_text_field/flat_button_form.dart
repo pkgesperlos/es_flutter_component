@@ -1,4 +1,4 @@
-// import 'package:es_flutter_component/images/Constants/styles.dart';
+// import 'package:es_flutter_component/resources/Constants/styles.dart';
 // import 'package:flutter/material.dart';
 //
 //

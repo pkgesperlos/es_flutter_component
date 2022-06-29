@@ -1,20 +1,8 @@
 // @dart=2.9
 
-import 'package:es_flutter_component/es_button/es_information_button.dart';
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
-import 'package:es_flutter_component/es_layer/es_card.dart';
-import 'package:es_flutter_component/es_form/es_dropp_down_button/es_bordered_drop_down_button.dart';
-import 'package:es_flutter_component/es_form/es_text_field/es_text_field_hj.dart';
-import 'package:es_flutter_component/es_text/es_header.dart';
-import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
-import 'package:es_flutter_component/es_text/es_paragraph.dart';
-import 'package:es_flutter_component/es_text/es_subtitle.dart';
-import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:es_flutter_component/test.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'es_form/es_file_picker/es_file_picker.dart';
 
 void main() {
   runApp(MyApp());
@@ -64,10 +52,9 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
             resizeToAvoidBottomInset: false,
 
-            // body:Center(child: EsOrdinaryButton(text: 'press',onPressed: (){
+            // body:Center(child: EsButton(text: 'press',onPressed: (){
             //   NotificationApi.showNotification();
             // },),)
-
             body: Test()));
 
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../images/Constants/dims.dart';
-import '../images/Constants/styles.dart';
+import '../resources/Constants/dims.dart';
+import '../resources/Constants/styles.dart';
 
 class EsCard extends StatelessWidget {
 

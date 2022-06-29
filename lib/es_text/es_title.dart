@@ -1,8 +1,10 @@
 import 'package:es_flutter_component/es_text/es_header.dart';
-import 'package:es_flutter_component/images/Constants/constants.dart';
-import 'package:es_flutter_component/images/Constants/dims.dart';
-import 'package:es_flutter_component/images/Constants/styles.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/dims.dart';
+import 'package:es_flutter_component/resources/Constants/styles.dart';
 import 'package:flutter/material.dart';
+
+import '../resources/Constants/styles.dart';
 
 class EsTitle extends StatelessWidget {
   String data;
@@ -11,39 +13,35 @@ class EsTitle extends StatelessWidget {
   Color color;
   String fontFamily;
   bool isBold;
-  final weight;
+
 
   EsTitle(
       this.data,
       {Key? key,
 
-        this.weight= FontWeight.bold,
         this.align = TextAlign.center,
         this.size,
         this.color = Styles.textPrimaryColor,
         this.fontFamily = Constants.fontFamily,
-      this.isBold=true
+      this.isBold=false
       })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    defaults(context);
+
     return Text(
       data,
       textAlign: align,
       style: TextStyle(
         color: color,
-        fontSize: size,
+        fontSize: size ?? Dims.h2FontSize(context),
         fontFamily:fontFamily,
-        fontWeight: isBold?FontWeight.bold:weight,
+        fontWeight: isBold?FontWeight.bold:FontWeight.normal,
         // overflow: TextOverflow.ellipsis,
       ),
     );
 
   }
 
-  void defaults(context) {
-    size=Dims.h1FontSize(context);
-  }
 }

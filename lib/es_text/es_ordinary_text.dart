@@ -1,11 +1,15 @@
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+
+import '../resources/Constants/dims.dart';
 
 class EsOrdinaryText extends StatelessWidget {
   String data;
   TextAlign align;
-  double size;
+  double? size;
   Color color;
   String fontFamily;
   bool overFlowTag;
@@ -17,8 +21,8 @@ class EsOrdinaryText extends StatelessWidget {
       this.data,
       {Key? key,
         this.align = TextAlign.center,
-        this.size = Constants.ordinaryFontSize ,
-        this.color = Constants.ordinaryText,
+        this.size ,
+        this.color = Styles.textPrimaryColor,
         this.fontFamily = Constants.fontFamily,
         this.overFlowTag=false,
         this.maxLine=3,
@@ -36,9 +40,9 @@ class EsOrdinaryText extends StatelessWidget {
       maxLines:overFlowTag?maxLine:null ,
       style: TextStyle(
         color: color,
-        fontSize: size,
+        fontSize: size ?? Dims.h3FontSize(context),
         fontFamily: fontFamily,
-        fontWeight: isBold?FontWeight.bold:FontWeight.w500,
+        fontWeight: isBold?FontWeight.bold:FontWeight.normal,
         overflow:overFlowTag? TextOverflow.ellipsis:null,
 
 

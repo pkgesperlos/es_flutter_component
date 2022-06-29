@@ -1,9 +1,9 @@
-import 'package:es_flutter_component/es_button/es_ordinary_button.dart';
+import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-import '../../images/Constants/constants.dart';
+import '../../resources/Constants/constants.dart';
 
 class EsPersianDatePicker extends StatefulWidget {
   String title;
@@ -28,7 +28,7 @@ class _EsPersianDatePickerState extends State<EsPersianDatePicker> {
     return Column(
       children: <Widget>[
 
-        EsOrdinaryButton(
+        EsButton(
             text: widget.title,
             onTap: () {
               DatePicker.showDatePicker(context,

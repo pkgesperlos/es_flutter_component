@@ -4,28 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 import '../resources/Constants/dims.dart';
-import '../resources/Constants/enums.dart';
 import '../resources/Constants/styles.dart';
 
 ///this class is a customized flat button that use in whole of app
-class EsIconButton extends StatefulWidget {
-  
+class EsBorderButton extends StatefulWidget {
+  String? text = "";
   VoidCallback? onTap;
   IconData? icon;
+  Color textColor = Styles.t6Color;
   Color? borderColor;
-  Color? fillColor;
   Color iconColor;
   double? size;
   bool useShadow;
   bool usePadding;
 
-  EsIconButton(
-      this.icon,{
+  EsBorderButton({
     required this.onTap,
-
+    required this.text,
+    this.icon,
+    this.textColor = Styles.t6Color,
     this.borderColor,
     this.iconColor = Styles.t6Color,
-    this.fillColor = Styles.primaryColor,
     this.useShadow = false,
     this.usePadding = true,
     this.size,
@@ -34,11 +33,12 @@ class EsIconButton extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new EsIconButtonState();
+    return new EsBorderButtonState();
   }
 }
 
-class EsIconButtonState extends State<EsIconButton> {
+class EsBorderButtonState extends State<EsBorderButton> {
+
   late Color? _hoverColor;
 
   @override
@@ -46,8 +46,10 @@ class EsIconButtonState extends State<EsIconButton> {
     // TODO: implement initState
     super.initState();
 
+
     // if(widget.fillColor == ButtonColor.primary)
     //   _hoverColor = ButtonColor.primary[100];
+
   }
 
   @override
@@ -56,29 +58,50 @@ class EsIconButtonState extends State<EsIconButton> {
     return IntrinsicHeight(
       child: IntrinsicWidth(
         child: Container(
-          decoration:
-              widget.useShadow ? Styles.cardBoxDecoration(context) : null,
           child: Material(
-            color: widget.fillColor ?? ButtonColor.primary,
+            color: Colors.transparent,
             borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
             clipBehavior: Clip.antiAlias,
             child: InkWell(
+
               hoverColor: Colors.black.withOpacity(.1),
               onTap: widget.onTap,
               child: Container(
                 decoration: BoxDecoration(
-                  border: border(),
+                  color: Colors.transparent,
+                  border: Border.all(color: widget.borderColor ?? ButtonColor.primary),
                   borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h2Padding(context),
                     vertical: Dims.h2Padding(context)),
-                child:  Icon(
-                  widget.icon,
-                  size: widget.size ?? ButtonSize.ordinary(context),
-                  color: widget.iconColor == null
-                      ? Colors.white
-                      : widget.iconColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    widget.icon == null
+                        ? SizedBox(
+                      width: 24,
+                    )
+                        : Icon(
+                      widget.icon,
+                      size: widget.size ?? ButtonSize.ordinary(context),
+                      color: widget.iconColor == null
+                          ? Colors.white
+                          : widget.iconColor,
+                    ),
+                    Expanded(
+                      child: EsOrdinaryText(
+                        widget.text!,
+                        size: widget.size ?? ButtonSize.ordinary(context),
+                        color: widget.borderColor ?? ButtonColor.primary,
+                        align: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -88,12 +111,4 @@ class EsIconButtonState extends State<EsIconButton> {
     );
   }
 
-  border() {
-    if (widget.borderColor == null) {
-      return null;
-    } else {
-      return Border.all(color: widget.borderColor ?? ButtonColor.primary);
-    }
-  }
 }
-

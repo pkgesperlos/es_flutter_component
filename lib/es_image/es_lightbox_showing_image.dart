@@ -1,4 +1,4 @@
-import 'package:es_flutter_component/images/Constants/constants.dart';
+import 'package:es_flutter_component/resources/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
 
@@ -33,7 +33,7 @@ class DetailScreen extends StatelessWidget {
         child: Center(
           child: Container(
               color: Colors.black54,
-              child: Image.asset("assets/images/img1.jpg")),
+              child: Image.asset("assets/resources/img1.jpg")),
         ),
         onTap: () {
           Navigator.pop(context);

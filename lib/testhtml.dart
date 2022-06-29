@@ -60,7 +60,7 @@ const htmlData = r"""
         <td rowspan='2'>Rowspan\nRowspan\nRowspan\nRowspan\nRowspan\nRowspan\nRowspan\nRowspan\nRowspan\nRowspan</td><td>Data</td><td>Data</td>
       </tr>
       <tr>
-        <td colspan="2"><img alt='Google' src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' /></td>
+        <td colspan="2"><img alt='Google' src='https://www.google.com/resources/branding/googlelogo/2x/googlelogo_color_92x30dp.png' /></td>
       </tr>
       </tbody>
       <tfoot>
@@ -108,7 +108,7 @@ const htmlData = r"""
       </p>
       <h3>Image support:</h3>
       <h3>Network png</h3>
-      <img alt='Google' src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' />
+      <img alt='Google' src='https://www.google.com/resources/branding/googlelogo/2x/googlelogo_color_92x30dp.png' />
       <h3>Network svg</h3>
       <img src='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/android.svg' />
       <h3>Local asset png</h3>
@@ -122,12 +122,12 @@ const htmlData = r"""
       <h3>Custom source matcher (relative paths)</h3>
       <img src='/wikipedia/commons/thumb/e/ef/Octicons-logo-github.svg/200px-Octicons-logo-github.svg.png' />
       <h3>Custom image render (flutter.dev)</h3>
-      <img src='https://flutter.dev/images/flutter-mono-81x100.png' />
+      <img src='https://flutter.dev/resources/flutter-mono-81x100.png' />
       <h3>No image source</h3>
       <img alt='No source' />
       <img alt='Empty source' src='' />
       <h3>Broken network image</h3>
-      <img alt='Broken image' src='https://www.notgoogle.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' />
+      <img alt='Broken image' src='https://www.notgoogle.com/resources/branding/googlelogo/2x/googlelogo_color_92x30dp.png' />
       <h3>MathML Support:</h3>
       <math>
       <mrow>

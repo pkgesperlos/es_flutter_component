@@ -8,37 +8,41 @@ import '../resources/Constants/enums.dart';
 import '../resources/Constants/styles.dart';
 
 ///this class is a customized flat button that use in whole of app
-class EsIconButton extends StatefulWidget {
-  
+class EsButton extends StatefulWidget {
+  String? text = "";
   VoidCallback? onTap;
   IconData? icon;
+  Color textColor = Styles.t6Color;
   Color? borderColor;
   Color? fillColor;
   Color iconColor;
   double? size;
   bool useShadow;
   bool usePadding;
+  ButtonDirection iconSide;
 
-  EsIconButton(
-      this.icon,{
+  EsButton({
     required this.onTap,
-
+    required this.text,
+    this.icon,
+    this.textColor = Styles.t6Color,
     this.borderColor,
     this.iconColor = Styles.t6Color,
     this.fillColor = Styles.primaryColor,
     this.useShadow = false,
     this.usePadding = true,
     this.size,
+    this.iconSide=ButtonDirection.start
   });
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new EsIconButtonState();
+    return new EsButtonState();
   }
 }
 
-class EsIconButtonState extends State<EsIconButton> {
+class EsButtonState extends State<EsButton> {
   late Color? _hoverColor;
 
   @override
@@ -71,14 +75,35 @@ class EsIconButtonState extends State<EsIconButton> {
                   borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
                 padding: EdgeInsets.symmetric(
-                    horizontal: Dims.h2Padding(context),
+                    horizontal: Dims.h1Padding(context),
                     vertical: Dims.h2Padding(context)),
-                child:  Icon(
-                  widget.icon,
-                  size: widget.size ?? ButtonSize.ordinary(context),
-                  color: widget.iconColor == null
-                      ? Colors.white
-                      : widget.iconColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  textDirection:widget.iconSide==ButtonDirection.start?TextDirection.ltr:TextDirection.rtl ,
+
+                  children: <Widget>[
+                    widget.icon == null
+                        ? SizedBox(
+                            width: 0,
+                          )
+                        : Icon(
+                            widget.icon,
+                            size: widget.size ?? ButtonSize.ordinary(context),
+                            color: widget.iconColor == widget.textColor
+                                ? Colors.white
+                                : widget.iconColor,
+                          ),
+                    Expanded(
+                      child: EsOrdinaryText(
+                        widget.text!,
+                        size: widget.size ?? ButtonSize.ordinary(context),
+                        color: widget.textColor,
+                        align: TextAlign.center,
+                      ),
+                    ),
+
+                  ],
                 ),
               ),
             ),
