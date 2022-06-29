@@ -142,6 +142,8 @@ class Styles{
   );
 
   static const Color primaryColor = Color(0xFF38C961);
+  static const Color textPrimaryColor = Colors.black;
+  static const Color textSecondaryColor = Colors.black54;
   static const Color t1Color = Colors.black;
   static const Color t2Color =Colors.black38;
   static const Color t3Color = Color(0xFFA1A1A1);

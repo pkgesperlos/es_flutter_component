@@ -72,7 +72,6 @@ class MyApp extends StatelessWidget {
 
   }
 
-  onClick() {}
 }
 
 

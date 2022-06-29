@@ -1,6 +1,8 @@
 import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../images/Constants/styles.dart';
+
 class EsDottedText extends StatelessWidget {
   String data;
   TextAlign align;
@@ -14,7 +16,7 @@ class EsDottedText extends StatelessWidget {
       {Key? key,
       this.align = TextAlign.center,
       this.size = Constants.markedFontSize,
-      this.color = Constants.dottedText,
+      this.color = Styles.textPrimaryColor,
       this.fontFamily = Constants.fontFamily,
         this.isBold=true
       })

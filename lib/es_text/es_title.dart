@@ -1,5 +1,7 @@
+import 'package:es_flutter_component/es_text/es_header.dart';
 import 'package:es_flutter_component/images/Constants/constants.dart';
 import 'package:es_flutter_component/images/Constants/dims.dart';
+import 'package:es_flutter_component/images/Constants/styles.dart';
 import 'package:flutter/material.dart';
 
 class EsTitle extends StatelessWidget {
@@ -18,7 +20,7 @@ class EsTitle extends StatelessWidget {
         this.weight= FontWeight.bold,
         this.align = TextAlign.center,
         this.size,
-        this.color = Constants.titleText,
+        this.color = Styles.textPrimaryColor,
         this.fontFamily = Constants.fontFamily,
       this.isBold=true
       })
