@@ -77,7 +77,7 @@ class EsButtonState extends State<EsButton> {
                     horizontal: Dims.h0Padding(context),
                     vertical: Dims.h1Padding(context)),
                 child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   textDirection:widget.iconSide==ButtonDirection.start?TextDirection.ltr:TextDirection.rtl ,
@@ -103,6 +103,7 @@ class EsButtonState extends State<EsButton> {
 
 
                     ),
+
 
                   ],
                 ),
