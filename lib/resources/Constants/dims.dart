@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 class Dims {
   static const double indicatorImageAspectRatio = 2 / 1;
   static const double cardAspectRatio = 2 / 1;
+  static const double boxBorderRadious = 15;
 
   static double drawerWidth(BuildContext context) {
     return responsiveDeviceConstructor(context, 0.6);
