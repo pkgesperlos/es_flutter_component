@@ -24,7 +24,7 @@ class Dims {
   }
 
   static double h0Padding(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.15);
+    return responsiveDeviceConstructor(context, 0.10);
   }
 
   static double bordertickness(BuildContext context) {

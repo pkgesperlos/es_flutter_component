@@ -39,6 +39,7 @@ class EsOrdinaryText extends StatelessWidget {
       textAlign:align,
       maxLines:overFlowTag?maxLine:null ,
       style: TextStyle(
+        height: 1,
         color: color,
         fontSize: size ?? Dims.h3FontSize(context),
         fontFamily: fontFamily,

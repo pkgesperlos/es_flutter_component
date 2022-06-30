@@ -27,24 +27,7 @@ class Test extends StatelessWidget {
 
       child: Column(
         children: [
-          // EsFilePicker(
-          //   label:"انتخاب فایل",
-          //   controller: controller,
-          // ),
-          // ElevatedButton(onPressed: (){
-          //   print(controller.base64File);
-          // }, child: Text("Sd"))
-          // EsLabelText("data",size: 50,),
-          // EsLabelText("data",),
-          // EsOrdinaryText("data",size: 50,),
-          // EsOrdinaryText("data",),
-
-          EsTitle("sdsadas"),
-              EsHeader("lkjhh"),
-          EsSubtitle("sdas"),
-          EsFilePicker(controller: controller),
-          EsDottedText("sadsad"),
-          EsMarkedText("sadsad"),
+          EsButton(onTap: (){}, text: "text",icon: Icons.add,)
         ],
 
       ),

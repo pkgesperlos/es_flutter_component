@@ -1,4 +1,5 @@
 import 'package:es_flutter_component/es_button/es_button.dart';
+import 'package:es_flutter_component/es_spacer/es_h_spacer.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -43,15 +44,13 @@ class EsButton extends StatefulWidget {
 }
 
 class EsButtonState extends State<EsButton> {
-  late Color? _hoverColor;
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    // if(widget.fillColor == ButtonColor.primary)
-    //   _hoverColor = ButtonColor.primary[100];
   }
 
   @override
@@ -75,10 +74,11 @@ class EsButtonState extends State<EsButton> {
                   borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
                 padding: EdgeInsets.symmetric(
-                    horizontal: Dims.h1Padding(context),
-                    vertical: Dims.h2Padding(context)),
+                    horizontal: Dims.h0Padding(context),
+                    vertical: Dims.h1Padding(context)),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   textDirection:widget.iconSide==ButtonDirection.start?TextDirection.ltr:TextDirection.rtl ,
 
@@ -94,13 +94,14 @@ class EsButtonState extends State<EsButton> {
                                 ? Colors.white
                                 : widget.iconColor,
                           ),
-                    Expanded(
-                      child: EsOrdinaryText(
-                        widget.text!,
-                        size: widget.size ?? ButtonSize.ordinary(context),
-                        color: widget.textColor,
-                        align: TextAlign.center,
-                      ),
+                    EsHSpacer(),
+                    EsOrdinaryText(
+                      widget.text!,
+                      size: widget.size ?? ButtonSize.ordinary(context),
+                      color: widget.textColor,
+                      align: TextAlign.center,
+
+
                     ),
 
                   ],
