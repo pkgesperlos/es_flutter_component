@@ -2,16 +2,15 @@ import 'package:es_flutter_component/es_slider/es_slide_indicator.dart';
 import 'package:es_flutter_component/resources/Constants/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../resources/Constants/styles.dart';
+
 class EsDropDownButton extends StatefulWidget {
   final List<String> items;
   final List<VoidCallback> onTapItems;
-
+  Color? fillColor;
 
   EsDropDownButton(
-      {Key? key,
-      required this.items,
-      required this.onTapItems,
-      })
+      {Key? key, required this.items, required this.onTapItems, this.fillColor})
       : super(key: key);
 
   @override
@@ -24,11 +23,13 @@ class _EsDropDownButton extends State<EsDropDownButton> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      // dropdownColor: widget.fillColor,
+
       value: dropdownValue,
       icon: const Icon(Icons.keyboard_arrow_down),
       elevation: 16,
       style: const TextStyle(
-        color: Constants.purpleDark,
+        color: Styles.t1Color,
       ),
       underline: Container(
         height: 2,

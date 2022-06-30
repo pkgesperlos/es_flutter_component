@@ -1,6 +1,8 @@
 import 'package:es_flutter_component/es_button/es_border_button.dart';
 import 'package:es_flutter_component/es_button/es_information_button.dart';
 import 'package:es_flutter_component/es_button/es_button.dart';
+import 'package:es_flutter_component/es_form/es_dropp_down_button/es_bordered_drop_down_button.dart';
+import 'package:es_flutter_component/es_form/es_dropp_down_button/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_form/es_text_field/es_text_field.dart';
 import 'package:es_flutter_component/es_form/es_text_field/es_text_field_form.dart';
 
@@ -30,7 +32,8 @@ class Test extends StatelessWidget {
           EsButton(onTap: (){}, text: "text",icon: Icons.add,),
           EsSearchTextField(fillColor: Colors.red,),
           EsTextFieldForm(fillColor: Colors.red, validator: (value ) {  },),
-          EsSearchTextField(fillColor: Colors.red,)
+          EsSearchTextField(fillColor: Colors.red,),
+          EsBorderedDropDownButton(items: ["items1","items2",], onTapItems: [(){},(){}],fillColor: Colors.purple,)
         ],
 
       ),
