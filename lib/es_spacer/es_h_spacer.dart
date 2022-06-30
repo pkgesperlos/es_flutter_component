@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class EsHSpacer extends StatelessWidget{
 
   final bool big;
-  final int factor;
+  final double factor;
 
 
 

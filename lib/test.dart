@@ -29,12 +29,18 @@ class Test extends StatelessWidget {
     return Center(
 
       child:   Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          EsButton(
-            size: Dims.h3FontSize(context),
-            onTap: (){},
-            text: "لطفا کمی صبر کنید...",
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: EsButton(
+              // size: Dims.h3FontSize(context),
+              onTap: (){},
+              icon: Icons.arrow_back,
+
+
+              text: "لطفا کمی صبر کنید...",
+            ),
           ),
         ],
       ),

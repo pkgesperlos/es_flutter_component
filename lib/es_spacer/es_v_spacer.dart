@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class EsVSpacer extends StatelessWidget{
 
   final bool big;
-  final int factor;
+  final double factor;
 
 
   EsVSpacer({this.big = false,this.factor=1});

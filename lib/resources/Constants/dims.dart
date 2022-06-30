@@ -11,6 +11,10 @@ class Dims {
     return responsiveDeviceConstructor(context, 0.6);
   }
 
+  static double h0Padding(BuildContext context) {
+    return responsiveDeviceConstructor(context, 0.10);
+  }
+
   static double h1Padding(BuildContext context) {
     return responsiveDeviceConstructor(context, 0.04);
   }
@@ -23,9 +27,7 @@ class Dims {
     return responsiveDeviceConstructor(context, 0.01);
   }
 
-  static double h0Padding(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.10);
-  }
+
 
   static double bordertickness(BuildContext context) {
     return responsiveDeviceConstructor(context, 0.015);
