@@ -4,6 +4,7 @@ import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
+import '../es_text/es_title.dart';
 import '../resources/Constants/dims.dart';
 import '../resources/Constants/enums.dart';
 import '../resources/Constants/styles.dart';
@@ -19,8 +20,9 @@ class EsButton extends StatefulWidget {
   Color iconColor;
   double? size;
   bool useShadow;
-  bool usePadding;
+  bool useConfidence;
   ButtonDirection iconSide;
+
 
   EsButton({
     required this.onTap,
@@ -31,9 +33,9 @@ class EsButton extends StatefulWidget {
     this.iconColor = Styles.t6Color,
     this.fillColor = Styles.primaryColor,
     this.useShadow = false,
-    this.usePadding = true,
     this.size,
-    this.iconSide=ButtonDirection.start
+    this.iconSide=ButtonDirection.start,
+    this.useConfidence = false
   });
 
   @override
@@ -67,7 +69,7 @@ class EsButtonState extends State<EsButton> {
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               hoverColor: Colors.black.withOpacity(.1),
-              onTap: widget.onTap,
+              onTap: onTap,
               child: Container(
                 decoration: BoxDecoration(
                   border: border(),
@@ -121,6 +123,34 @@ class EsButtonState extends State<EsButton> {
     } else {
       return Border.all(color: widget.borderColor ?? ColorAsset.primary);
     }
+  }
+
+
+
+  onTap() {
+
+    if(widget.useConfidence){
+
+      showDialog(context: context,builder: (context)=>AlertDialog(
+        alignment: Alignment.center,
+        title: EsTitle("اخطار"),
+        content: Container(
+          height: 80,child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),),
+        actions: [
+          EsButton(onTap: (){
+            widget.onTap!();
+          }, text: "بله",fillColor: ColorAsset.danger,),
+          EsButton(onTap: (){
+
+          }, text: "لغو",),
+
+        ],
+      ));
+
+    }else{
+      widget.onTap!();
+    }
+
   }
 }
 

@@ -1,3 +1,5 @@
+import 'package:es_flutter_component/es_button/es_button.dart';
+import 'package:es_flutter_component/es_button/es_icon_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +16,10 @@ class _Test3State extends State<Test3> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: () {
-          ToastAlert.show(context, text: "عملیات با موفیت انجام شد",textColor: Colors.white);
-        },
-        child: Text("sad"));
+    return EsIconButton(Icons.add,onTap: (){
+
+      print("sadsa");
+    },useConfidence: true,);
   }
 
 }

@@ -1,5 +1,6 @@
 import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
+import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
@@ -17,17 +18,16 @@ class EsIconButton extends StatefulWidget {
   Color iconColor;
   double? size;
   bool useShadow;
-  bool usePadding;
+  bool useConfidence;
 
   EsIconButton(
       this.icon,{
     required this.onTap,
-
     this.borderColor,
     this.iconColor = Styles.t6Color,
     this.fillColor = Styles.primaryColor,
     this.useShadow = false,
-    this.usePadding = true,
+    this.useConfidence = false,
     this.size,
   });
 
@@ -64,7 +64,7 @@ class EsIconButtonState extends State<EsIconButton> {
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               hoverColor: Colors.black.withOpacity(.1),
-              onTap: widget.onTap,
+              onTap: onTap,
               child: Container(
                 decoration: BoxDecoration(
                   border: border(),
@@ -94,6 +94,32 @@ class EsIconButtonState extends State<EsIconButton> {
     } else {
       return Border.all(color: widget.borderColor ?? ColorAsset.primary);
     }
+  }
+
+  onTap() {
+
+    if(widget.useConfidence){
+
+      showDialog(context: context,builder: (context)=>AlertDialog(
+        alignment: Alignment.center,
+        title: EsTitle("اخطار"),
+        content: Container(
+          height: 80,child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),),
+        actions: [
+          EsButton(onTap: (){
+            widget.onTap!();
+          }, text: "بله",fillColor: ColorAsset.danger,),
+          EsButton(onTap: (){
+
+          }, text: "لغو",),
+
+        ],
+      ));
+
+    }else{
+      widget.onTap!();
+    }
+
   }
 }
 

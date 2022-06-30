@@ -3,6 +3,7 @@ import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
+import '../es_text/es_title.dart';
 import '../resources/Constants/dims.dart';
 import '../resources/Constants/styles.dart';
 
@@ -16,7 +17,7 @@ class EsBorderButton extends StatefulWidget {
   Color iconColor;
   double? size;
   bool useShadow;
-  bool usePadding;
+  bool useConfidence;
 
   EsBorderButton({
     required this.onTap,
@@ -26,8 +27,8 @@ class EsBorderButton extends StatefulWidget {
     this.borderColor,
     this.iconColor = Styles.t6Color,
     this.useShadow = false,
-    this.usePadding = true,
     this.size,
+    this.useConfidence = false
   });
 
   @override
@@ -65,7 +66,7 @@ class EsBorderButtonState extends State<EsBorderButton> {
             child: InkWell(
 
               hoverColor: Colors.black.withOpacity(.1),
-              onTap: widget.onTap,
+              onTap: onTap,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.transparent,
@@ -109,6 +110,34 @@ class EsBorderButtonState extends State<EsBorderButton> {
         ),
       ),
     );
+  }
+
+
+
+  onTap() {
+
+    if(widget.useConfidence){
+
+      showDialog(context: context,builder: (context)=>AlertDialog(
+        alignment: Alignment.center,
+        title: EsTitle("اخطار"),
+        content: Container(
+          height: 80,child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),),
+        actions: [
+          EsButton(onTap: (){
+            widget.onTap!();
+          }, text: "بله",fillColor: ColorAsset.danger,),
+          EsButton(onTap: (){
+
+          }, text: "لغو",),
+
+        ],
+      ));
+
+    }else{
+      widget.onTap!();
+    }
+
   }
 
 }
