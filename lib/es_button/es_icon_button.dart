@@ -100,7 +100,7 @@ class EsIconButtonState extends State<EsIconButton> {
 
     if(widget.useConfidence){
 
-      showDialog(context: context,builder: (context)=>AlertDialog(
+      showDialog(context: context,builder: (context)=>Directionality(textDirection: TextDirection.rtl, child: AlertDialog(
         alignment: Alignment.center,
         title: EsTitle("اخطار"),
         content: Container(
@@ -114,7 +114,7 @@ class EsIconButtonState extends State<EsIconButton> {
           }, text: "لغو",),
 
         ],
-      ));
+      )));
 
     }else{
       widget.onTap!();
