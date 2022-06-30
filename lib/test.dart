@@ -27,7 +27,10 @@ class Test extends StatelessWidget {
 
       child: Column(
         children: [
-          EsButton(onTap: (){}, text: "text",icon: Icons.add,)
+          EsButton(onTap: (){}, text: "text",icon: Icons.add,),
+          EsSearchTextField(fillColor: Colors.red,),
+          EsTextFieldForm(fillColor: Colors.red, validator: (value ) {  },),
+          EsSearchTextField(fillColor: Colors.red,)
         ],
 
       ),

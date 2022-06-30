@@ -26,7 +26,7 @@ class EsSearchTextField extends StatefulWidget {
     this.icon,
     this.onChange,
     this.controller,
-    this.fillColor = Constants.textFieldFilledColor,
+    this.fillColor ,
     this.hintColor = Constants.ordinaryText,
     this.borderColor = Colors.white,
     this.borderRadiusDimension = Constants.borderRadiusDimension,
@@ -70,7 +70,7 @@ class _EsSearchTextField extends State<EsSearchTextField> {
         decoration: InputDecoration(
           hintStyle: TextStyle(color: widget.hintColor),
           filled: true,
-          fillColor: Constants.textFieldFilledColor,
+          fillColor: widget.fillColor ?? Styles.t6Color,
           contentPadding: EdgeInsets.symmetric(
               vertical: Constants.paddingDimension,
               horizontal: Constants.paddingDimension),

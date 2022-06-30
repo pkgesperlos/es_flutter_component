@@ -21,6 +21,7 @@ class EsTextFieldForm extends StatefulWidget {
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
   String? Function(String?)? validator;
+  Color? fillColor;
 
   EsTextFieldForm(
       {this.hint,
@@ -36,7 +37,9 @@ class EsTextFieldForm extends StatefulWidget {
       this.obscure = false,
       this.focusNode,
       this.nextFocusNode,
-      required this.validator});
+      required this.validator,
+        this.fillColor,
+      });
 
   @override
   State<StatefulWidget> createState() {
@@ -97,6 +100,8 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
 
     if (isObscure) {
       return InputDecoration(
+
+          fillColor: widget.fillColor ?? Styles.t6Color,
           contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
           suffixIcon: InkWell(
             onTap: () {
@@ -118,6 +123,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
           labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
+          fillColor: widget.fillColor ?? Styles.t6Color,
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(

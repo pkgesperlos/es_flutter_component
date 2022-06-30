@@ -21,6 +21,7 @@ class EsTextField extends StatefulWidget {
   String Function(String value)? checkRepeat;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
+  Color? fillColor;
 
   EsTextField({
     this.hint,
@@ -37,6 +38,7 @@ class EsTextField extends StatefulWidget {
     this.obscure = false,
     this.focusNode,
     this.nextFocusNode,
+    this.fillColor,
   });
 
   @override
@@ -92,6 +94,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
     if (isObscure) {
       return InputDecoration(
           contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
+          fillColor: widget.fillColor ?? Styles.t6Color,
           suffixIcon: InkWell(
             onTap: () {
               // Update the state i.e. toogle the state of passwordVisible variable
@@ -112,6 +115,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
           labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
+          fillColor: widget.fillColor ?? Styles.t6Color,
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
