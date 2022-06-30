@@ -98,27 +98,32 @@ class Dims {
 
   static double responsiveDeviceConstructor(
       BuildContext context, double sizeFactor) {
-    if (ResponsiveLayot.isTinyLimit(context) ||
-        ResponsiveLayot.isTinyHightLimit(context)) {
-      // print("0");
-      return displaySize(context).width * sizeFactor * 0.7;
+    if (ResponsiveLayot.isTinyLimit(context) ) {
+      print("-2");
+      return displaySize(context).width * sizeFactor * 0.62;
+    } else if (ResponsiveLayot.isTinyHightLimit(context)) {
+      print("-1");
+      return displaySize(context).width * sizeFactor * 0.6;
     } else if (ResponsiveLayot.isPhone(context)) {
-      // print("1");
-      return displaySize(context).width * sizeFactor * 0.55;
+      print("1");
+      return displaySize(context).width * sizeFactor * 0.58;
     } else if (ResponsiveLayot.isLargePhone(context)) {
-      // print("2");
+      print("2");
       return displaySize(context).width * sizeFactor * 0.58;
     } else if (ResponsiveLayot.isTablet(context)) {
-      // print("3");
-      return displaySize(context).width * sizeFactor * 0.33;
+      print("3");
+      return displaySize(context).width * sizeFactor * 0.3;
     } else if (ResponsiveLayot.isLargeTablet(context)) {
-      // print("4");
+      print("4");
       return displaySize(context).width * sizeFactor * 0.3;
     } else if (ResponsiveLayot.isComputer(context)) {
-      // print("5");
-      return displaySize(context).width * sizeFactor * 0.25;
+      print("5");
+      return displaySize(context).width * sizeFactor * 0.28;
+    }else if (ResponsiveLayot.isLargeComputer(context)) {
+      print("6");
+      return displaySize(context).width * sizeFactor * 0.16;
     } else {
-      // print("6");
+      print("7");
       return displaySize(context).width * sizeFactor * 0.1;
     }
   }
