@@ -104,35 +104,38 @@ class Dims {
       return displaySize(context).width * sizeFactor * 0.7;
     } else if (ResponsiveLayot.isPhone(context)) {
       // print("1");
-      return displaySize(context).width * sizeFactor * 0.6;
-    } else if (ResponsiveLayot.isTablet(context)) {
+      return displaySize(context).width * sizeFactor * 0.55;
+    } else if (ResponsiveLayot.isLargePhone(context)) {
       // print("2");
-      return displaySize(context).width * sizeFactor * 0.5;
-    } else if (ResponsiveLayot.isLargeTablet(context)) {
+      return displaySize(context).width * sizeFactor * 0.58;
+    } else if (ResponsiveLayot.isTablet(context)) {
       // print("3");
+      return displaySize(context).width * sizeFactor * 0.33;
+    } else if (ResponsiveLayot.isLargeTablet(context)) {
+      // print("4");
       return displaySize(context).width * sizeFactor * 0.3;
     } else if (ResponsiveLayot.isComputer(context)) {
-      // print("4");
-      return displaySize(context).width * sizeFactor * 0.2;
-    } else {
       // print("5");
+      return displaySize(context).width * sizeFactor * 0.25;
+    } else {
+      // print("6");
       return displaySize(context).width * sizeFactor * 0.1;
     }
   }
 
-  static double responsivePlathformConstructor(
-      BuildContext context, double sizeFactor) {
-    if (Platform.isAndroid || Platform.isIOS) {
-      return displaySize(context).width * sizeFactor;
-    } else if (kIsWeb ||
-        Platform.isLinux ||
-        Platform.isWindows ||
-        Platform.isMacOS) {
-      return displaySize(context).width * sizeFactor * 0.7;
-    } else {
-      return displaySize(context).width * sizeFactor * 0.7;
-    }
-  }
+  // static double responsivePlathformConstructor(
+  //     BuildContext context, double sizeFactor) {
+  //   if (Platform.isAndroid || Platform.isIOS) {
+  //     return displaySize(context).width * sizeFactor;
+  //   } else if (kIsWeb ||
+  //       Platform.isLinux ||
+  //       Platform.isWindows ||
+  //       Platform.isMacOS) {
+  //     return displaySize(context).width * sizeFactor * 0.7;
+  //   } else {
+  //     return displaySize(context).width * sizeFactor * 0.7;
+  //   }
+  // }
 }
 
 class ButtonSize {
