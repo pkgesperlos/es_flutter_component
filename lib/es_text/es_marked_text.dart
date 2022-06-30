@@ -41,6 +41,7 @@ class EsMarkedText extends StatelessWidget {
             // maxLines: 2,
             textAlign: align,
             style: TextStyle(
+              height: (size ?? Dims.h3FontSize(context))*0.04,
               color: color,
               fontSize: size ?? Dims.h3FontSize(context),
               fontFamily: fontFamily,

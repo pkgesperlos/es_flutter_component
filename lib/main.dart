@@ -1,6 +1,5 @@
 // @dart=2.9
 
-import 'package:es_flutter_component/homebody.dart';
 import 'package:es_flutter_component/test.dart';
 import 'package:es_flutter_component/test3.dart';
 import 'package:flutter/cupertino.dart';
@@ -57,7 +56,7 @@ class MyApp extends StatelessWidget {
             // body:Center(child: EsButton(text: 'press',onPressed: (){
             //   NotificationApi.showNotification();
             // },),)
-            body: HomeBody()));
+            body: Test()));
 
   }
 

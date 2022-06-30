@@ -5,6 +5,7 @@ import 'package:es_flutter_component/es_form/es_dropp_down_button/es_bordered_dr
 import 'package:es_flutter_component/es_form/es_dropp_down_button/es_drop_down_button.dart';
 import 'package:es_flutter_component/es_form/es_text_field/es_text_field.dart';
 import 'package:es_flutter_component/es_form/es_text_field/es_text_field_form.dart';
+import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:es_flutter_component/resources/Constants/dims.dart';
 
 import 'package:flutter/material.dart';
@@ -28,21 +29,21 @@ class Test extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
 
-      child:   Column(
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: EsButton(
-              // size: Dims.h3FontSize(context),
-              onTap: (){},
-              icon: Icons.arrow_back,
+      child:   Padding(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
 
+            Row(
+              children: [
+                EsOrdinaryText("data",),
+                Icon(Icons.ac_unit,size: 20,)
 
-              text: "لطفا کمی صبر کنید...",
-            ),
-          ),
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

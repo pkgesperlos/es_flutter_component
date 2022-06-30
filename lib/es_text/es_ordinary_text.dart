@@ -34,20 +34,20 @@ class EsOrdinaryText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Center(child: Text(
+      child: Text(
         data,
         textAlign:align,
         maxLines:overFlowTag?maxLine:null ,
         style: TextStyle(
-          // height: 1,
+          height: (size ?? Dims.h3FontSize(context))*0.04,
+          textBaseline: TextBaseline.alphabetic,
           color: color,
           fontSize: size ?? Dims.h3FontSize(context),
           fontFamily: fontFamily,
           fontWeight: isBold?FontWeight.bold:FontWeight.normal,
           overflow:overFlowTag? TextOverflow.ellipsis:null,
 
-
-        ),),),
+        ),),
     );
   }
 }
