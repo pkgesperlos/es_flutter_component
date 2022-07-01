@@ -30,11 +30,8 @@ class EsIconText extends StatelessWidget {
         textAlign: align??TextAlign.center,
         text: TextSpan(
           children: [
-            WidgetSpan(
-              alignment: PlaceholderAlignment.bottom,
-              child: Icon(icon, size: (size??Dims.h2FontSize(context)),color: color??Styles.t1Color),
-            ),
-            WidgetSpan(child: EsHSpacer()),
+            icon==null?WidgetSpan(child: Container()): WidgetSpan(child: EsHSpacer()),
+                
             WidgetSpan(alignment: PlaceholderAlignment.bottom,
                 child: EsOrdinaryText(data,size: size??Dims.h2FontSize(context),color: color??Styles.t1Color,
                 isBold: isBold,

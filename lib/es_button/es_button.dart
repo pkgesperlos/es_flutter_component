@@ -74,32 +74,7 @@ class EsButtonState extends State<EsButton> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h0Padding(context),
                     vertical: Dims.h1Padding(context)),
-                // child: Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   crossAxisAlignment: CrossAxisAlignment.center,
-                //   mainAxisSize: MainAxisSize.max,
-                //   textDirection: widget.iconSide == ButtonDirection.start
-                //       ? TextDirection.ltr
-                //       : TextDirection.rtl,
-                //   children: <Widget>[
-                //     widget.icon == null
-                //         ? Container()
-                //         : Icon(
-                //             widget.icon,
-                //             size: widget.size ?? ButtonSize.ordinary(context),
-                //             color: widget.iconColor == widget.textColor
-                //                 ? Colors.white
-                //                 : widget.iconColor,
-                //           ),
-                //     widget.icon == null ? Container() : EsHSpacer(),
-                //     EsOrdinaryText(
-                //       widget.text!,
-                //       size: widget.size ?? ButtonSize.ordinary(context),
-                //       color: widget.textColor,
-                //       align: TextAlign.center,
-                //     ),
-                //   ],
-                // ),
+
                 child: EsIconText(widget.text??"",
                 icon: widget.icon,color: widget.textColor,
                 ),

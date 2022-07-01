@@ -1,5 +1,6 @@
 
 
+import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -19,11 +20,11 @@ class Test extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            EsSvgIcon(
-              'assets/images/HistoryOutlined.svg',
-              color: Colors.black,
-            ),
-            Text('data')
+            // EsSvgIcon(
+            //   'assets/images/HistoryOutlined.svg',
+            //   color: Colors.black,
+            // ),
+            EsButton(text: "texttext",onTap: (){},)
 
           ],
         ),
