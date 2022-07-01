@@ -30,7 +30,7 @@ class EsSubtitle extends StatelessWidget {
       data,
       textAlign: align,
       style: TextStyle(
-        height: (size ?? Dims.h4FontSize(context))*0.04,
+        // height: (size ?? Dims.h4FontSize(context))*0.04,
         color: color,
         fontSize: size ?? Dims.h4FontSize(context),
         fontFamily:fontFamily,

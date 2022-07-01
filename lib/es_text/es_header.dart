@@ -31,7 +31,7 @@ class EsHeader extends StatelessWidget {
       data,
       textAlign: align,
       style: TextStyle(
-        height: (size ?? Dims.h1FontSize(context))*0.04,
+        // height: (size ?? Dims.h1FontSize(context))*0.04,
         color: color,
         fontSize: size ?? Dims.h1FontSize(context),
         fontFamily:fontFamily,

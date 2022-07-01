@@ -34,7 +34,7 @@ class EsTitle extends StatelessWidget {
       data,
       textAlign: align,
       style: TextStyle(
-        height: (size ?? Dims.h2FontSize(context))*0.04,
+        // height: (size ?? Dims.h2FontSize(context))*0.04,
         color: color,
         fontSize: size ?? Dims.h2FontSize(context),
         fontFamily:fontFamily,

@@ -97,7 +97,7 @@ class EsButtonState extends State<EsButton> {
                                 : widget.iconColor,
                           ),
                     EsHSpacer(),
-                    EsOrdinaryText(
+                    EsOrdinaryText.withoutPadding(
                       widget.text!,
                       size: widget.size ?? ButtonSize.ordinary(context),
                       color: widget.textColor,
