@@ -16,8 +16,6 @@ class EsOrdinaryText extends StatelessWidget {
   int maxLine;
   bool isBold;
 
-  bool removePadding = false;
-
   EsOrdinaryText(this.data,
       {Key? key,
       this.align = TextAlign.center,
@@ -29,34 +27,22 @@ class EsOrdinaryText extends StatelessWidget {
       this.isBold = false})
       : super(key: key);
 
-  EsOrdinaryText.withoutPadding(this.data,
-      {Key? key,
-      this.align = TextAlign.center,
-      this.size,
-      this.color = Styles.textPrimaryColor,
-      this.fontFamily = Constants.fontFamily,
-      this.overFlowTag = false,
-      this.maxLine = 3,
-      this.isBold = false})
-      : super(key: key) {
-    removePadding = true;
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      data,
-      textAlign: align,
+    return RichText(
       maxLines: overFlowTag ? maxLine : null,
-      style: TextStyle(
-        height: removePadding?(size ?? Dims.h3FontSize(context))*0.04:null,
-        // height:(size ?? Dims.h3FontSize(context))*0.04,
-        textBaseline: TextBaseline.alphabetic,
-        color: color,
-        fontSize: size ?? Dims.h3FontSize(context),
-        fontFamily: fontFamily,
-        fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
-        overflow: overFlowTag ? TextOverflow.ellipsis : null,
+      textAlign: align,
+      text: TextSpan(
+        text: data,
+        style: TextStyle(
+          textBaseline: TextBaseline.alphabetic,
+          color: color,
+          fontSize: size ?? Dims.h3FontSize(context),
+          fontFamily: fontFamily,
+          fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+          overflow: overFlowTag ? TextOverflow.ellipsis : null,
+        ),
       ),
     );
   }

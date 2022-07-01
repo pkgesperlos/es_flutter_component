@@ -1,54 +1,33 @@
-import 'package:es_flutter_component/es_button/es_border_button.dart';
-import 'package:es_flutter_component/es_button/es_information_button.dart';
-import 'package:es_flutter_component/es_button/es_button.dart';
-import 'package:es_flutter_component/es_form/es_dropp_down_button/es_bordered_drop_down_button.dart';
-import 'package:es_flutter_component/es_form/es_dropp_down_button/es_drop_down_button.dart';
-import 'package:es_flutter_component/es_form/es_text_field/es_text_field.dart';
-import 'package:es_flutter_component/es_form/es_text_field/es_text_field_form.dart';
-import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
-import 'package:es_flutter_component/resources/Constants/dims.dart';
+
 
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
-import 'es_button/es_icon_button.dart';
-import 'es_form/es_file_picker/es_file_picker.dart';
-import 'es_form/es_text_field/es_search_text_field.dart';
-import 'es_form/es_text_field/es_text_field.dart';
-import 'es_text/es_dotted_text.dart';
-import 'es_text/es_header.dart';
-import 'es_text/es_marked_text.dart';
-import 'es_text/es_subtitle.dart';
-import 'es_text/es_title.dart';
+import 'es_image/es_svg_icon.dart';
+
+
 
 class Test extends StatelessWidget {
-  EsFilePickerController controller = EsFilePickerController();
+  // EsFilePickerController controller = EsFilePickerController();
 
   TextEditingController t = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Center(
-
-      child:   Padding(
+      child: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            EsSvgIcon(
+              'assets/images/HistoryOutlined.svg',
+              color: Colors.black,
+            ),
+            Text('data')
 
-            Row(
-              children: [
-                EsOrdinaryText("data",),
-                Icon(Icons.ac_unit,size: 20,)
-
-              ],
-            )
           ],
         ),
       ),
     );
   }
-
-
-
-
 }

@@ -11,6 +11,7 @@ class Dims {
     return responsiveDeviceConstructor(context, 0.6);
   }
 
+
   static double h0Padding(BuildContext context) {
     return responsiveDeviceConstructor(context, 0.10);
   }

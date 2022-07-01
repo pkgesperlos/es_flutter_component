@@ -130,6 +130,7 @@ class Styles {
   static TextStyle inputStyle(BuildContext context) =>
       TextStyle(fontSize: Dims.h3FontSize(context));
 
+
   static const Color primaryColor = Color(0xFF38C961);
 
   static const Color primaryDarkColor = Color(0xFF01BD31);
