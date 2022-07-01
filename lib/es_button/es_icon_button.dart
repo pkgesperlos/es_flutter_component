@@ -1,3 +1,4 @@
+import 'package:es_flutter_component/es_alert/es_alerts.dart';
 import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:es_flutter_component/es_text/es_title.dart';
@@ -10,7 +11,6 @@ import '../resources/Constants/styles.dart';
 
 ///this class is a customized flat button that use in whole of app
 class EsIconButton extends StatefulWidget {
-  
   VoidCallback? onTap;
   IconData? icon;
   Color? borderColor;
@@ -21,7 +21,7 @@ class EsIconButton extends StatefulWidget {
   bool useConfidence;
 
   EsIconButton(
-      this.icon,{
+    this.icon, {
     required this.onTap,
     this.borderColor,
     this.iconColor = Styles.t6Color,
@@ -73,7 +73,7 @@ class EsIconButtonState extends State<EsIconButton> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h2Padding(context),
                     vertical: Dims.h2Padding(context)),
-                child:  Icon(
+                child: Icon(
                   widget.icon,
                   size: widget.size ?? ButtonSize.ordinary(context),
                   color: widget.iconColor == null
@@ -97,29 +97,14 @@ class EsIconButtonState extends State<EsIconButton> {
   }
 
   onTap() {
-
-    if(widget.useConfidence){
-
-      showDialog(context: context,builder: (context)=>Directionality(textDirection: TextDirection.rtl, child: AlertDialog(
-        alignment: Alignment.center,
-        title: EsTitle("اخطار"),
-        content: Container(
-          height: 80,child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),),
-        actions: [
-          EsButton(onTap: (){
-            widget.onTap!();
-          }, text: "بله",fillColor: ColorAsset.danger,),
-          EsButton(onTap: (){
-
-          }, text: "لغو",),
-
-        ],
-      )));
-
-    }else{
+    if (widget.useConfidence) {
+      EsAlerts.confidence(context,
+          title: "اخطار",
+          content: "آیا از انجام این عملیات مطمئنید؟", onConfirmPress: () {
+        widget.onTap!();
+      });
+    } else {
       widget.onTap!();
     }
-
   }
 }
-

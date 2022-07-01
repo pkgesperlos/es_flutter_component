@@ -14,7 +14,7 @@ class EsHDivider extends StatelessWidget{
     // TODO: implement build
     return Padding(
       padding: EdgeInsets.only(top: top,bottom: bottom),
-      child: Container(height: 1,color: Styles.t2Color,),
+      child: Container(height: 1,color: Styles.t4Color,),
     );
   }
 }
