@@ -24,9 +24,9 @@ class Test extends StatelessWidget {
             EsSvgIcon(
               'assets/images/HistoryOutlined.svg',
               color: Colors.black,
-
+              // size: Dims.h1IconSize(context),
             ),
-            Icon(Icons.ac_unit,size: Dims.h1FontSize(context),),
+            Icon(Icons.ac_unit,size: Dims.h1IconSize(context),),
             // EsButton(text: "texttext",onTap: (){},)
 
           ],

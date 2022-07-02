@@ -47,22 +47,22 @@ class Dims {
     return responsiveDeviceConstructor(context, 0.01);
   }
 
-/*
+  static double h0IconSize(BuildContext context) {
+    return responsiveDeviceConstructor(context, 0.8);
+  }
+
   static double h1IconSize(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.4);
+    return responsiveDeviceConstructor(context, 0.12);
   }
 
   static double h2IconSize(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.2);
+    return responsiveDeviceConstructor(context, 0.08);
   }
 
   static double h3IconSize(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.06);
+    return responsiveDeviceConstructor(context, 0.05);
   }
 
-  static double h4IconSize(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.02);
-  }*/
 
   static double h1FontSize(BuildContext context) {
     return responsiveDeviceConstructor(context, 0.075);

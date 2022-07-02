@@ -1,8 +1,9 @@
-import 'package:es_flutter_component/resources/Constants/dims.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 
+import '../resources/Constants/dims.dart';
 import '../resources/Constants/styles.dart';
 
 
@@ -21,8 +22,8 @@ class EsSvgIcon extends StatelessWidget {
     return SvgPicture.asset(
       path!,
       color: color ?? Styles.primaryColor,
-      width: size ?? Dims.h1FontSize(context)*0.8,
-      height: size ?? Dims.h1FontSize(context)*0.8,
+      width: (size ?? Dims.h1IconSize(context))*0.8,
+      height: (size ?? Dims.h1IconSize(context))*0.8,
     );
   }
 }
