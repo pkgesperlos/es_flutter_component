@@ -48,7 +48,7 @@ class Dims {
   }
 
   static double h0IconSize(BuildContext context) {
-    return responsiveDeviceConstructor(context, 0.8);
+    return responsiveDeviceConstructor(context, 0.6);
   }
 
   static double h1IconSize(BuildContext context) {
