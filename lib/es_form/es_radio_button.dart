@@ -7,12 +7,12 @@ enum SingingCharacter { number1, number2,number3 }
 
 
 class EsRadioButton extends StatefulWidget {
-  int num;
+
   List<String> titleList;
   bool horizontal;
 
 
-   EsRadioButton({Key? key,required this.titleList,required this.num,this.horizontal=false}) : super(key: key);
+   EsRadioButton({Key? key,required this.titleList,this.horizontal=false}) : super(key: key);
 
 
 
@@ -33,7 +33,7 @@ class _EsRadioButton extends State<EsRadioButton> {
     return
       widget.horizontal
         ?Row(
-        children:List.generate(widget.num, (index) =>    Row(
+        children:List.generate(widget.titleList.length, (index) =>    Row(
           children: [EsOrdinaryText( widget.titleList[index],),Radio(
             value: SingingCharacter.values[index],
             groupValue: _character,
@@ -48,7 +48,7 @@ class _EsRadioButton extends State<EsRadioButton> {
         )
     ) :
     Column(
-      children:List.generate(widget.num, (index) =>
+      children:List.generate(widget.titleList.length, (index) =>
           Row(
         children: [EsOrdinaryText( widget.titleList[index],),Radio(
           value: SingingCharacter.values[index],

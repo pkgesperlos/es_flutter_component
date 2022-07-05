@@ -22,7 +22,7 @@ class Test extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            IntrinsicWidth(child: EsRadioButton(titleList: ["num1","num2"],num: 2,horizontal: true,)),
+            IntrinsicWidth(child: EsRadioButton(titleList: ["num1","num2"],horizontal: true,)),
             // EsSvgIcon(
             //   'assets/images/HistoryOutlined.svg',
             //   color: Colors.black,
