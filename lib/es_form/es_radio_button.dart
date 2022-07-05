@@ -6,24 +6,13 @@ import 'package:enum_to_string/enum_to_string.dart';
 enum SingingCharacter { number1, number2,number3 }
 
 
-
-// extension MyEnumExtension on SingingCharacter {
-//   String get value {
-//     switch (this) {
-//       case SingingCharacter.number1:
-//         return "hello";
-//       case SingingCharacter.number2:
-//         return "seven";
-//       case SingingCharacter.number3:
-//         return "seven";
-//       default:
-//         return "";
-//     }
-//   }
-// }
 class EsRadioButton extends StatefulWidget {
+  int num;
+  List<String> titleList;
+  bool horizontal;
 
-  const EsRadioButton({Key? key}) : super(key: key);
+
+   EsRadioButton({Key? key,required this.titleList,required this.num,this.horizontal=false}) : super(key: key);
 
 
 
@@ -41,45 +30,38 @@ class _EsRadioButton extends State<EsRadioButton> {
   Widget build(BuildContext context) {
 
 
-    return Column(
-      children: <Widget>[
-        ListTile(
-          title: EsOrdinaryText( "number1",),
-          leading: Radio(
-            value: SingingCharacter.number1,
+    return
+      widget.horizontal
+        ?Row(
+        children:List.generate(widget.num, (index) =>    Row(
+          children: [EsOrdinaryText( widget.titleList[index],),Radio(
+            value: SingingCharacter.values[index],
             groupValue: _character,
             onChanged: (SingingCharacter? value) {
               setState(() {
                 _character = value;
               });
             },
-          ),
+          ),],
+
         ),
-        ListTile(
-          title: EsOrdinaryText("number2",),
-          leading: Radio(
-            value: SingingCharacter.number2,
-            groupValue: _character,
-            onChanged: (SingingCharacter? value) {
-              setState(() {
-                _character = value;
-              });
-            },
-          ),
-        ),
-        ListTile(
-          title: EsOrdinaryText( "number3",),
-          leading: Radio(
-            value: SingingCharacter.number3,
-            groupValue: _character,
-            onChanged: (SingingCharacter? value) {
-              setState(() {
-                _character = value;
-              });
-            },
-          ),
-        ),
-      ],
+        )
+    ) :
+    Column(
+      children:List.generate(widget.num, (index) =>
+          Row(
+        children: [EsOrdinaryText( widget.titleList[index],),Radio(
+          value: SingingCharacter.values[index],
+          groupValue: _character,
+          onChanged: (SingingCharacter? value) {
+            setState(() {
+              _character = value;
+            });
+          },
+        ),],
+
+    ),
+      )
     );
   }
 

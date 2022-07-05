@@ -1,12 +1,7 @@
 import 'package:es_flutter_component/es_alert/es_alerts.dart';
-import 'package:es_flutter_component/es_button/es_button.dart';
-import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
-import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 
 import '../resources/Constants/dims.dart';
-import '../resources/Constants/enums.dart';
 import '../resources/Constants/styles.dart';
 
 ///this class is a customized flat button that use in whole of app
