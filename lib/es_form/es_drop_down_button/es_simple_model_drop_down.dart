@@ -62,6 +62,8 @@ class _EsSimpleModelDropDownState extends State<EsSimpleModelDropDown> {
   @override
   void didUpdateWidget(covariant EsSimpleModelDropDown oldWidget) {
     _value = widget.value;
+    widget.list!
+        .insert(0, {widget.idName: "", widget.valueName: widget.initialTitle});
     super.didUpdateWidget(oldWidget);
   }
 }
