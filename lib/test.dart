@@ -7,6 +7,7 @@ import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
+import 'es_form/es_text_field/es_text_field_hj.dart';
 import 'es_image/es_svg_icon.dart';
 
 
@@ -23,17 +24,22 @@ class Test extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            IntrinsicWidth(child: EsRadioButton(titleList: ["num1","num2"],horizontal: true,)),
-            // EsBorderedDropDownButton( items: ["دسته بندی2", "1دسته بندی"],
-            //
-            //     onTapItems: [() {}, () {}]),
-            // EsSvgIcon(
-            //   'assets/images/HistoryOutlined.svg',
-            //   color: Colors.black,
-            //   // size: Dims.h1IconSize(context),
-            // ),
-            // Icon(Icons.ac_unit,size: Dims.h1IconSize(context),),
-            // // EsButton(text: "texttext",onTap: (){},)
+            IntrinsicWidth(child: EsTextFieldHj(
+
+              // type: "عنوان چک لیست:",
+              hint: "عنوان چک لیست:",
+              // hintColor: Styles.t3Color,
+              // borderColor:Styles.t3Color ,
+              // fillColor:Styles.t6Color ,
+
+              controller: t, type: '',
+              validator: (value){
+                if (value.lenght<1){
+                  return "لطفا فیلد را پر کنید";
+                }
+              },
+            ),),
+
 
           ],
         ),
