@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 
 
-enum SingingCharacter { number1, number2,number3 }
+
 
 
 class EsRadioButton extends StatefulWidget {
 
   List<String> titleList;
   bool horizontal;
+  TextEditingController controller=TextEditingController();
 
 
-   EsRadioButton({Key? key,required this.titleList,this.horizontal=false}) : super(key: key);
+   EsRadioButton({Key? key,required this.titleList,this.horizontal=false,required this.controller}) : super(key: key);
 
 
 
@@ -21,8 +22,7 @@ class EsRadioButton extends StatefulWidget {
 }
 
 class _EsRadioButton extends State<EsRadioButton> {
-
-  SingingCharacter? _character = SingingCharacter.number2;
+  String? _character ;
 
 
 
@@ -34,15 +34,9 @@ class _EsRadioButton extends State<EsRadioButton> {
       widget.horizontal
         ?Row(
         children:List.generate(widget.titleList.length, (index) =>    Row(
-          children: [EsOrdinaryText( widget.titleList[index],),Radio(
-            value: SingingCharacter.values[index],
-            groupValue: _character,
-            onChanged: (SingingCharacter? value) {
-              setState(() {
-                _character = value;
-              });
-            },
-          ),],
+          children: [EsOrdinaryText( widget.titleList[index],),
+            radioWidget(index,widget.controller)
+          ],
 
         ),
         )
@@ -50,19 +44,25 @@ class _EsRadioButton extends State<EsRadioButton> {
     Column(
       children:List.generate(widget.titleList.length, (index) =>
           Row(
-        children: [EsOrdinaryText( widget.titleList[index],),Radio(
-          value: SingingCharacter.values[index],
-          groupValue: _character,
-          onChanged: (SingingCharacter? value) {
-            setState(() {
-              _character = value;
-            });
-          },
-        ),],
+        children: [EsOrdinaryText( widget.titleList[index],),
+          radioWidget(index,widget.controller)
+        ],
 
     ),
       )
     );
   }
+Widget radioWidget(int index,TextEditingController controller){
+    return Radio(
+      value: widget.titleList[index],
+      groupValue: _character,
+      onChanged: ( value) {
+        setState(() {
+          _character = value.toString();
+          controller.text=value.toString();
 
+        });
+      },
+    );
+}
 }
