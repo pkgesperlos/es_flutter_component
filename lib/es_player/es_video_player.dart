@@ -9,7 +9,8 @@ import 'package:video_player/video_player.dart';
 
 
 class EsVideoPlayer extends StatefulWidget {
-  EsVideoPlayer({this.title = 'Chewie Demo'});
+  String videoUrl;
+  EsVideoPlayer({this.title = 'Chewie Demo',required this.videoUrl});
 
   final String title;
 
@@ -29,9 +30,8 @@ class _EsVideoPlayerState extends State<EsVideoPlayer> {
   void initState() {
     super.initState();
     _videoPlayerController1 = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');
-    _videoPlayerController2 =
-        VideoPlayerController.asset('assets/videos/example.mp4');
+        'http://api.checklista.ir'+widget.videoUrl);
+
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,
       aspectRatio: 3 / 2,
@@ -56,7 +56,7 @@ class _EsVideoPlayerState extends State<EsVideoPlayer> {
   @override
   void dispose() {
     _videoPlayerController1.dispose();
-    _videoPlayerController2.dispose();
+
     _chewieController.dispose();
     super.dispose();
   }
