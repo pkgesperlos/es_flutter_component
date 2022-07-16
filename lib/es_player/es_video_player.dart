@@ -35,7 +35,7 @@ class _EsVideoPlayerState extends State<EsVideoPlayer> {
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,
       aspectRatio: 3 / 2,
-      autoPlay: true,
+      autoPlay: false,
       looping: true,
       // Try playing around with some of these other options:
 
