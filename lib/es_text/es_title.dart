@@ -13,6 +13,8 @@ class EsTitle extends StatelessWidget {
   Color color;
   String fontFamily;
   bool isBold;
+  bool overFlowTag;
+  int maxLine;
 
 
   EsTitle(
@@ -23,7 +25,9 @@ class EsTitle extends StatelessWidget {
         this.size,
         this.color = Styles.textPrimaryColor,
         this.fontFamily = Constants.fontFamily,
-      this.isBold=false
+      this.isBold=false,
+        this.overFlowTag = false,
+        this.maxLine = 1,
       })
       : super(key: key);
 
@@ -39,6 +43,7 @@ class EsTitle extends StatelessWidget {
         fontSize: size ?? Dims.h2FontSize(context),
         fontFamily:fontFamily,
         fontWeight: isBold?FontWeight.bold:FontWeight.normal,
+        overflow: overFlowTag ? TextOverflow.ellipsis : null,
         // overflow: TextOverflow.ellipsis,
       ),
     );
