@@ -1,5 +1,6 @@
 import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:es_flutter_component/es_spacer/es_h_spacer.dart';
+import 'package:es_flutter_component/es_text/es_icon_text.dart';
 import 'package:es_flutter_component/es_text/es_ordinary_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -23,20 +24,18 @@ class EsButton extends StatefulWidget {
   bool useConfidence;
   ButtonDirection iconSide;
 
-
-  EsButton({
-    required this.onTap,
-    required this.text,
-    this.icon,
-    this.textColor = Styles.t6Color,
-    this.borderColor,
-    this.iconColor = Styles.t6Color,
-    this.fillColor = Styles.primaryColor,
-    this.useShadow = false,
-    this.size,
-    this.iconSide=ButtonDirection.start,
-    this.useConfidence = false
-  });
+  EsButton(
+      {required this.onTap,
+      required this.text,
+      this.icon,
+      this.textColor = Styles.t6Color,
+      this.borderColor,
+      this.iconColor = Styles.t6Color,
+      this.fillColor = Styles.primaryColor,
+      this.useShadow = false,
+      this.size,
+      this.iconSide = ButtonDirection.start,
+      this.useConfidence = false});
 
   @override
   State<StatefulWidget> createState() {
@@ -46,13 +45,10 @@ class EsButton extends StatefulWidget {
 }
 
 class EsButtonState extends State<EsButton> {
-
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
 
   @override
@@ -78,36 +74,9 @@ class EsButtonState extends State<EsButton> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h0Padding(context),
                     vertical: Dims.h1Padding(context)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  textDirection:widget.iconSide==ButtonDirection.start?TextDirection.ltr:TextDirection.rtl ,
 
-                  children: <Widget>[
-                    widget.icon == null
-                        ? SizedBox(
-                            width: 0,
-                          )
-                        : Icon(
-                            widget.icon,
-                            size: widget.size ?? ButtonSize.ordinary(context),
-                            color: widget.iconColor == widget.textColor
-                                ? Colors.white
-                                : widget.iconColor,
-                          ),
-                    EsHSpacer(),
-                    EsOrdinaryText.withoutPadding(
-                      widget.text!,
-                      size: widget.size ?? ButtonSize.ordinary(context),
-                      color: widget.textColor,
-                      align: TextAlign.center,
-
-
-                    ),
-
-
-                  ],
+                child: EsIconText(widget.text??"",
+                icon: widget.icon,color: widget.textColor,
                 ),
               ),
             ),
@@ -125,32 +94,33 @@ class EsButtonState extends State<EsButton> {
     }
   }
 
-
-
   onTap() {
-
-    if(widget.useConfidence){
-
-      showDialog(context: context,builder: (context)=>AlertDialog(
-        alignment: Alignment.center,
-        title: EsTitle("اخطار"),
-        content: Container(
-          height: 80,child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),),
-        actions: [
-          EsButton(onTap: (){
-            widget.onTap!();
-          }, text: "بله",fillColor: ColorAsset.danger,),
-          EsButton(onTap: (){
-
-          }, text: "لغو",),
-
-        ],
-      ));
-
-    }else{
+    if (widget.useConfidence) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                alignment: Alignment.center,
+                title: EsTitle("اخطار"),
+                content: Container(
+                  height: 80,
+                  child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),
+                ),
+                actions: [
+                  EsButton(
+                    onTap: () {
+                      widget.onTap!();
+                    },
+                    text: "بله",
+                    fillColor: ColorAsset.danger,
+                  ),
+                  EsButton(
+                    onTap: () {},
+                    text: "لغو",
+                  ),
+                ],
+              ));
+    } else {
       widget.onTap!();
     }
-
   }
 }
-

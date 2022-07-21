@@ -23,23 +23,23 @@ class EsTextFieldForm extends StatefulWidget {
   String? Function(String?)? validator;
   Color? fillColor;
 
-  EsTextFieldForm(
-      {this.hint,
-      this.textInput,
-      this.textAlign,
-      this.maxLength,
-      this.controller,
-      this.onChanged,
-      this.maxLines = 1,
-      this.repeatedPassword = false,
-      this.border = false,
-      this.checkRegex = false,
-      this.obscure = false,
-      this.focusNode,
-      this.nextFocusNode,
-      required this.validator,
-        this.fillColor,
-      });
+  EsTextFieldForm({
+    this.hint,
+    this.textInput,
+    this.textAlign,
+    this.maxLength,
+    this.controller,
+    this.onChanged,
+    this.maxLines = 1,
+    this.repeatedPassword = false,
+    this.border = false,
+    this.checkRegex = false,
+    this.obscure = false,
+    this.focusNode,
+    this.nextFocusNode,
+    required this.validator,
+    this.fillColor,
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -55,7 +55,6 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
 
   @override
@@ -89,10 +88,6 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
     );
   }
 
-
-
-
-
   decoration() {
     bool isObscure = false;
     if (widget.hint == "رمز عبور" || widget.hint == "تکرار رمز عبور")
@@ -100,9 +95,9 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
 
     if (isObscure) {
       return InputDecoration(
-
           fillColor: widget.fillColor ?? Styles.t6Color,
-          contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
+          contentPadding:
+              EdgeInsets.only(right: Constants.borderRadiusDimension),
           suffixIcon: InkWell(
             onTap: () {
               // Update the state i.e. toogle the state of passwordVisible variable
@@ -127,7 +122,8 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)))
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(Constants.borderRadiusDimension)))
               : null,
           labelText: widget.hint,
           labelStyle: Styles.inputStyle(context),

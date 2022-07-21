@@ -23,7 +23,7 @@ class EsBorderedDropDownButton extends StatefulWidget {
     this.hint,
     this.icon,
     this.fillColor = Constants.textFieldFilledColor,
-    // this.hintColor=Constants.ordinaryText,
+    // this.hintColor=constants.ordinaryText,
     this.borderColor = Constants.ordinaryText,
     this.borderRadiusDimension = Constants.borderRadiusDimension,
   }) : super(key: key);
