@@ -23,7 +23,7 @@ class EsAlertDialog extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.2,
         decoration: BoxDecoration(
             borderRadius:
-                BorderRadius.all(Radius.circular(Dims.boxBorderRadious))),
+                BorderRadius.all(Radius.circular(Dims.boxBorderRadios))),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
