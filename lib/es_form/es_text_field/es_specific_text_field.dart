@@ -114,19 +114,19 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
               borderRadius:
               BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
+              borderSide: BorderSide(color:borderColor),
               borderRadius:
               BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           contentPadding: EdgeInsets.all(Dims.h1Padding(context)),
           alignLabelWithHint: false,
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
-              borderRadius:
-              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
-          disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
-              borderRadius:
-              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
+          // border: OutlineInputBorder(
+          //   borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
+          //     borderRadius:
+          //     BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
+          // disabledBorder: OutlineInputBorder(
+          //   borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
+          //     borderRadius:
+          //     BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           labelText: widget.hint,
           labelStyle: Styles.inputStyle(context),
         ),
