@@ -108,10 +108,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
         decoration: new InputDecoration(
           filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor?? Styles.t6Color,
-          disabledBorder:OutlineInputBorder(
-              borderSide: BorderSide(color: borderColor),
-              borderRadius:
-              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))) ,
+
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: borderColor),
               borderRadius:
@@ -119,6 +116,11 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
           contentPadding: EdgeInsets.all(Dims.h1Padding(context)),
           alignLabelWithHint: false,
           border: OutlineInputBorder(
+            borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
+              borderRadius:
+              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
               borderRadius:
               BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           labelText: widget.hint,
@@ -152,7 +154,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
       checkSuccess(value);
     } else {
       setState(() {
-        borderColor = widget.borderColor??Colors.black54;
+        borderColor = widget.borderColor??Styles.t7Color;
 
         widget.editTextController?.isAccepted = false;
       });

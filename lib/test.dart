@@ -38,13 +38,13 @@ String categoryId="";
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-           EsSpecificTextField(
+           EsSpecificTextField.checker(
              // fillColor: Colors.amber,
-             // borderColor: Colors.red,
+             borderColor: Colors.red,
              hint: "شماره موبایل",
 
-             // controller: t,
-             // editTextController: t1,
+             controller: t,
+             editTextController: t1,
            ),
 
 
