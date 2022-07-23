@@ -75,14 +75,14 @@ class EsSpecificTextField extends StatefulWidget {
 }
 
 class _EsSpecificTextField extends State<EsSpecificTextField> {
-  Color borderColor = Styles.t2Color;
+  Color borderColor = Styles.t7Color;
 
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    borderColor = widget.borderColor??Styles.t2Color;
+    borderColor = widget.borderColor??Styles.t7Color;
     if(widget.checkRegex == null){
       widget.checkRegex = false;
     }
@@ -109,8 +109,12 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
           filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor?? Styles.t6Color,
 
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
+              borderRadius:
+              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: borderColor),
+              borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
               borderRadius:
               BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
           contentPadding: EdgeInsets.all(Dims.h1Padding(context)),
