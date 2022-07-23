@@ -74,8 +74,11 @@ class _EsSearchTextField extends State<EsSearchTextField> {
           contentPadding: EdgeInsets.symmetric(
               vertical: Constants.paddingDimension,
               horizontal: Constants.paddingDimension),
-
-          prefixIcon: widget.icon,
+          prefixIconConstraints: BoxConstraints(maxWidth: Dims.h0Padding(context)*5,maxHeight: 5*Dims.h0Padding(context)),
+          prefixIcon: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: Dims.h2Padding(context)),
+            child: widget.icon,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(widget.borderRadiusDimension),
           ),
