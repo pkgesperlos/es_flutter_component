@@ -18,10 +18,12 @@ class EsTextField extends StatefulWidget {
   bool repeatedPassword;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
+  void Function()? onEditingComplete;
   String Function(String value)? checkRepeat;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
   Color? fillColor;
+
 
   EsTextField({
     this.hint,
@@ -30,6 +32,7 @@ class EsTextField extends StatefulWidget {
     this.maxLength,
     this.controller,
     this.onChanged,
+    this.onEditingComplete,
     this.maxLines = 1,
     this.repeatedPassword = false,
     this.border = false,
@@ -68,10 +71,12 @@ class _EsTextFieldFormState extends State<EsTextField> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return TextFormField(
+
       focusNode: widget.focusNode,
       maxLength: widget.maxLength,
       controller: widget.controller,
       onChanged: widget.onChanged,
+      onEditingComplete:widget.onEditingComplete ,
       keyboardType: widget.textInput,
       maxLines: widget.maxLines,
       obscureText: widget.obscure,
@@ -93,6 +98,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
 
     if (isObscure) {
       return InputDecoration(
+
           contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
           fillColor: widget.fillColor ?? Styles.t6Color,
           suffixIcon: InkWell(

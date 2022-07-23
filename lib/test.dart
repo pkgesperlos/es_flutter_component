@@ -4,6 +4,7 @@ import 'package:es_flutter_component/es_button/es_button.dart';
 import 'package:es_flutter_component/es_form/es_drop_down_button/es_simple_model_drop_down_form.dart';
 
 import 'package:es_flutter_component/es_form/es_radio_button.dart';
+import 'package:es_flutter_component/es_form/es_text_field/es_text_field.dart';
 import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -76,6 +77,10 @@ String categoryId="";
       //       EsButton(onTap: (){
       //         if(_key.currentState!.validate()){print("ok");}
       //       }, text: "pass")
+            SizedBox(
+              height: 30,
+                child: EsTextField(
+                  hint: "gggggg",)),
             EsRadioButton(titleList:["بله","خیر"],controller:t),
           EsButton(onTap: (){
               {print(t.text);}
