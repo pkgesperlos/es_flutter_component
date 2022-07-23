@@ -144,7 +144,7 @@ class _EsIconTextField extends State<EsIconTextField> {
           //     BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
 
           hintText: widget.hint,
-          hintStyle:  Styles.inputStyle(context),
+          hintStyle:  TextStyle(color: Styles.t8Color),
 
         ),
       ),

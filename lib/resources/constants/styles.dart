@@ -128,7 +128,7 @@ class Styles {
       offset: Offset(0, 0));
 
   static TextStyle inputStyle(BuildContext context) =>
-      TextStyle(fontSize: Dims.h2FontSize(context),color: Color(0xffC1C8D2));
+      TextStyle(fontSize: Dims.h2FontSize(context),color: Colors.black);
 
 
   static const Color primaryColor = Color(0xFF38C961);
@@ -145,6 +145,7 @@ class Styles {
   static const Color t5Color = Color(0xFFFCFCFC);
   static const Color t6Color = Color(0xFFffffff);
   static const Color t7Color = Color(0xFFEEF2F9);
+  static const Color t8Color = Color(0xffC6CDD7);
   static const Color warningColor = Color(0xFFFBC502);
   static const Color successColor = Color(0xFF91C716);
   static const Color disabledColor = Color(0xFFD3D3D3);
