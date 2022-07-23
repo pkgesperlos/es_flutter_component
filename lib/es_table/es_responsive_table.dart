@@ -78,7 +78,7 @@ class _EsResponsiveTableState extends State<EsResponsiveTable> {
       source: widget.source,
       selecteds: [],
       showSelect: false,
-      autoHeight: false,
+      autoHeight: true,
       onChangedRow: (value, header) {
         /// print(value);
         /// print(header);
