@@ -22,7 +22,7 @@ class EsTextFieldForm extends StatefulWidget {
   FocusNode? nextFocusNode;
   String? Function(String?)? validator;
   Color? fillColor;
-
+  final Icon? icon;
   EsTextFieldForm({
     this.hint,
     this.textInput,
@@ -39,6 +39,7 @@ class EsTextFieldForm extends StatefulWidget {
     this.nextFocusNode,
     required this.validator,
     this.fillColor,
+    this.icon,
   });
 
   @override
@@ -118,6 +119,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
           labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
+          prefixIcon: widget.icon,
           fillColor: widget.fillColor ?? Styles.t6Color,
           alignLabelWithHint: true,
           border: widget.border

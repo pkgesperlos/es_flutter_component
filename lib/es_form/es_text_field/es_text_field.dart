@@ -23,7 +23,7 @@ class EsTextField extends StatefulWidget {
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
   Color? fillColor;
-
+  final Icon? icon;
 
   EsTextField({
     this.hint,
@@ -42,6 +42,7 @@ class EsTextField extends StatefulWidget {
     this.focusNode,
     this.nextFocusNode,
     this.fillColor,
+    this.icon,
   });
 
   @override
@@ -122,6 +123,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
     } else {
       return new InputDecoration(
           fillColor: widget.fillColor ?? Styles.t6Color,
+          prefixIcon: widget.icon,
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
