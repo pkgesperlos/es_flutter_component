@@ -13,6 +13,7 @@ class EsSpecificTextField extends StatefulWidget {
   bool? checkRegex = false;
   bool? border = false;
   Color? fillColor ;
+  Color? borderColor ;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
 
@@ -34,6 +35,7 @@ class EsSpecificTextField extends StatefulWidget {
       this.onChanged,
       this.editTextController,
       this.fillColor,
+      this.borderColor,
       this.checkRegex})
       : assert(editTextController != null);
 
@@ -46,6 +48,8 @@ class EsSpecificTextField extends StatefulWidget {
       this.onChanged,
       this.maxLines,
       this.checkRegex,
+      this.fillColor,
+      this.borderColor,
       this.border = false});
 
 
@@ -58,6 +62,8 @@ class EsSpecificTextField extends StatefulWidget {
         this.onChanged,
         this.maxLines,
         this.border,
+        this.fillColor,
+        this.borderColor,
         this.checkRegex
       });
 
@@ -76,7 +82,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    borderColor = widget.borderColor??Styles.t2Color;
     if(widget.checkRegex == null){
       widget.checkRegex = false;
     }
@@ -102,6 +108,10 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
         decoration: new InputDecoration(
           filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor?? Styles.t6Color,
+          disabledBorder:OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor),
+              borderRadius:
+              BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))) ,
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: borderColor),
               borderRadius:
@@ -142,7 +152,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
       checkSuccess(value);
     } else {
       setState(() {
-        borderColor = Colors.black54;
+        borderColor = widget.borderColor??Colors.black54;
 
         widget.editTextController?.isAccepted = false;
       });

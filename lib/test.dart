@@ -38,25 +38,15 @@ String categoryId="";
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-           EsSpecificTextField.checker(
-             fillColor: Colors.amber,
+           EsSpecificTextField(
+             // fillColor: Colors.amber,
+             // borderColor: Colors.red,
              hint: "شماره موبایل",
 
-             controller: t,
-             editTextController: t1,
+             // controller: t,
+             // editTextController: t1,
            ),
-            EsTextField(
-              border: true,
-              hint: "شماره موبایل",
-              fillColor: Colors.black38,
-              obscure: false,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.amber,
-                filled: true
-              ),
-            )
+
 
 
           ],
