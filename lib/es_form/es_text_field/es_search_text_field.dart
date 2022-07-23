@@ -11,7 +11,7 @@ import '../../resources/Constants/styles.dart';
 
 class EsSearchTextField extends StatefulWidget {
   final String? hint;
-  final Icon? icon;
+  final Widget? icon;
   final Function(String text)? onChange;
   final TextEditingController? controller;
   final Color? fillColor;
