@@ -9,7 +9,7 @@ class EsSubtitle extends StatelessWidget {
   TextAlign align;
   double? size;
   Color color;
-  String fontFamily;
+  // String fontFamily;
   bool isBold;
 
   EsSubtitle(
@@ -18,7 +18,7 @@ class EsSubtitle extends StatelessWidget {
         this.align = TextAlign.center,
         this.size,
         this.color = Styles.textSecondaryColor,
-        this.fontFamily = Constants.fontFamily,
+        // this.fontFamily = Constants.fontFamily,
       this.isBold=false
       })
       : super(key: key);
@@ -33,7 +33,7 @@ class EsSubtitle extends StatelessWidget {
         // height: (size ?? Dims.h4FontSize(context))*0.04,
         color: color,
         fontSize: size ?? Dims.h4FontSize(context),
-        fontFamily:fontFamily,
+        // fontFamily:fontFamily,
         fontWeight: isBold?FontWeight.bold:FontWeight.normal,
 
         // overflow: TextOverflow.ellipsis,

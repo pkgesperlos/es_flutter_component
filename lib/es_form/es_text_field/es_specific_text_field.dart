@@ -12,6 +12,7 @@ class EsSpecificTextField extends StatefulWidget {
   int? maxLines = 1;
   bool? checkRegex = false;
   bool? border = false;
+  Color? fillColor ;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
 
@@ -32,6 +33,7 @@ class EsSpecificTextField extends StatefulWidget {
       this.controller,
       this.onChanged,
       this.editTextController,
+      this.fillColor,
       this.checkRegex})
       : assert(editTextController != null);
 
@@ -67,7 +69,7 @@ class EsSpecificTextField extends StatefulWidget {
 }
 
 class _EsSpecificTextField extends State<EsSpecificTextField> {
-  Color borderColor = Colors.black54;
+  Color borderColor = Styles.t2Color;
 
 
   @override
@@ -98,11 +100,13 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
         widget.textAlign ?? TextAlign.right ,
         style:Styles.inputStyle(context),
         decoration: new InputDecoration(
+          filled:widget.fillColor==null?false:true ,
+          fillColor: widget.fillColor?? Styles.t6Color,
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: borderColor),
               borderRadius:
               BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
-          contentPadding: EdgeInsets.all(Dims.h3Padding(context)),
+          contentPadding: EdgeInsets.all(Dims.h1Padding(context)),
           alignLabelWithHint: false,
           border: OutlineInputBorder(
               borderRadius:

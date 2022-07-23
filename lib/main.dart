@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         "data$index",
         style: TextStyle(
             fontSize: 17,
-            fontFamily: "yekan",
+
             fontWeight: FontWeight.bold,
             color: Colors.white),
       ),

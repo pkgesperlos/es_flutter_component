@@ -1,5 +1,4 @@
-import 'package:es_flutter_component/es_text/es_header.dart';
-import 'package:es_flutter_component/resources/Constants/constants.dart';
+
 import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:es_flutter_component/resources/Constants/styles.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ class EsTitle extends StatelessWidget {
   TextAlign align;
   double? size;
   Color color;
-  String fontFamily;
+  // String fontFamily;
   bool isBold;
   bool overFlowTag;
   int maxLine;
@@ -24,7 +23,7 @@ class EsTitle extends StatelessWidget {
         this.align = TextAlign.center,
         this.size,
         this.color = Styles.textPrimaryColor,
-        this.fontFamily = Constants.fontFamily,
+        // this.fontFamily = Constants.fontFamily,
       this.isBold=false,
         this.overFlowTag = false,
         this.maxLine = 1,
@@ -41,7 +40,7 @@ class EsTitle extends StatelessWidget {
         // height: (size ?? Dims.h2FontSize(context))*0.04,
         color: color,
         fontSize: size ?? Dims.h2FontSize(context),
-        fontFamily:fontFamily,
+        // fontFamily:fontFamily,
         fontWeight: isBold?FontWeight.bold:FontWeight.normal,
         overflow: overFlowTag ? TextOverflow.ellipsis : null,
         // overflow: TextOverflow.ellipsis,

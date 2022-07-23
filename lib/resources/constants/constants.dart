@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Constants{
   //font
-  static const String fontFamily="yekan";
+  // static const String fontFamily="yekan";
 //font size:
   static double commonFontSize(BuildContext context) {
     if (Platform.isAndroid || Platform.isIOS) {

@@ -128,7 +128,7 @@ class Styles {
       offset: Offset(0, 0));
 
   static TextStyle inputStyle(BuildContext context) =>
-      TextStyle(fontSize: Dims.h3FontSize(context));
+      TextStyle(fontSize: Dims.h2FontSize(context));
 
 
   static const Color primaryColor = Color(0xFF38C961);

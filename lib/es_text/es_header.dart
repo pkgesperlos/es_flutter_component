@@ -9,7 +9,7 @@ class EsHeader extends StatelessWidget {
   TextAlign align;
   double? size;
   Color color;
-  String fontFamily;
+  // String fontFamily;
   bool isBold;
 
   EsHeader(
@@ -19,7 +19,7 @@ class EsHeader extends StatelessWidget {
         this.align = TextAlign.center,
         this.size,
         this.color = Styles.textPrimaryColor,
-        this.fontFamily = Constants.fontFamily,
+        // this.fontFamily = Constants.fontFamily,
         this.isBold=false
       })
       : super(key: key);
@@ -34,7 +34,7 @@ class EsHeader extends StatelessWidget {
         // height: (size ?? Dims.h1FontSize(context))*0.04,
         color: color,
         fontSize: size ?? Dims.h1FontSize(context),
-        fontFamily:fontFamily,
+        // fontFamily:fontFamily,
         fontWeight:isBold?FontWeight.bold:FontWeight.normal,
         // overflow: TextOverflow.ellipsis,
       ),
