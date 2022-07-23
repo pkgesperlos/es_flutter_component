@@ -23,6 +23,7 @@ class EsButton extends StatefulWidget {
   bool useShadow;
   bool useConfidence;
   ButtonDirection iconSide;
+  bool isBold;
 
   EsButton(
       {required this.onTap,
@@ -35,6 +36,7 @@ class EsButton extends StatefulWidget {
       this.useShadow = false,
       this.size,
       this.iconSide = ButtonDirection.start,
+        this.isBold = false,
       this.useConfidence = false});
 
   @override
@@ -76,6 +78,7 @@ class EsButtonState extends State<EsButton> {
                     vertical: Dims.h1Padding(context)),
 
                 child: EsIconText(widget.text??"",
+                isBold: widget.isBold,
                 icon: widget.icon,color: widget.textColor,
                 ),
               ),

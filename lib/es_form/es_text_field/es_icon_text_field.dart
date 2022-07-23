@@ -140,8 +140,10 @@ class _EsIconTextField extends State<EsIconTextField> {
           //   borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
           //     borderRadius:
           //     BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
-          labelText: widget.hint,
-          labelStyle: Styles.inputStyle(context),
+
+          hintText: widget.hint,
+          hintStyle:  Styles.inputStyle(context),
+
         ),
       ),
     );
