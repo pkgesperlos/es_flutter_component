@@ -1,9 +1,9 @@
+import 'package:es_flutter_component/es_form/es_text_field/es_specific_text_field.dart';
 import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:es_flutter_component/resources/Constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'es_specific_text_field.dart';
 ///this class is a customized text field that use in whole of app
 class EsIconTextField extends StatefulWidget {
   String? hint = "";
@@ -16,44 +16,45 @@ class EsIconTextField extends StatefulWidget {
   bool? border = false;
   Color? fillColor ;
   Color? borderColor ;
-  Widget icon;
+  Widget? icon;
+  bool needIcon=true;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
 
   EditTextController? editTextController = EditTextController();
 
-  EsIconTextField({this.hint,required this.icon});
+  EsIconTextField({this.hint, this.icon, this.needIcon=true});
 
-  EsIconTextField.withInput({this.hint, this.textInput, this.textAlign,required this.icon});
+  EsIconTextField.withInput({this.hint, this.textInput, this.textAlign, this.icon, this.needIcon=true});
 
   EsIconTextField.withMaxLength(
-      {this.hint, this.textInput, this.textAlign, this.maxLength,required this.icon});
+      {this.hint, this.textInput, this.textAlign, this.maxLength, this.icon, this.needIcon=true});
 
   EsIconTextField.checker(
       {this.hint,
-      this.textInput,
-      this.textAlign,
-      this.maxLength,
-      this.controller,
-      this.onChanged,
-      this.editTextController,
-      this.fillColor,
-      this.borderColor,required this.icon,
-      this.checkRegex})
+        this.textInput,
+        this.textAlign,
+        this.maxLength,
+        this.controller,
+        this.onChanged,
+        this.editTextController,
+        this.fillColor,
+        this.borderColor, this.icon,
+        this.checkRegex, this.needIcon=true})
       : assert(editTextController != null);
 
   EsIconTextField.text(
       {this.hint,
-      this.textInput,
-      this.textAlign,
-      this.maxLength,
-      this.controller,
-      this.onChanged,
-      this.maxLines,
-      this.checkRegex,
-      this.fillColor,
-      this.borderColor,
-  required this.icon,this.border = false});
+        this.textInput,
+        this.textAlign,
+        this.maxLength,
+        this.controller,
+        this.onChanged,
+        this.maxLines,
+        this.checkRegex,
+        this.fillColor,
+        this.borderColor, this.needIcon=true,
+        this.icon,this.border = false});
 
 
   EsIconTextField.form(
@@ -67,8 +68,8 @@ class EsIconTextField extends StatefulWidget {
         this.border,
         this.fillColor,
         this.borderColor,
-        this.checkRegex,
-  required this.icon
+        this.checkRegex, this.needIcon=true,
+        this.icon
       });
 
   @override
@@ -112,7 +113,7 @@ class _EsIconTextField extends State<EsIconTextField> {
         style:Styles.inputStyle(context),
         decoration: new InputDecoration(
           isDense: true,
-          suffixIcon: Container(
+          suffixIcon: widget.needIcon==false?null:Container(
               width: Dims.h0Padding(context)*2.5,
               alignment: Alignment.center,
               decoration: BoxDecoration(
