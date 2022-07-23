@@ -111,6 +111,7 @@ class _EsIconTextField extends State<EsIconTextField> {
         widget.textAlign ?? TextAlign.right ,
         style:Styles.inputStyle(context),
         decoration: new InputDecoration(
+          isDense: true,
           suffixIcon: Container(
               width: Dims.h0Padding(context)*2.5,
               alignment: Alignment.center,

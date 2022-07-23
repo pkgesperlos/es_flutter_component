@@ -47,13 +47,33 @@ String categoryId="";
            //   controller: t,
            //   editTextController: t1,
            // ),
+
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color:Colors.black26)
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  isDense: true,
+                    // border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(0),
+                    prefixIcon: Container(
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            border: Border(right: BorderSide(color:Color(0xffAAAFB6)))
+                        ),
+                        child: EsTitle("+98",)
+                    )
+                ),
+              ),
+            ),
             EsIconTextField.checker(
               hint: "شماره موبایل",
 
               controller: t,
               editTextController: t1, icon: EsTitle("98+",),
-            ),
-            EsButton(onTap: (){}, text: "ثبت",isBold: true,)
+            )
 
           ],
         ),
