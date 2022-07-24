@@ -88,8 +88,8 @@ class EsButtonState extends State<EsButton> {
 
               child: _isLoading
                   ? Container(
-                width: Dims.h2FontSize(context),
-                height: Dims.h2FontSize(context),
+                width: Dims.h1FontSize(context),
+                height: Dims.h1FontSize(context),
                 child: CircularProgressIndicator(
                   color: widget.loadingColor,
                 ),
