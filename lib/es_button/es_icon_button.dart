@@ -74,8 +74,8 @@ class EsIconButtonState extends State<EsIconButton> {
                 horizontal: Dims.h2Padding(context),
                 vertical: Dims.h2Padding(context)),
             child: _isLoading ? Container(
-              width: 20,
-              height: 20,
+              width: Dims.h3FontSize(context),
+              height: Dims.h3FontSize(context),
               child: CircularProgressIndicator(
                 color: widget.loadingColor,
               ),):Icon(
