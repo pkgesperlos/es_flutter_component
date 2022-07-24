@@ -1,15 +1,12 @@
 
-
-import 'package:es_flutter_component/es_button/es_button.dart';
-import 'package:es_flutter_component/es_form/es_drop_down_button/es_simple_model_drop_down_form.dart';
-
-import 'package:es_flutter_component/es_form/es_text_field/es_text_field.dart';
+import 'package:es_flutter_component/es_spacer/es_h_spacer.dart';
 import 'package:es_flutter_component/es_text/es_title.dart';
 import 'package:es_flutter_component/resources/Constants/dims.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
-import 'es_form/es_drop_down_button/es_simple_model_drop_down.dart';
+
 import 'es_form/es_text_field/es_icon_text_field.dart';
 import 'es_form/es_text_field/es_specific_text_field.dart';
 import 'es_form/es_text_field/es_text_field_hj.dart';
@@ -37,43 +34,21 @@ String categoryId="";
     return Center(
       child: Padding(
         padding: EdgeInsets.all(20),
-        child: Column(
+        child: Row(
           children: [
-           // EsSpecificTextField.checker(
-           //   // fillColor: Colors.amber,
-           //   borderColor: Colors.red,
-           //   hint: "شماره موبایل",
-           //
-           //   controller: t,
-           //   editTextController: t1,
-           // ),
 
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color:Colors.black26)
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  isDense: true,
-                    // border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(0),
-                    prefixIcon: Container(
-                        width: 100,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            border: Border(right: BorderSide(color:Color(0xffAAAFB6)))
-                        ),
-                        child: EsTitle("+98",)
-                    )
-                ),
-              ),
-            ),
-            EsIconTextField.checker(
-              hint: "شماره موبایل",
 
-              controller: t,
-              editTextController: t1, icon: EsTitle("98+",),
-            )
+            EsSvgIcon("assets/images/calender.svg",size:Dims.h0IconSize(context),),
+            EsHSpacer(),
+            EsSvgIcon("assets/images/calender.svg",size:Dims.h1IconSize(context),),
+            EsSvgIcon("assets/images/migration.svg",size:Dims.h1IconSize(context),),
+            EsHSpacer(),
+            EsSvgIcon("assets/images/calender.svg",size:Dims.h2IconSize(context),),
+            EsHSpacer(),
+            EsSvgIcon("assets/images/calender.svg",size:Dims.h3IconSize(context),),
+            EsSvgIcon("assets/images/favorite.svg",size:Dims.h3IconSize(context),),
+
+
 
           ],
         ),
