@@ -18,7 +18,7 @@ class EsIconButton extends StatefulWidget {
   bool isLoading;
   bool clickable;
   EsIconButton(this.icon, {
-    required this.onTap,
+    this.onTap,
     this.borderColor,
     this.iconColor = Styles.t6Color,
     this.fillColor = Styles.primaryColor,

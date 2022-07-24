@@ -28,7 +28,7 @@ class EsButton extends StatefulWidget {
   bool isBold;
   bool clickable;
   EsButton(
-      {required this.onTap,
+      {this.onTap,
       required this.text,
       this.icon,
       this.textColor = Styles.t6Color,
