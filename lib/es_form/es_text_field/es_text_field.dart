@@ -101,6 +101,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
       return InputDecoration(
 
           contentPadding: EdgeInsets.only(right: Constants.borderRadiusDimension),
+          filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor ?? Styles.t6Color,
           suffixIcon: InkWell(
             onTap: () {
@@ -122,6 +123,7 @@ class _EsTextFieldFormState extends State<EsTextField> {
           labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
+          filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor ?? Styles.t6Color,
           prefixIcon: widget.icon,
           alignLabelWithHint: true,

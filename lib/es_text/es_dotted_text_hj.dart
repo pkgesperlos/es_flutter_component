@@ -9,7 +9,7 @@ class EsDottedText extends StatelessWidget {
   TextAlign align;
   double? size;
   Color color;
-  String fontFamily;
+  // String fontFamily;
   bool isBold;
 
   EsDottedText(
@@ -18,7 +18,7 @@ class EsDottedText extends StatelessWidget {
       this.align = TextAlign.center,
       this.size ,
       this.color = Styles.textPrimaryColor,
-      this.fontFamily = Constants.fontFamily,
+      // this.fontFamily = Constants.fontFamily,
         this.isBold=false
       })
       : super(key: key);
@@ -48,7 +48,7 @@ class EsDottedText extends StatelessWidget {
               // height: (size ?? Dims.h3FontSize(context))*0.04,
               color: color,
               fontSize: size ?? Dims.h3FontSize(context),
-              fontFamily: fontFamily,
+              // fontFamily: fontFamily,
               fontWeight: isBold?FontWeight.bold:FontWeight.normal,
               // overflow: TextOverflow.ellipsis,
             ),

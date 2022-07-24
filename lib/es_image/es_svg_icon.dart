@@ -21,7 +21,7 @@ class EsSvgIcon extends StatelessWidget {
     //     height:size??Dims.h2FontSize(context));
     return SvgPicture.asset(
       path!,
-      color: color ?? Styles.primaryColor,
+      color: color ?? null,
       width: (size ?? Dims.h1IconSize(context))*0.8,
       height: (size ?? Dims.h1IconSize(context))*0.8,
     );

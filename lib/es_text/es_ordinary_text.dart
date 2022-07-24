@@ -11,7 +11,7 @@ class EsOrdinaryText extends StatelessWidget {
   TextAlign align;
   double? size;
   Color color;
-  String fontFamily;
+  // String fontFamily;
   bool overFlowTag;
   int maxLine;
   bool isBold;
@@ -21,7 +21,7 @@ class EsOrdinaryText extends StatelessWidget {
       this.align = TextAlign.center,
       this.size,
       this.color = Styles.textPrimaryColor,
-      this.fontFamily = Constants.fontFamily,
+      // this.fontFamily = Constants.fontFamily,
       this.overFlowTag = false,
       this.maxLine = 3,
       this.isBold = false})
@@ -39,7 +39,7 @@ class EsOrdinaryText extends StatelessWidget {
           textBaseline: TextBaseline.alphabetic,
           color: color,
           fontSize: size ?? Dims.h3FontSize(context),
-          fontFamily: fontFamily,
+          // fontFamily: fontFamily,
           fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
           overflow: overFlowTag ? TextOverflow.ellipsis : null,
         ),

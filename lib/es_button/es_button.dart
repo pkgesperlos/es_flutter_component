@@ -25,7 +25,7 @@ class EsButton extends StatefulWidget {
   ButtonDirection iconSide;
   bool isLoading;
   Color loadingColor;
-
+  bool isBold;
   EsButton(
       {required this.onTap,
       required this.text,
@@ -39,6 +39,7 @@ class EsButton extends StatefulWidget {
       this.isLoading = false,
       this.loadingColor = Colors.white,
       this.iconSide = ButtonDirection.start,
+        this.isBold = false,
       this.useConfidence = false});
 
   @override
@@ -82,6 +83,7 @@ class EsButtonState extends State<EsButton> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h0Padding(context),
                     vertical: Dims.h1Padding(context)),
+
                 child: _isLoading
                     ? Container(
                         width: Dims.h3IconSize(context),
@@ -93,8 +95,10 @@ class EsButtonState extends State<EsButton> {
                     : EsIconText(
                         widget.text ?? "",
                         icon: widget.icon,
+            isBold: widget.isBold,
                         color: widget.textColor,
                       ),
+
               ),
             ),
           ),

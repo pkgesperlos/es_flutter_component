@@ -1,9 +1,11 @@
+import 'package:es_flutter_component/es_form/es_text_field/es_specific_text_field.dart';
 import 'package:es_flutter_component/resources/Constants/dims.dart';
 import 'package:es_flutter_component/resources/Constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 ///this class is a customized text field that use in whole of app
-class EsSpecificTextField extends StatefulWidget {
+class EsIconTextField extends StatefulWidget {
   String? hint = "";
   TextInputType? textInput = TextInputType.text;
   TextEditingController tec = new TextEditingController();
@@ -14,46 +16,48 @@ class EsSpecificTextField extends StatefulWidget {
   bool? border = false;
   Color? fillColor ;
   Color? borderColor ;
+  Widget? icon;
+  bool needIcon=true;
   TextEditingController? controller = TextEditingController();
   ValueChanged<String>? onChanged;
 
   EditTextController? editTextController = EditTextController();
 
-  EsSpecificTextField({this.hint});
+  EsIconTextField({this.hint, this.icon, this.needIcon=true});
 
-  EsSpecificTextField.withInput({this.hint, this.textInput, this.textAlign});
+  EsIconTextField.withInput({this.hint, this.textInput, this.textAlign, this.icon, this.needIcon=true});
 
-  EsSpecificTextField.withMaxLength(
-      {this.hint, this.textInput, this.textAlign, this.maxLength});
+  EsIconTextField.withMaxLength(
+      {this.hint, this.textInput, this.textAlign, this.maxLength, this.icon, this.needIcon=true});
 
-  EsSpecificTextField.checker(
+  EsIconTextField.checker(
       {this.hint,
-      this.textInput,
-      this.textAlign,
-      this.maxLength,
-      this.controller,
-      this.onChanged,
-      this.editTextController,
-      this.fillColor,
-      this.borderColor,
-      this.checkRegex})
+        this.textInput,
+        this.textAlign,
+        this.maxLength,
+        this.controller,
+        this.onChanged,
+        this.editTextController,
+        this.fillColor,
+        this.borderColor, this.icon,
+        this.checkRegex, this.needIcon=true})
       : assert(editTextController != null);
 
-  EsSpecificTextField.text(
+  EsIconTextField.text(
       {this.hint,
-      this.textInput,
-      this.textAlign,
-      this.maxLength,
-      this.controller,
-      this.onChanged,
-      this.maxLines,
-      this.checkRegex,
-      this.fillColor,
-      this.borderColor,
-      this.border = false});
+        this.textInput,
+        this.textAlign,
+        this.maxLength,
+        this.controller,
+        this.onChanged,
+        this.maxLines,
+        this.checkRegex,
+        this.fillColor,
+        this.borderColor, this.needIcon=true,
+        this.icon,this.border = false});
 
 
-  EsSpecificTextField.form(
+  EsIconTextField.form(
       {this.hint,
         this.textInput,
         this.textAlign,
@@ -64,17 +68,18 @@ class EsSpecificTextField extends StatefulWidget {
         this.border,
         this.fillColor,
         this.borderColor,
-        this.checkRegex
+        this.checkRegex, this.needIcon=true,
+        this.icon
       });
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _EsSpecificTextField();
+    return _EsIconTextField();
   }
 }
 
-class _EsSpecificTextField extends State<EsSpecificTextField> {
+class _EsIconTextField extends State<EsIconTextField> {
   Color borderColor = Styles.t7Color;
 
 
@@ -97,6 +102,7 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextField(
+
         maxLength: widget.maxLength,
         controller: widget.controller,
         onChanged: checkChange,
@@ -106,6 +112,15 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
         widget.textAlign ?? TextAlign.right ,
         style:Styles.inputStyle(context),
         decoration: new InputDecoration(
+          isDense: true,
+          suffixIcon: widget.needIcon==false?null:Container(
+              width: Dims.h0Padding(context)*2.5,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border(right: BorderSide(color:Color(0xffAAAFB6)))
+              ),
+              child: widget.icon
+          ),
           filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor?? Styles.t6Color,
 
@@ -127,8 +142,10 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
           //   borderSide: BorderSide(color: widget.borderColor??Styles.t7Color),
           //     borderRadius:
           //     BorderRadius.all(Radius.circular(Dims.h2BorderRadius(context)))),
-          labelText: widget.hint,
-          labelStyle: Styles.inputStyle(context),
+
+          hintText: widget.hint,
+          hintStyle:  TextStyle(color: Styles.t8Color),
+
         ),
       ),
     );
@@ -202,12 +219,3 @@ class _EsSpecificTextField extends State<EsSpecificTextField> {
   }
 }
 
-class EditTextController {
-  bool _isAccepted = false;
-
-  bool get isAccepted => _isAccepted;
-
-  set isAccepted(bool value) {
-    _isAccepted = value;
-  }
-}
