@@ -23,6 +23,8 @@ class EsButton extends StatefulWidget {
   bool useShadow;
   bool useConfidence;
   ButtonDirection iconSide;
+  bool isLoading;
+  Color loadingColor;
 
   EsButton(
       {required this.onTap,
@@ -34,6 +36,8 @@ class EsButton extends StatefulWidget {
       this.fillColor = Styles.primaryColor,
       this.useShadow = false,
       this.size,
+      this.isLoading = false,
+      this.loadingColor = Colors.white,
       this.iconSide = ButtonDirection.start,
       this.useConfidence = false});
 
@@ -45,10 +49,14 @@ class EsButton extends StatefulWidget {
 }
 
 class EsButtonState extends State<EsButton> {
+  bool _isLoading = false;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    _isLoading = widget.isLoading;
   }
 
   @override
@@ -74,10 +82,19 @@ class EsButtonState extends State<EsButton> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h0Padding(context),
                     vertical: Dims.h1Padding(context)),
-
-                child: EsIconText(widget.text??"",
-                icon: widget.icon,color: widget.textColor,
-                ),
+                child: _isLoading
+                    ? Container(
+                        width: Dims.h3IconSize(context),
+                        height: Dims.h3IconSize(context),
+                        child: CircularProgressIndicator(
+                          color: widget.loadingColor,
+                        ),
+                      )
+                    : EsIconText(
+                        widget.text ?? "",
+                        icon: widget.icon,
+                        color: widget.textColor,
+                      ),
               ),
             ),
           ),
@@ -122,5 +139,12 @@ class EsButtonState extends State<EsButton> {
     } else {
       widget.onTap!();
     }
+  }
+
+  @override
+  void didUpdateWidget(covariant EsButton oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    _isLoading = widget.isLoading;
   }
 }

@@ -11,12 +11,13 @@ class EsIconButton extends StatefulWidget {
   Color? borderColor;
   Color? fillColor;
   Color iconColor;
+  Color? loadingColor;
   double? size;
   bool useShadow;
   bool useConfidence;
+  bool isLoading;
 
-  EsIconButton(
-    this.icon, {
+  EsIconButton(this.icon, {
     required this.onTap,
     this.borderColor,
     this.iconColor = Styles.t6Color,
@@ -24,6 +25,8 @@ class EsIconButton extends StatefulWidget {
     this.useShadow = false,
     this.useConfidence = false,
     this.size,
+    this.isLoading = false,
+    this.loadingColor = Colors.white,
   });
 
   @override
@@ -35,14 +38,14 @@ class EsIconButton extends StatefulWidget {
 
 class EsIconButtonState extends State<EsIconButton> {
   late Color? _hoverColor;
-
+  bool _isLoading = false;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    // if(widget.fillColor == ColorAsset.primary)
-    //   _hoverColor = ColorAsset.primary[100];
+
+    _isLoading = widget.isLoading;
   }
 
   @override
@@ -52,7 +55,7 @@ class EsIconButtonState extends State<EsIconButton> {
       child: IntrinsicWidth(
         child: Container(
           decoration:
-              widget.useShadow ? Styles.cardBoxDecoration(context) : null,
+          widget.useShadow ? Styles.cardBoxDecoration(context) : null,
           child: Material(
             color: widget.fillColor ?? ColorAsset.primary,
             borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
@@ -68,7 +71,12 @@ class EsIconButtonState extends State<EsIconButton> {
                 padding: EdgeInsets.symmetric(
                     horizontal: Dims.h2Padding(context),
                     vertical: Dims.h2Padding(context)),
-                child: Icon(
+                child: _isLoading ? Container(
+                  width: Dims.h3IconSize(context),
+                  height: Dims.h3IconSize(context),
+                  child: CircularProgressIndicator(
+                    color: widget.loadingColor,
+                  ),):Icon(
                   widget.icon,
                   size: widget.size ?? ButtonSize.ordinary(context),
                   color: widget.iconColor == null
@@ -96,10 +104,17 @@ class EsIconButtonState extends State<EsIconButton> {
       EsAlerts.confidence(context,
           title: "اخطار",
           content: "آیا از انجام این عملیات مطمئنید؟", onConfirmPress: () {
-        widget.onTap!();
-      });
+            widget.onTap!();
+          });
     } else {
       widget.onTap!();
     }
+  }
+
+  @override
+  void didUpdateWidget(covariant EsIconButton oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    _isLoading = widget.isLoading;
   }
 }
