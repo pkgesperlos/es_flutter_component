@@ -1,5 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'es_button/es_button.dart';
 
 class Test extends StatefulWidget {
   @override
@@ -9,7 +12,16 @@ class Test extends StatefulWidget {
 class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
-    return Text("Sd");
+    return InkWell(
+      onTap: (){
+        print("sadasd");
+      },
+      child: EsButton(
+        clickable: false,
+        onTap: (){},
+        text: "Sad",
+      ),
+    );
   }
 
 }

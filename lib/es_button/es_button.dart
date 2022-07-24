@@ -26,6 +26,7 @@ class EsButton extends StatefulWidget {
   bool isLoading;
   Color loadingColor;
   bool isBold;
+  bool clickable;
   EsButton(
       {required this.onTap,
       required this.text,
@@ -40,6 +41,7 @@ class EsButton extends StatefulWidget {
       this.loadingColor = Colors.white,
       this.iconSide = ButtonDirection.start,
         this.isBold = false,
+        this.clickable = true,
       this.useConfidence = false});
 
   @override
@@ -63,49 +65,51 @@ class EsButtonState extends State<EsButton> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return IntrinsicHeight(
-      child: IntrinsicWidth(
-        child: Container(
-          decoration:
-              widget.useShadow ? Styles.cardBoxDecoration(context) : null,
-          child: Material(
-            color: widget.fillColor ?? ColorAsset.primary,
-            borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
-            clipBehavior: Clip.antiAlias,
-            child: InkWell(
-              hoverColor: Colors.black.withOpacity(.1),
-              onTap: onTap,
-              child: Container(
-                decoration: BoxDecoration(
-                  border: border(),
-                  borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
-                ),
-                padding: EdgeInsets.symmetric(
-                    horizontal: Dims.h0Padding(context),
-                    vertical: Dims.h1Padding(context)),
-
-                child: _isLoading
-                    ? Container(
-                        width: Dims.h3IconSize(context),
-                        height: Dims.h3IconSize(context),
-                        child: CircularProgressIndicator(
-                          color: widget.loadingColor,
-                        ),
-                      )
-                    : EsIconText(
-                        widget.text ?? "",
-                        icon: widget.icon,
-            isBold: widget.isBold,
-                        color: widget.textColor,
-                      ),
-
+    return Container(
+      decoration:
+      widget.useShadow ? Styles.cardBoxDecoration(context) : null,
+      child: Material(
+        color: widget.fillColor ?? ColorAsset.primary,
+        borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
+        clipBehavior: Clip.antiAlias,
+        child: IgnorePointer(
+          ignoring: !widget.clickable,
+          child: InkWell(
+            hoverColor: Colors.black.withOpacity(.1),
+            onTap: onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                border: border(),
+                borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
               ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dims.h0Padding(context),
+                  vertical: Dims.h1Padding(context)),
+
+              child: _isLoading
+                  ? Container(
+                width: Dims.h3IconSize(context),
+                height: Dims.h3IconSize(context),
+                child: CircularProgressIndicator(
+                  color: widget.loadingColor,
+                ),
+              )
+                  : EsIconText(
+                widget.text ?? "",
+                icon: widget.icon,
+                isBold: widget.isBold,
+                color: widget.textColor,
+              ),
+
             ),
           ),
         ),
       ),
     );
   }
+
+
+
 
   border() {
     if (widget.borderColor == null) {

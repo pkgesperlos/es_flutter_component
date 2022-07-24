@@ -16,7 +16,7 @@ class EsIconButton extends StatefulWidget {
   bool useShadow;
   bool useConfidence;
   bool isLoading;
-
+  bool clickable;
   EsIconButton(this.icon, {
     required this.onTap,
     this.borderColor,
@@ -26,6 +26,7 @@ class EsIconButton extends StatefulWidget {
     this.useConfidence = false,
     this.size,
     this.isLoading = false,
+    this.clickable = true,
     this.loadingColor = Colors.white,
   });
 
@@ -51,42 +52,41 @@ class EsIconButtonState extends State<EsIconButton> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return IntrinsicHeight(
-      child: IntrinsicWidth(
-        child: Container(
-          decoration:
-          widget.useShadow ? Styles.cardBoxDecoration(context) : null,
-          child: Material(
-            color: widget.fillColor ?? ColorAsset.primary,
-            borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
-            clipBehavior: Clip.antiAlias,
-            child: InkWell(
-              hoverColor: Colors.black.withOpacity(.1),
-              onTap: onTap,
-              child: Container(
-                decoration: BoxDecoration(
-                  border: border(),
-                  borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
-                ),
-                padding: EdgeInsets.symmetric(
-                    horizontal: Dims.h2Padding(context),
-                    vertical: Dims.h2Padding(context)),
-                child: _isLoading ? Container(
-                  width: Dims.h3IconSize(context),
-                  height: Dims.h3IconSize(context),
-                  child: CircularProgressIndicator(
-                    color: widget.loadingColor,
-                  ),):Icon(
-                  widget.icon,
-                  size: widget.size ?? ButtonSize.ordinary(context),
-                  color: widget.iconColor == null
-                      ? Colors.white
-                      : widget.iconColor,
-                ),
-              ),
+    return Container(
+      decoration:
+      widget.useShadow ? Styles.cardBoxDecoration(context) : null,
+      child: Material(
+        color: widget.fillColor ?? ColorAsset.primary,
+        borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
+        clipBehavior: Clip.antiAlias,
+        child:
+        IgnorePointer(
+        ignoring: !widget.clickable,
+        child: InkWell(
+          hoverColor: Colors.black.withOpacity(.1),
+          onTap: onTap,
+          child: Container(
+            decoration: BoxDecoration(
+              border: border(),
+              borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
+            ),
+            padding: EdgeInsets.symmetric(
+                horizontal: Dims.h2Padding(context),
+                vertical: Dims.h2Padding(context)),
+            child: _isLoading ? Container(
+              width: Dims.h3IconSize(context),
+              height: Dims.h3IconSize(context),
+              child: CircularProgressIndicator(
+                color: widget.loadingColor,
+              ),):Icon(
+              widget.icon,
+              size: widget.size ?? ButtonSize.ordinary(context),
+              color: widget.iconColor == null
+                  ? Colors.white
+                  : widget.iconColor,
             ),
           ),
-        ),
+        ),),
       ),
     );
   }
