@@ -114,12 +114,12 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
-              borderSide: BorderSide(color:Styles.t7Color),
+              borderSide: BorderSide(color:widget.fillColor??Styles.t7Color),
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           enabledBorder:  widget.border
               ? OutlineInputBorder(
-              borderSide: BorderSide(color: Styles.t7Color),
+              borderSide: BorderSide(color:widget.fillColor??Styles.t7Color),
               borderRadius: BorderRadius.all(
                   Radius.circular(Constants.borderRadiusDimension)))
               : null,

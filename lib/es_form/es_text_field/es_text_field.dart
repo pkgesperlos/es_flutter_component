@@ -119,6 +119,10 @@ class _EsTextFieldFormState extends State<EsTextField> {
               ? OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
+          enabledBorder: widget.border
+              ? OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)))
+              : null,
           labelText: widget.hint,
           labelStyle: Styles.inputStyle(context));
     } else {
@@ -129,7 +133,13 @@ class _EsTextFieldFormState extends State<EsTextField> {
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
+              borderSide: BorderSide(color:widget.fillColor??Styles.t7Color),
                   borderRadius: BorderRadius.all(Radius.circular(Constants.borderRadiusDimension)))
+              : null,
+          enabledBorder: widget.border
+              ? OutlineInputBorder(
+              borderSide: BorderSide(color:widget.fillColor??Styles.t7Color),
+              borderRadius: BorderRadius.all(Radius.circular(8)))
               : null,
           labelText: widget.hint,
           labelStyle: Styles.inputStyle(context),
