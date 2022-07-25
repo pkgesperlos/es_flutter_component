@@ -7,21 +7,25 @@ import '../resources/Constants/dims.dart';
 
 class EsInformationButton extends StatelessWidget {
   String text;
+  Widget? icon;
   String dialogeText;
   Color ColorAsset;
   Color buttonFontColor;
   Color buttonBorderColor;
   Color buttonShadowColor;
   double? size;
+  TextAlign? align;
 
   EsInformationButton({
     this.text="i",
+    this.icon,
     this.dialogeText="",
     this.ColorAsset = Constants.buttonFontColor,
     this.buttonFontColor = Constants.ColorAsset,
     this.buttonBorderColor = Constants.buttonBorderColor,
     this.buttonShadowColor = Constants.buttonShadowColor,
     this.size ,
+    this.align ,
 
   });
 
@@ -37,7 +41,7 @@ class EsInformationButton extends StatelessWidget {
           color:Colors.white,
           child:Container(
             padding: EdgeInsets.all(Constants.paddingDimension),
-            child:  EsOrdinaryText(dialogeText ,align: TextAlign.left,),),
+            child:  EsOrdinaryText(dialogeText ,align:align?? TextAlign.center,),),
         ),
       );
     }
@@ -45,7 +49,7 @@ class EsInformationButton extends StatelessWidget {
       child: InkWell(
 
           onTap: (){showDialog(context: context, builder: (context) => customDialog());},
-          child: Container(
+          child:icon?? Container(
 
             width: size?? Dims.h0Padding(context)*0.7,
             height: size?? Dims.h0Padding(context)*0.7,
@@ -63,7 +67,8 @@ class EsInformationButton extends StatelessWidget {
                 //       blurRadius: 2)
                 // ]
             ),
-          )),
+          )
+      ),
     );
   }
 
