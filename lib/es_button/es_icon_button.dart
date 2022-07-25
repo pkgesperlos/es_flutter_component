@@ -73,18 +73,37 @@ class EsIconButtonState extends State<EsIconButton> {
             padding: EdgeInsets.symmetric(
                 horizontal: Dims.h2Padding(context),
                 vertical: Dims.h2Padding(context)),
-            child: _isLoading ? Container(
-              width: Dims.h3FontSize(context),
-              height: Dims.h3FontSize(context),
-              child: CircularProgressIndicator(
-                color: widget.loadingColor,
-              ),):Icon(
-              widget.icon,
-              size: widget.size ?? ButtonSize.ordinary(context),
-              color: widget.iconColor == null
-                  ? Colors.white
-                  : widget.iconColor,
-            ),
+            child:
+
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Visibility(
+                    visible: !_isLoading,
+                    maintainSize: true,
+                    maintainAnimation: true,
+                    maintainState: true,
+                    child: Icon(
+                      widget.icon,
+                      size: widget.size ?? ButtonSize.ordinary(context),
+                      color: widget.iconColor == null
+                          ? Colors.white
+                          : widget.iconColor,
+                    )),
+                Visibility(
+                    visible: _isLoading,
+                    maintainSize: true,
+                    maintainAnimation: true,
+                    maintainState: true,
+                    child: Container(
+                      width: Dims.h3FontSize(context),
+                      height: Dims.h3FontSize(context),
+                      child: CircularProgressIndicator(
+                        color: widget.loadingColor,
+                      ),)),
+              ],
+            )
+
           ),
         ),),
       ),

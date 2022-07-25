@@ -10,7 +10,6 @@ import '../resources/Constants/dims.dart';
 import '../resources/Constants/enums.dart';
 import '../resources/Constants/styles.dart';
 
-///this class is a customized flat button that use in whole of app
 class EsButton extends StatefulWidget {
   String? text = "";
   VoidCallback? onTap;
@@ -27,6 +26,7 @@ class EsButton extends StatefulWidget {
   Color loadingColor;
   bool isBold;
   bool clickable;
+
   EsButton(
       {this.onTap,
       required this.text,
@@ -40,8 +40,8 @@ class EsButton extends StatefulWidget {
       this.isLoading = false,
       this.loadingColor = Colors.white,
       this.iconSide = ButtonDirection.start,
-        this.isBold = false,
-        this.clickable = true,
+      this.isBold = false,
+      this.clickable = true,
       this.useConfidence = false});
 
   @override
@@ -66,8 +66,7 @@ class EsButtonState extends State<EsButton> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      decoration:
-      widget.useShadow ? Styles.cardBoxDecoration(context) : null,
+      decoration: widget.useShadow ? Styles.cardBoxDecoration(context) : null,
       child: Material(
         color: widget.fillColor ?? ColorAsset.primary,
         borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
@@ -78,38 +77,48 @@ class EsButtonState extends State<EsButton> {
             hoverColor: Colors.black.withOpacity(.1),
             onTap: onTap,
             child: Container(
-              decoration: BoxDecoration(
-                border: border(),
-                borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
-              ),
-              padding: EdgeInsets.symmetric(
-                  horizontal:widget.size==null? Dims.h0Padding(context):widget.size!/2+Dims.h0Padding(context),
-                  vertical: Dims.h1Padding(context)),
-
-              child: _isLoading
-                  ? Container(
-                width: widget.size??Dims.h1FontSize(context),
-                height: Dims.h1FontSize(context),
-                child: CircularProgressIndicator(
-                  color: widget.loadingColor,
+                padding: EdgeInsets.symmetric(
+                    horizontal: widget.size == null
+                        ? Dims.h0Padding(context)
+                        : widget.size! / 2 + Dims.h0Padding(context),
+                    vertical: Dims.h1Padding(context)),
+                decoration: BoxDecoration(
+                  border: border(),
+                  borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
-              )
-                  : EsIconText(
-                widget.text ?? "",
-                icon: widget.icon,
-                isBold: widget.isBold,
-                color: widget.textColor,
-              ),
-
-            ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Visibility(
+                        visible: !_isLoading,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: EsIconText(
+                          widget.text ?? "",
+                          icon: widget.icon,
+                          isBold: widget.isBold,
+                          color: widget.textColor,
+                        )),
+                    Visibility(
+                        visible: _isLoading,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: Container(
+                          width: Dims.h1FontSize(context),
+                          height: Dims.h1FontSize(context),
+                          child: CircularProgressIndicator(
+                            color: widget.loadingColor,
+                          ),
+                        )),
+                  ],
+                )),
           ),
         ),
       ),
     );
   }
-
-
-
 
   border() {
     if (widget.borderColor == null) {
