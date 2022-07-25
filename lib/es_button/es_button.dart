@@ -10,7 +10,6 @@ import '../resources/Constants/dims.dart';
 import '../resources/Constants/enums.dart';
 import '../resources/Constants/styles.dart';
 
-///this class is a customized flat button that use in whole of app
 class EsButton extends StatefulWidget {
   String? text = "";
   VoidCallback? onTap;
@@ -27,22 +26,23 @@ class EsButton extends StatefulWidget {
   Color loadingColor;
   bool isBold;
   bool clickable;
+
   EsButton(
       {this.onTap,
-      required this.text,
-      this.icon,
-      this.textColor = Styles.t6Color,
-      this.borderColor,
-      this.iconColor = Styles.t6Color,
-      this.fillColor = Styles.primaryColor,
-      this.useShadow = false,
-      this.size,
-      this.isLoading = false,
-      this.loadingColor = Colors.white,
-      this.iconSide = ButtonDirection.start,
+        required this.text,
+        this.icon,
+        this.textColor = Styles.t6Color,
+        this.borderColor,
+        this.iconColor = Styles.t6Color,
+        this.fillColor = Styles.primaryColor,
+        this.useShadow = false,
+        this.size,
+        this.isLoading = false,
+        this.loadingColor = Colors.white,
+        this.iconSide = ButtonDirection.start,
         this.isBold = false,
         this.clickable = true,
-      this.useConfidence = false});
+        this.useConfidence = false});
 
   @override
   State<StatefulWidget> createState() {
@@ -66,8 +66,7 @@ class EsButtonState extends State<EsButton> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      decoration:
-      widget.useShadow ? Styles.cardBoxDecoration(context) : null,
+      decoration: widget.useShadow ? Styles.cardBoxDecoration(context) : null,
       child: Material(
         color: widget.fillColor ?? ColorAsset.primary,
         borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
@@ -78,38 +77,46 @@ class EsButtonState extends State<EsButton> {
             hoverColor: Colors.black.withOpacity(.1),
             onTap: onTap,
             child: Container(
-              decoration: BoxDecoration(
-                border: border(),
-                borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
-              ),
-              padding: EdgeInsets.symmetric(
-                  horizontal: Dims.h0Padding(context),
-                  vertical: Dims.h1Padding(context)),
-
-              child: _isLoading
-                  ? Container(
-                width: Dims.h1FontSize(context)+2,
-                height: Dims.h1FontSize(context)+2,
-                child: CircularProgressIndicator(
-                  color: widget.loadingColor,
+                decoration: BoxDecoration(
+                  border: border(),
+                  borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
-              )
-                  : EsIconText(
-                widget.text ?? "",
-                icon: widget.icon,
-                isBold: widget.isBold,
-                color: widget.textColor,
-              ),
-
-            ),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Dims.h0Padding(context),
+                    vertical: Dims.h1Padding(context)),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Visibility(
+                        visible: !_isLoading,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: EsIconText(
+                          widget.text ?? "",
+                          icon: widget.icon,
+                          isBold: widget.isBold,
+                          color: widget.textColor,
+                        )),
+                    Visibility(
+                        visible: _isLoading,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: Container(
+                          width: Dims.h1FontSize(context),
+                          height: Dims.h1FontSize(context),
+                          child: CircularProgressIndicator(
+                            color: widget.loadingColor,
+                          ),
+                        )),
+                  ],
+                )),
           ),
         ),
       ),
     );
   }
-
-
-
 
   border() {
     if (widget.borderColor == null) {
@@ -124,26 +131,26 @@ class EsButtonState extends State<EsButton> {
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-                alignment: Alignment.center,
-                title: EsTitle("اخطار"),
-                content: Container(
-                  height: 80,
-                  child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),
-                ),
-                actions: [
-                  EsButton(
-                    onTap: () {
-                      widget.onTap!();
-                    },
-                    text: "بله",
-                    fillColor: ColorAsset.danger,
-                  ),
-                  EsButton(
-                    onTap: () {},
-                    text: "لغو",
-                  ),
-                ],
-              ));
+            alignment: Alignment.center,
+            title: EsTitle("اخطار"),
+            content: Container(
+              height: 80,
+              child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),
+            ),
+            actions: [
+              EsButton(
+                onTap: () {
+                  widget.onTap!();
+                },
+                text: "بله",
+                fillColor: ColorAsset.danger,
+              ),
+              EsButton(
+                onTap: () {},
+                text: "لغو",
+              ),
+            ],
+          ));
     } else {
       widget.onTap!();
     }
