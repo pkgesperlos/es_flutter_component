@@ -83,12 +83,12 @@ class EsButtonState extends State<EsButton> {
                 borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
               ),
               padding: EdgeInsets.symmetric(
-                  horizontal: Dims.h0Padding(context),
+                  horizontal:widget.size==null? Dims.h0Padding(context):widget.size!/2+Dims.h0Padding(context),
                   vertical: Dims.h1Padding(context)),
 
               child: _isLoading
                   ? Container(
-                width: Dims.h1FontSize(context),
+                width: widget.size??Dims.h1FontSize(context),
                 height: Dims.h1FontSize(context),
                 child: CircularProgressIndicator(
                   color: widget.loadingColor,
