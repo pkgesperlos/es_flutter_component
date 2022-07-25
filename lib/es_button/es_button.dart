@@ -29,20 +29,20 @@ class EsButton extends StatefulWidget {
 
   EsButton(
       {this.onTap,
-        required this.text,
-        this.icon,
-        this.textColor = Styles.t6Color,
-        this.borderColor,
-        this.iconColor = Styles.t6Color,
-        this.fillColor = Styles.primaryColor,
-        this.useShadow = false,
-        this.size,
-        this.isLoading = false,
-        this.loadingColor = Colors.white,
-        this.iconSide = ButtonDirection.start,
-        this.isBold = false,
-        this.clickable = true,
-        this.useConfidence = false});
+      required this.text,
+      this.icon,
+      this.textColor = Styles.t6Color,
+      this.borderColor,
+      this.iconColor = Styles.t6Color,
+      this.fillColor = Styles.primaryColor,
+      this.useShadow = false,
+      this.size,
+      this.isLoading = false,
+      this.loadingColor = Colors.white,
+      this.iconSide = ButtonDirection.start,
+      this.isBold = false,
+      this.clickable = true,
+      this.useConfidence = false});
 
   @override
   State<StatefulWidget> createState() {
@@ -77,13 +77,15 @@ class EsButtonState extends State<EsButton> {
             hoverColor: Colors.black.withOpacity(.1),
             onTap: onTap,
             child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: widget.size == null
+                        ? Dims.h0Padding(context)
+                        : widget.size! / 2 + Dims.h0Padding(context),
+                    vertical: Dims.h1Padding(context)),
                 decoration: BoxDecoration(
                   border: border(),
                   borderRadius: BorderRadius.circular(Dims.h2Padding(context)),
                 ),
-                padding: EdgeInsets.symmetric(
-                    horizontal: Dims.h0Padding(context),
-                    vertical: Dims.h1Padding(context)),
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
@@ -131,26 +133,26 @@ class EsButtonState extends State<EsButton> {
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            alignment: Alignment.center,
-            title: EsTitle("اخطار"),
-            content: Container(
-              height: 80,
-              child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),
-            ),
-            actions: [
-              EsButton(
-                onTap: () {
-                  widget.onTap!();
-                },
-                text: "بله",
-                fillColor: ColorAsset.danger,
-              ),
-              EsButton(
-                onTap: () {},
-                text: "لغو",
-              ),
-            ],
-          ));
+                alignment: Alignment.center,
+                title: EsTitle("اخطار"),
+                content: Container(
+                  height: 80,
+                  child: EsOrdinaryText("آیا از انجام این عملیات مطمئنید؟"),
+                ),
+                actions: [
+                  EsButton(
+                    onTap: () {
+                      widget.onTap!();
+                    },
+                    text: "بله",
+                    fillColor: ColorAsset.danger,
+                  ),
+                  EsButton(
+                    onTap: () {},
+                    text: "لغو",
+                  ),
+                ],
+              ));
     } else {
       widget.onTap!();
     }
