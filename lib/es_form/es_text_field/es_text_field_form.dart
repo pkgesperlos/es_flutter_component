@@ -96,6 +96,7 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
 
     if (isObscure) {
       return InputDecoration(
+        filled:widget.fillColor==null?false:true ,
           fillColor: widget.fillColor ?? Styles.t6Color,
           contentPadding:
               EdgeInsets.only(right: Constants.borderRadiusDimension),
@@ -113,20 +114,36 @@ class _EsTextFieldFormState extends State<EsTextFieldForm> {
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
+              borderSide: BorderSide(color:Styles.t7Color),
                   borderRadius: BorderRadius.all(Radius.circular(8)))
+              : null,
+          enabledBorder:  widget.border
+              ? OutlineInputBorder(
+              borderSide: BorderSide(color: Styles.t7Color),
+              borderRadius: BorderRadius.all(
+                  Radius.circular(Constants.borderRadiusDimension)))
               : null,
           labelText: widget.hint,
           labelStyle: Styles.inputStyle(context));
     } else {
       return new InputDecoration(
           prefixIcon: widget.icon,
+          filled: widget.fillColor==null?false:true ,
           fillColor: widget.fillColor ?? Styles.t6Color,
           alignLabelWithHint: true,
           border: widget.border
               ? OutlineInputBorder(
+
                   borderRadius: BorderRadius.all(
                       Radius.circular(Constants.borderRadiusDimension)))
               : null,
+          enabledBorder:  widget.border
+              ? OutlineInputBorder(
+              borderSide: BorderSide(color: Styles.t7Color),
+              borderRadius: BorderRadius.all(
+                  Radius.circular(Constants.borderRadiusDimension)))
+              : null,
+
           labelText: widget.hint,
           labelStyle: Styles.inputStyle(context),
           contentPadding:
