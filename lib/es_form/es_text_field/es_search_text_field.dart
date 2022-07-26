@@ -91,6 +91,7 @@ class _EsSearchTextField extends State<EsSearchTextField> {
 
           // labelText: widget.type,
           hintText: widget.hint,
+
         ),
       ),
     );
