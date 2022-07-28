@@ -28,8 +28,9 @@ class _EsVideoPlayerState extends State<EsVideoPlayer> {
   @override
   void initState() {
     super.initState();
+
     _videoPlayerController1 = VideoPlayerController.network(
-        'http://api.checklista.ir'+widget.videoUrl);
+        widget.videoUrl);
 
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController1,
