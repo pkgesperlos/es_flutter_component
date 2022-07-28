@@ -1,6 +1,4 @@
 
-
-import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -9,9 +7,11 @@ import 'package:video_player/video_player.dart';
 
 class EsVideoPlayer extends StatefulWidget {
   String videoUrl;
-  EsVideoPlayer({this.title = 'Chewie Demo',required this.videoUrl});
+  Widget? playWidget;
+  Widget? videoCover;
+  EsVideoPlayer({required this.videoUrl,this.playWidget,this.videoCover});
 
-  final String title;
+
 
   @override
   State<StatefulWidget> createState() {
@@ -20,51 +20,56 @@ class EsVideoPlayer extends StatefulWidget {
 }
 
 class _EsVideoPlayerState extends State<EsVideoPlayer> {
-  late TargetPlatform _platform;
-  late VideoPlayerController _videoPlayerController1;
-  late VideoPlayerController _videoPlayerController2;
-  late ChewieController _chewieController;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
 
-    _videoPlayerController1 = VideoPlayerController.network(
-        widget.videoUrl);
-
-    _chewieController = ChewieController(
-      videoPlayerController: _videoPlayerController1,
-      aspectRatio: 3 / 2,
-      autoPlay: false,
-      looping: true,
-      // Try playing around with some of these other options:
-
-      // showControls: false,
-      // materialProgressColors: ChewieProgressColors(
-      //   playedColor: Colors.red,
-      //   handleColor: Colors.blue,
-      //   backgroundColor: Colors.grey,
-      //   bufferedColor: Colors.lightGreen,
-      // ),
-      // placeholder: Container(
-      //   color: Colors.grey,
-      // ),
-      // autoInitialize: true,
-    );
+    _controller = VideoPlayerController.network(widget.videoUrl,)
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
   }
 
-  @override
-  void dispose() {
-    _videoPlayerController1.dispose();
-
-    _chewieController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Chewie(
-      controller: _chewieController,
+    return Center(
+      child: _controller.value.isInitialized
+          ? Stack(
+        alignment: Alignment.center,
+        children: [
+          /*AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                  ),*/
+          VideoPlayer(_controller),
+          _controller.value.isPlaying?Container():widget.videoCover??Container(),
+          InkWell(
+              onTap: () {
+                setState(() {
+                  _controller.value.isPlaying
+                      ? _controller.pause()
+                      : _controller.play();
+                });
+              },
+              child:_controller.value.isPlaying
+                  ?Container()
+                  :widget.playWidget?? Icon(Icons.play_arrow,color: Colors.white,)
+          ),
+
+        ],
+      )
+          : Container(),
     );
   }
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
 }
