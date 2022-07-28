@@ -13,14 +13,14 @@ class EsButtonStreamer extends BaseStreamButton {
     bool shouldPop = false,
     bool useConfidence = false,
   }) : super(
-          stream: stream,
-          formKey: formKey,
-          onPressed: onPressed,
-          child: child,
-          preload: preload,
-          shouldPop: shouldPop,
-          useConfidence: useConfidence,
-        );
+    stream: stream,
+    formKey: formKey,
+    onPressed: onPressed,
+    child: child,
+    preload: preload,
+    shouldPop: shouldPop,
+    useConfidence: useConfidence,
+  );
 
   @override
   State<StatefulWidget> createState() {
@@ -61,28 +61,28 @@ class EsButtonStreamerState extends BaseStreamButtonState with SingleTickerProvi
       child: isLoading
           ? widget.preload
           : ImageFilter(
-        hue: 0,
+        hue: 0.0,
         brightness: animation.value,
-        saturation: 0,
-              child: widget.child,
-            ),
+        saturation: 0.0,
+        child: widget.child,
+      ),
     );
   }
 
-  Widget ImageFilter({brightness, saturation, hue, child}) {
+  Widget ImageFilter({double brightness = 0.0, double saturation = 0.0, double hue = 0.0, child}) {
     return ColorFiltered(
         colorFilter:
-            ColorFilter.matrix(ColorFilterGenerator.brightnessAdjustMatrix(
+        ColorFilter.matrix(ColorFilterGenerator.brightnessAdjustMatrix(
           value: brightness,
         )),
         child: ColorFiltered(
             colorFilter:
-                ColorFilter.matrix(ColorFilterGenerator.saturationAdjustMatrix(
+            ColorFilter.matrix(ColorFilterGenerator.saturationAdjustMatrix(
               value: saturation,
             )),
             child: ColorFiltered(
               colorFilter:
-                  ColorFilter.matrix(ColorFilterGenerator.hueAdjustMatrix(
+              ColorFilter.matrix(ColorFilterGenerator.hueAdjustMatrix(
                 value: hue,
               )),
               child: child,
@@ -230,7 +230,7 @@ class ColorFilterGenerator {
       ];
 
     double x =
-        ((1 + ((value > 0) ? ((3 * value) / 100) : (value / 100)))).toDouble();
+    ((1 + ((value > 0) ? ((3 * value) / 100) : (value / 100)))).toDouble();
     double lumR = 0.3086;
     double lumG = 0.6094;
     double lumB = 0.082;
